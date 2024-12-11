@@ -1,0 +1,30 @@
+[
+    { 
+        "title1": "le Groupe Scolaire La Tour Eiffel",
+        "title2": "propose à ses élèves un service de",
+        "boldTitle": "Garderie",
+        "paragrapgh": "de Début et en fin de journée, accompagné d’un programme d’animations et ce dans la limite des places d’accueil disponibles. Cette prestation est assurée par des professionnels",
+        "imges": "/images/abc.jpg"
+    },
+    { 
+        "title1": "le Groupe Scolaire La Tour Eiffel",
+        "title2": "met à disposition un service de",
+        "boldTitle": "Transports",
+        "paragrapgh": "pour faciliter les trajets quotidiens des élèves, avec des circuits sécurisés et adaptés. Cette prestation est gérée par des conducteurs expérimentés et respectueux des normes de sécurité.",
+        "imges": "/images/transport.png"
+    },
+    { 
+        "title1": "le Groupe Scolaire La Tour Eiffel",
+        "title2": "offre à ses élèves un service de",
+        "boldTitle": "Cantine",
+        "paragrapgh": "avec des repas équilibrés et variés, préparés sur place par une équipe professionnelle. Ce service veille à répondre aux besoins nutritionnels des enfants dans un cadre convivial et sécurisé.",
+        "imges": "/images/cantine.png"
+    },
+    { 
+        "title1": "le Groupe Scolaire La Tour Eiffel",
+        "title2": "encourage ses élèves à participer à des activités de ",
+        "boldTitle": "Clubs",
+        "paragrapgh": "comme le football, le basketball, le dessin, et bien plus encore. Ces activités permettent de développer les talents et passions des élèves dans un environnement stimulant et encadré.",
+        "imges": "/images/clubs.png"
+    }
+]

@@ -1,0 +1,283 @@
+
+
+  .gradient-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px); /* Maximum blur intensity */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent); /* Transparent gradient overlay */
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%); /* Fades out the blur effect */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    pointer-events: none; /* Allows interaction with elements below */
+  }
+  .flash{
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.15) ;
+
+  }
+  .texto{
+    transition: .5s ease-in-out color;
+  }
+  .nav {
+    display: flex;
+  
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+  
+
+  .mobile{
+    -webkit-backdrop-filter: blur(5px) !important;
+    @media (max-width: 640px) {
+      .lien{
+        font-size: 14px;
+        margin: 0px 1px 1px 0px;
+      }
+      .liens{
+        margin-top: 46px;
+      }
+      .inscription{
+        margin-top: 55px;
+      }
+      button{
+        font-size: 12px;
+
+        margin-left: 3px;
+      }
+      p{font-size: 8px;}
+    } 
+  }
+  .blurey{
+    -webkit-backdrop-filter: blur(15px);
+  }
+  
+ 
+  
+
+.jhk{
+  border-radius: 99% 1% 96% 4% / 5% 95% 5% 95% ;
+}
+
+.roundedd{
+  border-radius: 40px;
+  
+ 
+  div{
+    border-radius: 30px;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) .3s all;
+    -webkit-backdrop-filter: blur(10px);
+    
+    cursor: pointer;
+  }
+}
+.blurgradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 100%);
+  filter: blur(10px);
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* Push it behind the main content */
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+.boxyy{
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s;
+}
+.boxyy:hover .boxy{
+    width: 100%;
+    height: 100%;
+    bottom:0;left: 0;
+    span{
+      margin-bottom: 50px;
+    }
+    h1{
+      margin-bottom: 10px;
+    }
+    
+    h5{
+      display: block;
+      opacity: 1;
+      margin-bottom: 40px;
+      
+      
+    }
+    button{
+      display: block;
+      color:white
+    }
+    
+}
+
+@media (max-width: 1000px) {
+  .home{
+    background: url('../images/tab.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .boxyy:hover .boxy{
+    span{
+      margin-bottom: 5px;
+    }
+    h1{
+      margin-bottom: 1px;
+    }
+    
+    h5{
+      display: block;
+      opacity: 1;
+      margin-bottom: 0px;
+    }
+    button{
+      display: block;
+      color:white
+    }
+   
+}
+}
+.roundeddd{
+  border-radius: 40px;
+}
+@media (max-width: 768px) {
+  .home{
+    background: url('../images/mobile.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .tiny{
+    font-size: 9px;
+  }
+  .iphone{
+    scale: 0.7;
+  }
+  .roundedd{
+    border-radius: 20px;
+    div{
+    border-radius: 16px;
+    }
+  }
+  .cards{
+    scale: 0.6;
+    margin-left: -40%;
+    margin-top: -40%;
+    width: 200%;
+  }
+  .gall{
+    width: 500%;
+    margin-top: 20px;
+  }
+ 
+  
+}
+
+@keyframes arrowAnimation {
+  0% {
+    transform: translateX(0); /* Start at the center */
+    opacity: 1; /* Fully visible */
+  }
+  25% {
+    transform: translateX(11vw); 
+    scale: 0.2;/* Move to the right edge */
+    opacity: 1; /* Still visible */
+  }
+  50% {
+    transform: translateX(5vw); /* Stay at the right edge */
+    opacity: 0; /* Make it disappear */
+  }
+  75% {
+    transform: translateX(-5vw); /* Move to the left edge */
+    opacity: 0;
+    scale: 0.1;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Still invisible */
+  }
+  90%{
+    scale: 0.6;
+  }
+  100% {
+    transform: translateX(0);
+    scale: 1; /* Return to the center */
+    opacity: 1; /* Reappear */
+  }
+}
+
+
+.ds:hover .animate-arrow {
+  animation: arrowAnimation .7s ease-in-out forwards;
+}
+
+.yt{
+  transition: ease-in-out .15s;
+}
+
+.tex{
+  transition: ease-in 1s all !important;
+}
+
+.rt{
+  animation: jk 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
+}
+
+.bt{
+  transition:  .2s cubic-bezier(0.175, 0.885, 0.32, 1.1) all !important;
+}
+
+
+@keyframes jk {
+  0%{
+    opacity: 1;scale: 1;   
+  }
+  100%{opacity: 0;scale: 0.1}
+}
+
+.shd{
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.01);
+}
+
+.dots{
+ 
+    
+      transition: ease-in-out .3s  !important;
+    
+  
+}
+.dotds{
+ 
+    
+  *{transition: ease-in-out .3s  !important;}
+
+
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+.animate-scroll {
+  animation: scroll 35s linear infinite;
+}
+
+.zaz{
+ *{ transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.35);}
+ color:red;
+ .zaza{opacity: 0;scale: 0.5; cursor: pointer;}
+ .zaza h1{transform: translateY(200px);}
+ .zaza button{transform: translateY(100px);}
+ &:hover .zaza{
+  opacity: 1;scale: 1;
+  h1{transform: translateY(0);}
+  button{transform: translateY(0);}
+}
+
+}
+.links{
+  a:hover{
+    color: rgba(0, 0, 0, 0.75);
+  }
+}
