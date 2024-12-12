@@ -9,10 +9,10 @@ const GalleryPrev = () => {
       }
     return(
         <>
-            <div className="w-[90%]  flex flex-col md:mt-10 -mt-20">
-                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-2xl text-neutral-300 mt-10">Nous n'avons pas manqué le moment.</motion.p>
+            <div className="w-[90%]  flex flex-col lg:mt-10 md:-mt-10 -mt-20">
+                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg lg:text-2xl text-neutral-300 mt-10">Nous n'avons pas manqué le moment.</motion.p>
                 <div className="w-full flex">
-                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-8xl w-[60%] text-blue-500 font-bold mt-2">
+                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-7xl lg:text-8xl w-[60%] text-blue-500 font-bold mt-2">
                 Venez nous voir à la Galerie.
                 </motion.h1>
                 <div className="w-[40%] flex justify-end items-end">
@@ -21,8 +21,8 @@ const GalleryPrev = () => {
                 </div>     
             </div>
 
-            <div  className="overflow-hidden w-full scale-90 -mt-10 relative zaz">
-                <div className="w-[200%] gall flex">
+            <div  className="overflow-hidden w-full scale-90  -mt-10 relative zaz">
+                <div className="w-[200%] md:w-[300%] lg:w-[200%] gall flex">
                     <div className="w-[100%] animate-scroll flex items-center justify-center">
                     <div className="w-[100%] md:h-[550px] h-[350px] flex items-center justify-center gap-x-4 mb-10 mt-10">
                 <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
@@ -82,7 +82,7 @@ const GalleryPrev = () => {
                     </div>
                 </div>
                 </div>
-                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 backdrop-blur-lg gap-y-3">
+                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 backdrop-blur-lg gap-y-3 galCover">
                     <p className="text-white/60  md:text-xl">Une galerie qui immortalise les élèves
                     </p>
                     <h1 className="md:text-8xl text-4xl text-white/85 font-extrabold">

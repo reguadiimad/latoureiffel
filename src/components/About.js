@@ -23,7 +23,7 @@ const About = () => {
       animate="visible"
       exit={{ opacity: 0, y: -20 }}
       className="flex flex-col items-center justify-center h-screen bg-gray-200"
-    >c
+    >
       <motion.h1 variants={childVariants} className="text-4xl font-bold text-center mb-4">
         About the Eiffel Tower
       </motion.h1>

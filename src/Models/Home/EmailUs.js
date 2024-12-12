@@ -9,19 +9,19 @@ const EmailUs = () => {
     }
     return (
         <>
-            <div className="w-[90%] h-[250px] md:h-[400px]  md:mb-20 md:mt-20">
+            <div className="w-[90%] h-[250px] md:h-[350px] lg:h-[400px]  md:mb-20 md:mt-20">
 
-                <motion.div {...custumAnimation(0,0,'100%')} className="w-full md:rounded-[50px] rounded-3xl bg-red-500 h-full  flex flex-col md:p-20 p-5 text-white relative overflow-hidden">
-                    <motion.img {...custumAnimation(0,0,'100%',0.4)} className="absolute bottom-0 -right-[40%] md:right-0  h-full  w-auto" alt='img' src={process.env.PUBLIC_URL+'/images/eco.png'}/>
+                <motion.div {...custumAnimation(0,0,'100%')} className="w-full lg:rounded-[50px] rounded-3xl bg-red-500 h-full  flex flex-col md:p-20 p-5 text-white relative overflow-hidden">
+                    <motion.img {...custumAnimation(0,0,'100%',0.4)} className="absolute bottom-0 -right-[40%] md:-right-[22%] lg:right-0  h-full  w-auto z-0" alt='img' src={process.env.PUBLIC_URL+'/images/eco.png'}/>
                     <motion.div className="h-[50%] w-full">
-                        <h1 className="md:w-[45%] w-[65%] text-xl md:text-4xl font-bold">Recevez les actus et soyez averti des événements à venir.</h1>
+                        <h1 className="lg:w-[45%] w-[65%] text-xl md:text-4xl font-bold">Recevez les actus et soyez averti des événements à venir.</h1>
                     </motion.div>
 
-                    <div className="h-[50%] flex items-end">
-                        <motion.div {...custumAnimation(0,0,'100%',0.3)} className="md:w-[60%] w-[75%] md:pl-8 h-[60%] pl-1 flex items-center justify-center bg-white rounded-2xl md:rounded-[30px]">
-                            <input  className="w-[80%] placeholder:text-neutral-300 text-[9px] outline-none text-neutral-900" placeholder="Saisissez votre adresse e-mail ici"/>
+                    <div className="h-[50%] flex items-end z-10">
+                        <motion.div {...custumAnimation(0,0,'100%',0.3)} className="lg:w-[60%] w-[75%] md:pl-8 h-[60%] pl-1 flex items-center justify-center bg-white rounded-2xl lg:rounded-[30px]">
+                            <input  className="w-[80%] placeholder:text-neutral-300 text-[9px] md:text-sm outline-none text-neutral-900" placeholder="Saisissez votre adresse e-mail ici"/>
                             <div className="w-[20%] flex items-center justify-end pr-2 h-full py-2">
-                                <motion.button {...custumAnimation(0,0,'100%',0.5)} className="bg-red-500 h-full md:rounded-[23px] rounded-xl text-[10px] md:text-base px-2 md:px-4">S'abonner</motion.button>
+                                <motion.button {...custumAnimation(0,0,'100%',0.5)} className="bg-red-500 h-full lg:rounded-[23px] rounded-xl text-[10px] md:text-base px-2 md:px-4">S'abonner</motion.button>
                             </div>
                         </motion.div>
                     </div>

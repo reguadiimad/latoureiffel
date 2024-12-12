@@ -107,6 +107,9 @@
     }
     
 }
+.galCover{
+  -webkit-backdrop-filter: blur(10px) !important;
+}
 
 @media (max-width: 1000px) {
   .home{
@@ -132,6 +135,7 @@
       display: block;
       color:white
     }
+    
    
 }
 }
@@ -170,6 +174,7 @@
  
   
 }
+
 
 @keyframes arrowAnimation {
   0% {

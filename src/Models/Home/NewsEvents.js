@@ -113,9 +113,9 @@ const nextSlide = () => {
   return (
     <section className="w-[90.3%] flex justify-center pt-20 items-center flex-col rounded-[60px] md:my-10 md:mb-20">
       <div className="w-full">
-        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-2xl">Réste toujours Informée</motion.p>
+        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-lg lg:text-2xl">Réste toujours Informée</motion.p>
         <div className="w-full flex mb-10">
-          <motion.h1  {...custumAnimation(0,'-100%',0,0)} className="text-4xl md:text-8xl w-[70%] text-blue-500 mt-3">
+          <motion.h1  {...custumAnimation(0,'-100%',0,0)} className="text-4xl md:text-7xl lg:text-8xl w-[70%] text-blue-500 mt-3">
             <b>Ne manquez jamais les nouveautés</b>
           </motion.h1>
           <div className="w-[30%] flex-row-reverse flex items-end mb-2.5">
