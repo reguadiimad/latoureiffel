@@ -5,6 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
 
+
 export default function BottomPage() {
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -15,10 +16,23 @@ export default function BottomPage() {
         alert("Échec de la copie du numéro.");
       });
   };
+  const isWebGLSupported = () => {
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      return !!gl;
+    } catch (e) {
+      return false;
+    }
+  };
+  const webGLSupported = isWebGLSupported();
+
   return (
-    <div className="w-full flex items-center relative justify-center flex-col pt-5 links">
-      <div className='md:h-[600px] h-[300px]  w-full absolute bottom-0 left-0 scale-x-125 z-0 '>
-      <ShaderGradientCanvas
+    
+    <div className="w-full flex items-center relative justify-center flex-col pt-5 links ">
+      <div className='lg:h-[600px] md:h-[500px] h-[300px]  w-full absolute bottom-0 left-0 lg:scale-x-125 z-0 '>
+      {
+        webGLSupported&& <ShaderGradientCanvas
         className="w-full h-full absolute "
         style={{bottom:'-20%', left:0}}
       >
@@ -27,16 +41,17 @@ export default function BottomPage() {
           urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=170&cDistance=2.9&cPolarAngle=70&cameraZoom=1&color1=%23ff311f&color2=%2345b1ff&color3=%23ffffff&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=off&lightType=3d&pixelDensity=1&positionX=-0.4&positionY=-3.9&positionZ=-0.3&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=45&rotationY=0&rotationZ=0&shader=defaults&type=waterPlane&uAmplitude=0&uDensity=1.2&uFrequency=0&uSpeed=0.2&uStrength=3.4&uTime=0&wireframe=false"
         />
       </ShaderGradientCanvas>
+      }
       </div>
       <div className='w-full h-full absolute top-0 left-0 '></div>
-      <div className='md:w-[95%] w-full pt-2 h-full bg-gradient-to-b from-white/30  to-white/5  backdrop-blur-xl md:p-10 rounded-t-[40px] bg-white/30'>
+      <div className='lg:w-[95%] w-full pt-2 h-full bg-gradient-to-t from-white/50  to-white/5  backdrop-blur-xl md:p-10 rounded-t-[40px] galCover'>
       <div className="opacity-65 mb-4 ml-2">
         <div className="w-full flex md:text-base text-[10px] items-end">
-          <div className="w-[20%] md:mr-40 mr-6 -mb-1">
+          <div className="w-[20%] lg:mr-40 mr-6 -mb-1">
             <img
               src={`${process.env.PUBLIC_URL}/logos/logo1.png`}
               alt="Logo"
-              className="md:h-20 filter invert mb-2 "
+              className="lg:h-20  filter invert mb-2 "
             />
           </div>
           <h1 className="w-[20%] font-extrabold">La Tour Eiffel</h1>
@@ -49,7 +64,7 @@ export default function BottomPage() {
       {/* Deuxième section */}
       <div className="opacity-80 border-b ml-2 border-black/15 pb-14">
         <div className="w-full flex">
-          <div className="w-[20%] mr-6 md:mr-40" />
+          <div className="w-[20%] mr-6 lg:mr-40" />
 
           <div className="w-[20%] flex flex-col font-semibold gap-y-1 md:text-base text-[10px]">
             <Link to="/">Accueil</Link>
@@ -78,7 +93,7 @@ export default function BottomPage() {
             <Link to="/galerie">Galerie</Link>
           </div>
 
-          <div className="w-[20%] flex flex-col font-semibold gap-y-1 md:text-base text-[10px]">
+          <div className="w-[20%] flex flex-col font-semibold gap-y-1 lg:text-xs xl:text-base text-[10px]">
             <div className="flex items-center md:gap-x-3">
               <FontAwesomeIcon className="md:text-xl text-[10px]" icon={faFacebook} />
               <a
@@ -86,7 +101,7 @@ export default function BottomPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p className='md:block hidden'>Écoles La Tour Eiffel</p>
+                <p className='lg:block hidden'>Écoles La Tour Eiffel</p>
               </a>
             </div>
             <div className="flex items-center md:gap-x-3">
@@ -96,18 +111,18 @@ export default function BottomPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p className='md:block hidden'>lesecoleslatoureiffel2</p>
+                <p className='lg:block hidden'>lesecoleslatoureiffel2</p>
               </a>
             </div>
             <div className="flex items-center ">
               <FontAwesomeIcon className="md:text-xl text-[10px] mr-3" icon={faWhatsapp} />
               <span
-                className="cursor-pointer hover:text-black/70 mr-1 hidden md:block"
+                className="cursor-pointer hover:text-black/70 mr-1 hidden xl:block"
                 onClick={() => copyToClipboard("05 22 70 58 58")}
               >
                 05 22 70 58 58 /
               </span>   <span
-                className="cursor-pointer hover:text-black/70 md:ml-1 hidden md:block"
+                className="cursor-pointer hover:text-black/70 md:ml-1 hidden lg:block"
                 onClick={() => copyToClipboard("06 61 05 89 77")}
               >
                 0661058977
@@ -116,7 +131,7 @@ export default function BottomPage() {
             <div className="flex items-center md:gap-x-3">
               <FontAwesomeIcon className="md:text-xl text-[10px]" icon={faEnvelope} />
              
-              <a href="mailto:ecoleslatoureiffel@gmail.com"><p className='md:block hidden'>ecoleslatoureiffel@gmail.com</p></a>
+              <a href="mailto:ecoleslatoureiffel@gmail.com"><p className='lg:block hidden'>ecoleslatoureiffel@gmail.com</p></a>
             </div>
           </div>
         </div>

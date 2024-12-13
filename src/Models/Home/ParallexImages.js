@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion} from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const ParallaxImage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -23,6 +24,7 @@ const ParallaxImage = () => {
         transition: { type: "spring", stiffness: 100, damping: 15, },
     }
 }
+const { language } = useSelector((state) => state.presntion); 
 
   return (
     <motion.div {...costumeAnimtion('-100%')} className="hidden lg:block w-[41.1%] h-[96%] absolute top-0 right-0">
@@ -74,7 +76,7 @@ const ParallaxImage = () => {
       <img
         className="h-[83%] left-[36%] absolute bottom-0"
         alt="girl"
-        src={process.env.PUBLIC_URL + '/parallex/girl.png'}
+        src={process.env.PUBLIC_URL + `/parallex/${language==='ar'?'girlar.png':(language==='en'?'girleng.png':'girl.png')}`}
         style={{
             transform: `translate(${mousePosition.x * 0.013}px)`,
           }}

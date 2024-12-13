@@ -2,6 +2,7 @@ import { faClose, faPause, faPlay, faRefresh, faVolumeHigh, faVolumeMute } from 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence} from "framer-motion";
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const PresentationVideo = ({onClose,prsntation}) => {
@@ -14,6 +15,7 @@ const PresentationVideo = ({onClose,prsntation}) => {
             document.body.style.overflow = "auto";
         };
     }, [prsntation]);
+    const { language, presntion: content } = useSelector((state) => state.presntion);
     const [isPlay,setIsPlay]=useState(true);
     const [isMute,setIsMute]=useState(false);
     const videoRef = useRef(null);
@@ -60,7 +62,7 @@ const PresentationVideo = ({onClose,prsntation}) => {
         <AnimatePresence mode="wait">
         {prsntation && (
             <motion.section  className="w-screen h-screen  bg-gradient-to-b from-black/85  to-black/60 absolute top-0 left-0 flex items-center justify-center z-50 overflow-hidden flex-col "
-            initial={{ opacity: 0 }} // Initial state (invisible and slightly below)
+            initial={{ opacity: 0 }} 
             animate={{ opacity: 1}} // Animation target (fully visible and in position)
             exit={{ opacity: 0, }} // Exit animation (invisible and slightly above)
            duration={{type:'spring',delay:0.5}}>
@@ -71,7 +73,7 @@ const PresentationVideo = ({onClose,prsntation}) => {
                         <FontAwesomeIcon className=" hover:animate-pulse cursor-pointer w-8" icon={!isMute?faVolumeHigh:faVolumeMute} onClick={mute}/>
                         </div>
                     </span>
-                    <h1 className="w-[70%] text-center">Presontation de la Tour Eiffel</h1>
+                    <h1 className="w-[70%] text-center">{content?.videoTitle?.[language] || 'Loading...'}</h1>
                     <span className="w-[15%]  flex flex-row-reverse">
                         <div className="text-center blurey border-white/20 roundedd border bg-white/10 shadow-lg/10 backdrop-blur-xl md:text-lg flex items-center justify-center p-1 md:p-2 text-white/70">
                             <FontAwesomeIcon onClick={()=>replay()} className="mr-4 text-sm md:text-xl hover:animate-pulse cursor-pointer" icon={faRefresh}/>

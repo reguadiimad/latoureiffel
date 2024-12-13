@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
   .gradient-blur {
     position: fixed;
     top: 0;
@@ -23,6 +23,11 @@
   
     @media (max-width: 640px) {
       display: none;
+    }
+  }
+  .arabic{
+    *{
+      font-family: "Lalezar", system-ui !important;
     }
   }
   
@@ -111,6 +116,7 @@
   -webkit-backdrop-filter: blur(10px) !important;
 }
 
+
 @media (max-width: 1000px) {
   .home{
     background: url('../images/tab.jpg');
@@ -162,9 +168,9 @@
     }
   }
   .cards{
-    scale: 0.6;
-    margin-left: -40%;
-    margin-top: -40%;
+    scale: 0.5;
+    margin-left: -50%;
+    margin-top: -25%;
     width: 200%;
   }
   .gall{
@@ -269,7 +275,9 @@
 }
 
 .zaz{
- *{ transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.35);}
+ *{
+   transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.35);
+  }
  color:red;
  .zaza{opacity: 0;scale: 0.5; cursor: pointer;}
  .zaza h1{transform: translateY(200px);}

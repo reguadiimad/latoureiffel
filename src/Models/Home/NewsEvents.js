@@ -151,7 +151,7 @@ const nextSlide = () => {
         ))}
           
         </div>
-        <motion.div {...custumAnimation(0,0,'10%',0)} ref={containerRef} className="cards relative h-[660px] w-full flex items-center dots overflow-x-scroll scrollbar-hide">
+        <motion.div {...custumAnimation(0)} ref={containerRef} className="cards relative h-[660px]   w-full flex items-center dots overflow-x-scroll scrollbar-hide">
 
           {
             upcomingEvents.map((slide, index=0) => <Card id={slide.id}  isNew={true} isActive={index === currentIndex} title={slide.title} description={slide.description} category={slide.category} image={slide.image} icon={slide.icon} date={slide.date} onClick={()=>setCurrentIndex(index)}/>)
@@ -173,8 +173,8 @@ const nextSlide = () => {
             })
           }
 
-          <div key="static-final" className={`relative cursor-pointer w-[300px] dots dotds h-[90%] flex-shrink-0 flex items-center justify-center rounded-[40px] overflow-hidden ${currentIndex !== totalSlides - 1 ? "scale-90 scale-y-85 opacity-80" : ""}`}>
-            <img alt='img' src={process.env.PUBLIC_URL + "/images/mdrasa.jpg"} className="w-full h-full object-cover" />
+          <div onClick={()=>setCurrentIndex(totalSlides-1)} key="static-final" className={`relative cursor-pointer w-[300px] dots dotds h-[90%] flex-shrink-0 flex items-center justify-center rounded-[40px] overflow-hidden ${currentIndex !== totalSlides - 1 ? "scale-90 scale-y-85 opacity-80" : ""}`}>
+            <img alt='img' src={process.env.PUBLIC_URL + "/images/madrasa.jpeg"} className="w-full h-full object-cover" />
             <div className="absolute top-0 left-0 w-full h-full bg-black/5 backdrop-blur-md flex items-center justify-center flex-col text-white/80 text-base">
             <FontAwesomeIcon className={`text-6xl text-white ${ currentIndex === totalSlides - 1 ? "scale-1" : "scale-50 opacity-10"}`} icon={faMousePointer}/>
             <p className={`mt-3 ${ currentIndex !== totalSlides - 1 ? "opacity-10" : "opacity-100"}`}> Cliquez pour voir +</p>

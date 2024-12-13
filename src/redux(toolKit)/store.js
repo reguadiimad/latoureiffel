@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import contentReducer from './slices/contentSlice'
 
 const store = configureStore({
   reducer: {
-    // your reducers go here
+    presntion: contentReducer
   },
 });
 
