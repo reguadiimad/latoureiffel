@@ -1,24 +1,38 @@
 import { faArrowLeft, faArrowRight,faPaintBrush, faFutbol, faLandmark, faBookOpen, faMountain,faUtensils,faMousePointer } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState,useEffect} from "react";
-import {motion} from "framer-motion";
+import {motion,AnimatePresence} from "framer-motion";
+import texts from './Datas/newsEventsData.json';
+import slides from './Datas/slides.json'
+import { useSelector } from "react-redux";
+import PopUp from "./PopUp";
+import { useInView } from "react-intersection-observer";
+
+const iconMap = {
+  faMountain,
+  faPaintBrush,
+  faBookOpen,
+  faLandmark,
+  faFutbol,
+  faUtensils
+};
 
 const NewsEvents = () => {
-  const slides = [
-    { id: 1, title: "Sortie à L'Oued", description: "Une aventure passionnante pour nos élèves de la moyenne section.", category: "Collège", image: "/events/sortie.jpg", icon: faMountain, date: "2024-12-20" },
-    { id: 2, title: "Atelier de Peinture", description: "Les élèves du collège ont laissé libre cours à leur imagination artistique.", category: "Maternelle", image: "/events/pintr.jpg", icon: faPaintBrush, date: "2024-12-29" },
-    { id: 6, title: "Journée de Lecture", description: "Un moment de calme et de réflexion dédié à la découverte de nouveaux ouvrages.", category: "Lycée", image: "/events/aw.jpg", icon: faBookOpen, date: "2024-11-2O" },
-    { id: 5, title: "Excursion à Rabat", description: "Une découverte culturelle et historique de la capitale marocaine.", category: "Tous", image: "/events/av.jpg", icon: faLandmark, date: "2024-11-15" },
-    { id: 3, title: "Tournoi Sportif", description: "Une journée dédiée à la compétition et à l'esprit d'équipe pour nos élèves.", category: "Lycée", image: "/events/sport.jpg", icon: faFutbol, date: "2024-11-08" },
-    { id: 4, title: "Musée Islamique", description: "Une exploration enrichissante de l'histoire et du patrimoine islamique.", category: "Tous", image: "/events/ae.jpg", icon: faLandmark, date: "2024-12-12" },
-    { id: 7, title: "Journée de Dégustation", description: "Un voyage culinaire pour découvrir et apprécier différentes saveurs.", category: "Primaire", image: "/events/az.jpg", icon: faUtensils, date: "2024-11-25" }
-  ];
+  const { language } = useSelector((state) => state.presntion); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const currentDate = new Date();
   const [selectedCategory, setSelectedCategory] = useState("Tous");
-  
-  const filteredSlides = slides.filter(
+  const [popupVisible, setPopupVisible] = useState(false);
+
+    const { ref: motherRef, inView } = useInView({
+      threshold: 0.6, // Trigger when 50% of the component is visible
+    });
+      useEffect(() => {
+        setPopupVisible(inView);
+      }, [inView]);
+
+  const filteredSlides = slides[language].filter(
     (slide) => selectedCategory === "Tous" || slide.category === selectedCategory
   );
   
@@ -110,13 +124,15 @@ const nextSlide = () => {
     }
   }
 
+
   return (
-    <section className="w-[90.3%] flex justify-center pt-20 items-center flex-col rounded-[60px] md:my-10 md:mb-20">
+    <>
+    <section ref={motherRef} className="w-[90.3%] flex justify-center pt-20 items-center flex-col rounded-[60px] md:my-10 md:mb-20">
       <div className="w-full">
-        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-lg lg:text-2xl">Réste toujours Informée</motion.p>
+        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-lg lg:text-2xl">{texts.stay_informed[language]}</motion.p>
         <div className="w-full flex mb-10">
           <motion.h1  {...custumAnimation(0,'-100%',0,0)} className="text-4xl md:text-7xl lg:text-8xl w-[70%] text-blue-500 mt-3">
-            <b>Ne manquez jamais les nouveautés</b>
+            <b>{texts.dont_miss_news[language]}</b>
           </motion.h1>
           <div className="w-[30%] flex-row-reverse flex items-end mb-2.5">
 
@@ -132,7 +148,7 @@ const nextSlide = () => {
         </div>
         <div className="w-full flex gap-1 md:gap-3 -mt-2 dots">
   
-        {["Tous", "Maternelle", "Primaire", "Collège", "Lycée"].map((category,i) => (
+        {texts.categories[language].map((category,i) => (
           <motion.button
           {...custumAnimation(0,'-100%',0,0.15*i)}
             key={category}
@@ -154,7 +170,7 @@ const nextSlide = () => {
         <motion.div {...custumAnimation(0)} ref={containerRef} className="cards relative h-[660px]   w-full flex items-center dots overflow-x-scroll scrollbar-hide">
 
           {
-            upcomingEvents.map((slide, index=0) => <Card id={slide.id}  isNew={true} isActive={index === currentIndex} title={slide.title} description={slide.description} category={slide.category} image={slide.image} icon={slide.icon} date={slide.date} onClick={()=>setCurrentIndex(index)}/>)
+            upcomingEvents.map((slide, index=0) => <Card language={language} id={slide.id}  isNew={true} isActive={index === currentIndex} title={slide.title} description={slide.description} category={slide.category} image={slide.image} icon={slide.icon} date={slide.date} readMore={texts.read_more[language]} onClick={()=>setCurrentIndex(index)}/>)
           }
 
           <div className={`h-[600px] flex items-center justify-center flex-col -mx-8 text-neutral-300 text-sm ${pastEvents.length>0?'scale-1':'opacity-0 scale-50'}`}>
@@ -169,7 +185,7 @@ const nextSlide = () => {
           {
             pastEvents.map((slide, index) => {
               const adjustedIndex = index + upcomingEvents.length; 
-              return <Card i={index} id={slide.id}  isActive={adjustedIndex === currentIndex} title={slide.title} description={slide.description} category={slide.category} image={slide.image} icon={slide.icon} date={slide.date} onClick={() => setCurrentIndex(adjustedIndex)}/>  
+              return <Card language={language} i={index} id={slide.id}  isActive={adjustedIndex === currentIndex} title={slide.title} description={slide.description} category={slide.category} image={slide.image} icon={slide.icon} date={slide.date} readMore={texts.read_more[language]} onClick={() => setCurrentIndex(adjustedIndex)}/>  
             })
           }
 
@@ -177,20 +193,27 @@ const nextSlide = () => {
             <img alt='img' src={process.env.PUBLIC_URL + "/images/madrasa.jpeg"} className="w-full h-full object-cover" />
             <div className="absolute top-0 left-0 w-full h-full bg-black/5 backdrop-blur-md flex items-center justify-center flex-col text-white/80 text-base">
             <FontAwesomeIcon className={`text-6xl text-white ${ currentIndex === totalSlides - 1 ? "scale-1" : "scale-50 opacity-10"}`} icon={faMousePointer}/>
-            <p className={`mt-3 ${ currentIndex !== totalSlides - 1 ? "opacity-10" : "opacity-100"}`}> Cliquez pour voir +</p>
+            <p className={`mt-3 ${ currentIndex !== totalSlides - 1 ? "opacity-10" : "opacity-100"}`}>{texts.more[language]}</p>
           </div>
           <span className=" absolute bottom-3 text-[8px] w-[90%] text-center text-white/50">
-            Cliquez ici pour voir tous les événements à venir et passés
+            {texts.click_to_see_more[language]}
           </span>
         </div>
         </motion.div>
 
       </div>
     </section>
+     <AnimatePresence>
+     {
+       popupVisible&&<PopUp ar={language==="ar"} text={texts.popUp[language]}/>
+     }
+     </AnimatePresence></>
+       
   );
 };
 
-const Card = ({id, isActive, title, description, category, image, icon, date, onClick, isNew=false,i }) => {
+const Card = ({id, isActive, title, description, category, image, icon, date, onClick, isNew=false,i,language,readMore }) => {
+  const icn=iconMap[icon];
   
   return (
 
@@ -200,10 +223,10 @@ const Card = ({id, isActive, title, description, category, image, icon, date, on
         {category}
       </span>
       
-      { isNew && <span className="absolute top-1.5 left-0 w-full text-center animate-pulse text-sm font-semibold">nouveaux!</span>}
+      { isNew && <span className="absolute top-1.5 left-0 w-full text-center animate-pulse text-sm font-semibold">{texts.new[language]}</span>}
 
       <span className={`absolute ${isNew?'top-9':'top-7'} right-7 rounded-full text-neutral-600 h-10 w-10 flex items-center justify-center bg-white text-sm font-semibold`}>
-        <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon icon={icn} />
       </span>
 
       <div className={`w-full h-[48%] ${isNew?'pt-24':'pt-20'}  px-7`}>
@@ -215,9 +238,11 @@ const Card = ({id, isActive, title, description, category, image, icon, date, on
       <img src={process.env.PUBLIC_URL + image} className={`w-full h-[52%] bottom-0 left-0 absolute object-cover rounded-[40px] ${!isActive&&'blur-[0.5px]'} `} alt={title} />
 
       <span className={`absolute bottom-5 -left-3 flex items-center justify-center dots backdrop-blur-md bg-black/30 text-white pl-5 py-2 pr-2 rounded-full gap-x-4 text-base ${ isActive ? "opacity-100 shadow-2xl scale-100 translate-x-8" : "opacity-0  translate-x-20 "}`}>
-        Lire plus
+         {readMore}
         <div className="w-10 h-10 flex items-center justify-center bg-white/80 rounded-full text-blue-500">
           <FontAwesomeIcon icon={faArrowRight} />
+
+         
         </div>
       </span>
 

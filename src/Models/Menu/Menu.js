@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux"; // Assuming language state is managed via Redux
+import { useSelector,useDispatch } from "react-redux"; // Assuming language state is managed via Redux
+import { setLanguage } from "../../redux(toolKit)/slices/contentSlice";
 
 const Menu = ({ visible }) => {
 
@@ -11,8 +12,10 @@ const Menu = ({ visible }) => {
         exit: { y: -100, opacity: 0, scale: 0.1 },
         transition: { type: "spring", stiffness, damping, duration, ease: 'backInOut' },
     });
+    const dispatch = useDispatch();
 
     const [linked, setlinked] = useState(0);
+    const [langClicked,setLangClicked] = useState(false);
 
     // Get the selected language from Redux store (or local state if using another approach)
     const { language } = useSelector((state) => state.presntion); 
@@ -24,11 +27,49 @@ const Menu = ({ visible }) => {
         en: ["Home", "About", "Cycles", "Services", "News", "Gallery", "Contact", "Registration"],
         ar: ["الرئيسية", "حولنا", "الدورات", "الخدمات", "الأخبار", "المعرض", " اتصل بنا", "التسجيل"]
     };
+    const animationLang = () => ({
+        initial: { y: 100, opacity: 0, scale: 0.5 },
+        animate: { y: 0, opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 13 } },
+        exit: { y: 100, opacity: 0, scale: 0.1, transition: { type: "spring", stiffness: 150, damping: 10 } }
+    });
+    
+        
 
     // Use the menu list for the current language
     const currentMenuList = menuList[language] || menuList['fr'];  // Default to French if no language is set
 
+    const langButttons = (lang) => {
+
+        if(lang==="ar"){
+          return( <>
+            <button onClick={()=>(dispatch(setLanguage('fr'),setLangClicked(!langClicked)))}>fr</button>
+            <button onClick={()=>(dispatch(setLanguage('en'),setLangClicked(!langClicked)))}>en</button>
+
+           </>)
+        }
+        else if(lang==='fr'){
+            return( 
+            <>
+            <button onClick={()=>(dispatch(setLanguage('en'),setLangClicked(!langClicked)))}>en</button>
+            <button onClick={()=>(dispatch(setLanguage('ar'),setLangClicked(!langClicked)))}>ar</button>
+
+            </>
+            )
+        }
+        else{
+            return( 
+                <>
+                    <button onClick={()=>(dispatch(setLanguage('fr'),setLangClicked(!langClicked)))}>fr</button>
+                    <button onClick={()=>(dispatch(setLanguage('ar'),setLangClicked(!langClicked)))}>ar</button>
+
+                </>
+                )
+        }
+    }
+    
+
     return (
+        <>
         <AnimatePresence>
             {visible && (
                 <motion.div
@@ -50,7 +91,7 @@ const Menu = ({ visible }) => {
                                 <Link
                                     key={index}
                                     style={{ width: 100 / currentMenuList.length + "%" }}
-                                    className={`text-center z-40 xl:py-5 md:py-4 lg:text-base md:text-sm ${linked === index ? "text-white/90" : "text-neutral-900 hover:animate-pulse"}`}
+                                    className={`text-center z-40 xl:py-5 md:py-4 lg:text-base md:text-sm ${language==='ar'?'lg:text-lg':'lg:text-base'} ${linked === index ? "text-white/90" : "text-neutral-900 hover:animate-pulse"}`}
                                     onClick={() => setlinked(index)}
                                 >
                                     {text}
@@ -61,6 +102,27 @@ const Menu = ({ visible }) => {
                 </motion.div>
             )}
         </AnimatePresence>
+
+        <div class="fixed bottom-0 left-0 w-52 h-52 blur-3xl scale-150 z-50">
+            <div className="w-44 h-44 bg-black/50 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
+           
+        </div>
+        <div className="w-[5%] scale-110 gap-y-2 pb-5 bottom-0 left-0 fixed flex flex-col items-center language ease-in duration-200 z-50">
+        <AnimatePresence>
+            {langClicked && (
+                <motion.div 
+                    key="lang-menu" 
+                    {...animationLang()} 
+                    className="w-10  text-white/70 bg-black/10 backdrop-blur-lg rounded-full flex flex-col items-center justify-center gap-y-2 py-2"
+                >
+                   {langButttons(language)}
+                </motion.div>
+            )}
+        </AnimatePresence>
+            <button onClick={()=>setLangClicked(!langClicked)} className="text-white/70 bg-black/10 rounded-full w-10 h-10 backdrop-blur-lg font-semibold hover:bg-black/5">{language}</button>
+        </div>
+
+        </>
     );
 };
 

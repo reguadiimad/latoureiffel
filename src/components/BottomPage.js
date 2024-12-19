@@ -4,13 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
+import content from "./Datas/footerData.json"
+import { useSelector } from 'react-redux';
 
 
 export default function BottomPage() {
+  const { language } = useSelector((state) => state.presntion); 
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
       .then(() => {
-        alert(`Numéro copié : ${text}`);
+        alert(`${content.copy_alert[language]} : ${text}`);
       })
       .catch(() => {
         alert("Échec de la copie du numéro.");
@@ -31,7 +35,7 @@ export default function BottomPage() {
     
     <div className="w-full flex items-center relative justify-center flex-col pt-5 links ">
       <div className='lg:h-[600px] md:h-[500px] h-[300px]  w-full absolute bottom-0 left-0 lg:scale-x-125 z-0 '>
-      {
+      {/*
         webGLSupported&& <ShaderGradientCanvas
         className="w-full h-full absolute "
         style={{bottom:'-20%', left:0}}
@@ -41,7 +45,7 @@ export default function BottomPage() {
           urlString="https://www.shadergradient.co/customize?animate=on&axesHelper=off&bgColor1=%23000000&bgColor2=%23000000&brightness=1.2&cAzimuthAngle=170&cDistance=2.9&cPolarAngle=70&cameraZoom=1&color1=%23ff311f&color2=%2345b1ff&color3=%23ffffff&destination=onCanvas&embedMode=off&envPreset=city&format=gif&fov=45&frameRate=10&gizmoHelper=hide&grain=off&lightType=3d&pixelDensity=1&positionX=-0.4&positionY=-3.9&positionZ=-0.3&range=enabled&rangeEnd=40&rangeStart=0&reflection=0.1&rotationX=45&rotationY=0&rotationZ=0&shader=defaults&type=waterPlane&uAmplitude=0&uDensity=1.2&uFrequency=0&uSpeed=0.2&uStrength=3.4&uTime=0&wireframe=false"
         />
       </ShaderGradientCanvas>
-      }
+      */}
       </div>
       <div className='w-full h-full absolute top-0 left-0 '></div>
       <div className='lg:w-[95%] w-full pt-2 h-full bg-gradient-to-t from-white/50  to-white/5  backdrop-blur-xl md:p-10 rounded-t-[40px] galCover'>
@@ -49,15 +53,15 @@ export default function BottomPage() {
         <div className="w-full flex md:text-base text-[10px] items-end">
           <div className="w-[20%] lg:mr-40 mr-6 -mb-1">
             <img
-              src={`${process.env.PUBLIC_URL}/logos/logo1.png`}
+              src={`${process.env.PUBLIC_URL}/logos/${language==='ar'?'logo1ar.png':(language==='fr'?'logo1.png':'logo1eng.png')}`}
               alt="Logo"
               className="lg:h-20  filter invert mb-2 "
             />
           </div>
-          <h1 className="w-[20%] font-extrabold">La Tour Eiffel</h1>
-          <h1 className="w-[20%] font-extrabold">Pédagogie</h1>
-          <h1 className="w-[20%] font-extrabold">Prenote</h1>
-          <h1 className="w-[20%] font-extrabold">Social</h1>
+          <h1 className="w-[20%] font-extrabold">{content.school_name[language]}</h1>
+          <h1 className="w-[20%] font-extrabold">{content.pedagogy[language]}</h1>
+          <h1 className="w-[20%] font-extrabold">{content.prenote[language]}</h1>
+          <h1 className="w-[20%] font-extrabold">{content.social[language]}</h1>
         </div>
       </div>
 
@@ -67,30 +71,30 @@ export default function BottomPage() {
           <div className="w-[20%] mr-6 lg:mr-40" />
 
           <div className="w-[20%] flex flex-col font-semibold gap-y-1 md:text-base text-[10px]">
-            <Link to="/">Accueil</Link>
-            <Link to="/a-propos">À propos</Link>
-            <Link to="/mot-du-fondateur">Mot du fondateur</Link>
-            <Link to="/nos-valeurs">Nos valeurs</Link>
-            <Link to="/vie-scolaire">La vie scolaire</Link>
-            <Link to="/admission">Admission</Link>
+            <Link to="/">{content.home[language]}</Link>
+            <Link to="/a-propos">{content.about[language]}</Link>
+            <Link to="/mot-du-fondateur">{content.founder_message[language]}</Link>
+            <Link to="/nos-valeurs">{content.values[language]}</Link>
+            <Link to="/vie-scolaire">{content.school_life[language]}</Link>
+            <Link to="/admission">{content.admission[language]}</Link>
           </div>
 
           <div className="w-[20%] flex flex-col font-semibold gap-y-1 md:text-base text-[10px]">
-            <Link to="/maternelle">Maternelle</Link>
-            <Link to="/primaire">Primaire</Link>
-            <Link to="/college">Collège</Link>
-            <Link to="/lycee">Lycée</Link>
-            <Link to="/conditions-generales">Conditions générales</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/actualites">Actualités et événements</Link>
+            <Link to="/maternelle">{content.kindergarten[language]}</Link>
+            <Link to="/primaire">{content.primary[language]}</Link>
+            <Link to="/college">{content.college[language]}</Link>
+            <Link to="/lycee">{content.high_school[language]}</Link>
+            <Link to="/conditions-generales">{content.general_conditions[language]}</Link>
+            <Link to="/contact">{content.contact[language]}</Link>
+            <Link to="/actualites">{content.news_events[language]}</Link>
           </div>
 
           <div className="w-[20%] flex flex-col font-semibold gap-y-1 md:text-base text-[10px]">
-            <Link to="/cantine">Cantine</Link>
-            <Link to="/transport">Transport</Link>
-            <Link to="/clubs">Clubs</Link>
-            <Link to="/garderie">Garderie</Link>
-            <Link to="/galerie">Galerie</Link>
+            <Link to="/cantine">{content.canteen[language]}</Link>
+            <Link to="/transport">{content.transport[language]}</Link>
+            <Link to="/clubs">{content.clubs[language]}</Link>
+            <Link to="/garderie">{content.nursery[language]}</Link>
+            <Link to="/galerie">{content.gallery[language]}</Link>
           </div>
 
           <div className="w-[20%] flex flex-col font-semibold gap-y-1 lg:text-xs xl:text-base text-[10px]">
@@ -150,8 +154,7 @@ export default function BottomPage() {
             <option value="en">English</option>
           </select>
           <p>
-            <b>Copyright © </b> {new Date().getFullYear()} Tous les droits réservés. Les Écoles La
-            Tour Eiffel, SARL déposée.
+            <b>{content.copyright[language]} </b> {new Date().getFullYear()} {content.all_rights_reserved[language]}
           </p>
         </div>
         <div className="flex-1 flex flex-row-reverse opacity-85" />

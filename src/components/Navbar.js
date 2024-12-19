@@ -28,7 +28,7 @@ const Navbar = () => {
   const menuItems = {
     fr: ["Accueil", "À propos", "Cycles", "Services", "Actualités", "Galerie"],
     en: ["Home", "About", "Cycles", "Services", "News", "Gallery"],
-    ar: ["الرئيسية", "حول", "الدورات", "الخدمات", "الأخبار", "الصور"],
+    ar: ["الرئيسية", "حولنا", "الدورات", "الخدمات", "الأخبار", "الصور"],
   };
 
   const buttonsText = {
@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between w-[94%] p-2 font-sans absolute rounded-lg top-3 left-[3%] text-neutral-900/90 z-30 ">
+      <nav className={`flex items-center justify-between w-[94%] p-2 font-sans absolute ${language==='ar'&&'text-xl'} rounded-lg top-3 left-[3%] text-neutral-900/90 z-30 `}>
         <div className="w-[50%] lg:w-[30%]">
           <img
             alt="logo"

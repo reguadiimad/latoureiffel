@@ -8,6 +8,7 @@ import NewsEvents from '../Models/Home/NewsEvents';
 import GalleryPrev from '../Models/Home/GalleryPrev';
 import EmailUs from '../Models/Home/EmailUs';
 import {motion} from "framer-motion"
+import PopUp from '../Models/Home/PopUp';
 
 
 
@@ -32,8 +33,8 @@ export default function Home() {
         <NewsEvents/>
         <GalleryPrev/>
         <EmailUs/>
-  
       </div>
+     
     </>
   );
 }

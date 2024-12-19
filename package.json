@@ -2,7 +2,7 @@
   "name": "rct_tour_eiffel",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://reguadiimad.github.io/rct_tour_eiffel",
+  "homepage": ".",
   "dependencies": {
     "@fontsource/inter": "^5.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",

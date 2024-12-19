@@ -1,5 +1,21 @@
-import {motion} from "framer-motion"
+import {motion, AnimatePresence} from "framer-motion"
+import content from './Datas/galeryData.json';
+import { useSelector } from "react-redux";
+import PopUp from './PopUp';
+import { useInView } from "react-intersection-observer";
+import React, { useEffect,useState } from "react";
+
+
 const GalleryPrev = () => {
+    const { language } = useSelector((state) => state.presntion); 
+    const [popupVisible, setPopupVisible] = useState(false);
+    const { ref: motherRef, inView } = useInView({
+        threshold: 0.6, // Trigger when 50% of the component is visible
+    });
+    useEffect(() => {
+      setPopupVisible(inView);
+    }, [inView]);
+    
     const custumAnimation = (op=0,x,y,delay) => {
         return {
             initial:{opacity:op,x:x,y:y},
@@ -9,14 +25,14 @@ const GalleryPrev = () => {
       }
     return(
         <>
-            <div className="w-[90%]  flex flex-col lg:mt-10 md:-mt-10 -mt-20">
-                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg lg:text-2xl text-neutral-300 mt-10">Nous n'avons pas manqué le moment.</motion.p>
+            <div ref={motherRef} className="w-[90%]  flex flex-col lg:mt-10 md:-mt-10 -mt-20 z-50">
+                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg lg:text-2xl text-neutral-300 mt-10">{content[language].no_missed_moment}</motion.p>
                 <div className="w-full flex">
                 <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-7xl lg:text-8xl w-[60%] text-blue-500 font-bold mt-2">
-                Venez nous voir à la Galerie.
+                {content[language].visit_gallery}
                 </motion.h1>
                 <div className="w-[40%] flex justify-end items-end">
-                    <motion.button {...custumAnimation(0,0,'100%',0.2)} className="bg-red-500 mb-2  p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] z-40 text-white font-semibold">Découvrer plus</motion.button>
+                    <motion.button {...custumAnimation(0,0,'100%',0.2)} className="bg-red-500 mb-2  p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] z-40 text-white font-semibold">{content[language].discover_more}</motion.button>
                 </div>
                 </div>     
             </div>
@@ -82,19 +98,28 @@ const GalleryPrev = () => {
                     </div>
                 </div>
                 </div>
-                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 backdrop-blur-lg gap-y-3 galCover">
-                    <p className="text-white/60  md:text-xl">Une galerie qui immortalise les élèves
+                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 z-10 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 backdrop-blur-lg gap-y-3 galCover">
+                    <p className="text-white/60  md:text-xl">{content[language].gallery_description}
                     </p>
                     <h1 className="md:text-8xl text-4xl text-white/85 font-extrabold">
-                        +12 000 Photos
+                       {content[language].photo_count}
                     </h1>
                     <button className="bg-black/20 p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] text-white font-semibold shadow-lg">
-                        Découvrir plus
+                       {content[language].explore_more}
                     </button>
-                    <p className="text-center text-[9px] md:text-sm text-black/30 md:text-white/40 w-[80%] absolute bottom-24 -mb-3 ">Aux Écoles La Tour Eiffel, nous avons créé un espace spécial pour préserver les souvenirs qui marquent la vie de nos élèves. C’est un endroit où les moments partagés, les événements marquants et les instants de joie restent vivants dans nos mémoires.</p>
+                    <p className="text-center text-[9px] md:text-sm text-black/30 md:text-white/40 w-[80%] absolute bottom-24 -mb-3 ">
+                        {content[language].gallery_info}
+                    </p>
                 </div>
                 
             </div>
+
+            <AnimatePresence>
+                {
+                    popupVisible&&<PopUp  ar={language==="ar"} text={'Dive into gallery'}/>
+                }
+            </AnimatePresence>
+        
            
         </>
     )
