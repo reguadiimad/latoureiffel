@@ -116,7 +116,7 @@ const GalleryPrev = () => {
 
             <AnimatePresence>
                 {
-                    popupVisible&&<PopUp  ar={language==="ar"} text={'Dive into gallery'}/>
+                    popupVisible&&<PopUp  ar={language==="ar"} text={content.popUp[language]}/>
                 }
             </AnimatePresence>
         

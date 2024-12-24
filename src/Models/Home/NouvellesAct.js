@@ -167,7 +167,7 @@ const NouvellesAct = () => {
 
                   {[1, 2, 3, 4].map((item, index) => (
                       <div key={index} onClick={() => handleClick(index)} className={`cursor-pointer px-2 yt h-[40px] flex items-end justify-end ${activeIndex === index ? "font-semibold text-3xl text-neutral-900" : "hover:animate-pulse text-neutral-900/50"}`}>
-                          011{item}
+                          {item}
                       </div>
                   ))}
 
@@ -175,7 +175,6 @@ const NouvellesAct = () => {
               <div className="p-5 py-3 bg-red-500 text-center absolute bottom-0 rounded-full text-white right-0 mr-10 font-semibold">
                 {texts.texts.read_more[language]}
               </div>
-          
           </div>
       </div>
       </motion.div>

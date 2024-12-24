@@ -1,40 +1,28 @@
-// src/components/About.js
-import { motion } from 'framer-motion';
+import '../resources/style/home.scss';
+import { useDispatch } from 'react-redux';
+import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
+import { useEffect } from 'react';
+import FirstInterface from '../Models/About/FirstInterface';
+import MotDeFondateur from '../Models/About/MotDeFondateur';
+import Navigation from '../Models/About/Navigation';
 
 const About = () => {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setIsHome(false));
+  }, [dispatch]);
+  window.scrollTo(0, 0);
+ 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit={{ opacity: 0, y: -20 }}
-      className="flex flex-col items-center justify-center h-screen bg-gray-200"
-    >
-      <motion.h1 variants={childVariants} className="text-4xl font-bold text-center mb-4">
-        About the Eiffel Tower
-      </motion.h1>
-      <motion.p variants={childVariants} className="text-lg text-center mb-6">
-        The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. 
-        It was named after the engineer Gustave Eiffel, whose company designed and built the tower.
-      </motion.p>
-      <motion.p variants={childVariants} className="text-lg text-center">
-        Completed in 1889, it has become a global cultural icon of France and one of the most recognizable structures in the world.
-      </motion.p>
-    </motion.div>
+    <>
+    <div className='w-screen py-20 mb-40 flex flex-col items-center justify-center overflow-scroll'>
+      <div className='w-full h-[100px]'></div>
+      <FirstInterface/>
+      <Navigation/>
+      <MotDeFondateur/>
+
+    </div>
+    </>
   );
 };
 

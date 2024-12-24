@@ -2,7 +2,7 @@ import { faClose, faPause, faPlay, faRefresh, faVolumeHigh, faVolumeMute } from 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence} from "framer-motion";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const PresentationVideo = ({onClose,prsntation}) => {

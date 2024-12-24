@@ -7,17 +7,20 @@ import NouvellesAct from '../Models/Home/NouvellesAct';
 import NewsEvents from '../Models/Home/NewsEvents';
 import GalleryPrev from '../Models/Home/GalleryPrev';
 import EmailUs from '../Models/Home/EmailUs';
-import {motion} from "framer-motion"
-import PopUp from '../Models/Home/PopUp';
+import {motion} from "framer-motion";
+import { useDispatch } from 'react-redux';
+import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
+import { useEffect } from 'react';
 
 
 
 
 export default function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setIsHome(true));
+  }, [dispatch]);
 
-
-  
-  
   return (
     <>
       <motion.div initial={{scale:(window.innerWidth <= 1024?0.5:1),opacity:0}} whileInView={{scale:1,opacity:1,y:0}} transition={{type:"spring",damping:10,duration:0.5}} className="home w-screen   h-screen relative flex items-center justify-center text-neutral-900 pt-7">
