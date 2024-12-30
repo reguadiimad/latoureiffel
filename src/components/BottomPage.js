@@ -5,11 +5,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
 import content from "./Datas/footerData.json"
-import { useSelector } from 'react-redux';
+
+import { useSelector,useDispatch } from "react-redux";
+import { setScrollVal } from '../redux(toolKit)/slices/scrollSlice';
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 
 export default function BottomPage() {
   const { language } = useSelector((state) => state.presntion); 
+  const dispatch = useDispatch()
+  const scrollValue = useSelector((state) => state.scrollVal);
+  const { ref: motherRef, inView } = useInView({
+      threshold: 0.2, // Trigger when 50% of the component is visible
+    });
+        useEffect(() => {
+      inView && dispatch(setScrollVal(null))
+    },  [inView,dispatch,scrollValue]);
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text)
@@ -33,7 +45,7 @@ export default function BottomPage() {
 
   return (
     
-    <div className="w-full flex items-center relative justify-center flex-col pt-5 links ">
+    <div ref={motherRef} className="w-full flex items-center relative justify-center flex-col pt-5 links ">
       <div className='lg:h-[600px] md:h-[500px] h-[300px]  w-full absolute bottom-0 left-0 lg:scale-x-125 z-0 '>
       {/*
         webGLSupported&& <ShaderGradientCanvas

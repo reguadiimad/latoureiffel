@@ -22,7 +22,7 @@ module.exports = {
         redGlow: '0 0 8px rgba(240, 91, 94, 0.5)',
       },
       animation: {
-        'fast-pulse': 'pulse 0.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fast-pulse': 'pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
