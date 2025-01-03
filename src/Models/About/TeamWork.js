@@ -5,6 +5,8 @@ import { setScrollVal } from "../../redux(toolKit)/slices/scrollSlice";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import texts from "./Datas/teamWorkData.json"
+import {leftAnimation,rightAnimation,bottomAnimation } from "./animation";
+import {motion} from "framer-motion";
 
 
 const TeamWork = ({id}) => {
@@ -23,20 +25,20 @@ const TeamWork = ({id}) => {
     const { language } = useSelector((state) => state.presntion); 
     
     return (
-        <div id={id} ref={motherRef} className={`w-[90%] flex ${language==="ar"&&'flex-row-reverse text-xl text-right'} items-center justify-center gap-x-5 my-20 text-neutral-900`}>
-          <div className={`w-[70%] flex flex-col riri`}>
-            <p className={`text-neutral-500`}>{content.heading[language]}</p>
-            <h1 className={`text-8xl ${language==="ar"&&'text-9xl'} text-blue-500`}>
+        <div id={id} ref={motherRef} className={`w-[90%] lg:flex ${language==="ar"&&'flex-row-reverse text-xl text-right'} items-center justify-center gap-x-5 my-20 text-neutral-900`}>
+          <div className={`lg:w-[70%] flex flex-col riri`}>
+            <motion.p {...leftAnimation(0)} className={`text-neutral-500`}>{content.heading[language]}</motion.p>
+            <motion.h1 {...leftAnimation(0.2)} className={`lg:text-8xl w-full  text-3xl ${language==="ar"&&'text-9xl'} text-blue-500`}>
               <b>{content.title[language]}</b>
-            </h1>
+            </motion.h1>
       
-            <div className={`w-full flex gap-x-4 mt-8 text-neutral-500`}>
+            <div className={`w-full flex gap-x-1 lg:gap-x-4 mt-8 text-neutral-500`}>
               {content.contentBlocks.map((block, index) => (
-                <div
+                <motion.div {...bottomAnimation(index*0.25)}
                   key={index}
-                  className={`flex-1 rounded-[40px] border ${
-                    index === 1 ? "bg-blue-500 text-white/80" : "border-black/10"
-                  } p-8`}
+                  className={`flex-1 rounded-2xl text-[10px] lg:text-lg lg:rounded-[40px] border text-center lg:text-left  ${
+                    index === 1 ? "bg-blue-500 text-white/80 " : "border-black/10"
+                  } lg:p-8 p-2`}
                 >
                   <p className={`mb-8`}>{block.title[language]}</p>
                   <p className={`mb-4`}>
@@ -44,25 +46,26 @@ const TeamWork = ({id}) => {
                       {block.description[language]}
                     </b>
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
       
             <div className={`w-full flex gap-x-2`}>
               {content.additionalInfo.map((info, index) => (
-                <div key={index} className={`flex-1 text-neutral-500 p-8 text-base`}>
+                <motion.div {...bottomAnimation(index*0.22)} key={index} className={`flex-1 text-neutral-500 text-[10px] mt-2 lg:mt-0  lg:p-8 lg:text-base`}>
                   {info[language]}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
       
-          <div className={`w-[30%] flex flex-col justify-between`}>
-            <div className={`w-full bg-red-500 text-white rounded-[40px] p-8`}>
+          <div className={`lg:w-[30%] w-full lg:flex flex-col justify-between`}>
+            <motion.div {...rightAnimation(0.2)} className={`w-full bg-red-500 text-white rounded-2xl lg:rounded-[40px] text-[10px] lg:text-lg mt-4 lg:mt-0 text-center p-2 lg:p-8`}>
               {content.sidebar[language]}
-            </div>
-            <div className={`w-full h-[530px] rounded-[40px] flex flex-col justify-end items-center relative`}>
-              <div className={`bg-red-500 rounded-[40px] h-[50%] w-full`}></div>
+            </motion.div>
+
+            <motion.div {...bottomAnimation(0.2)} className={`w-full lg:h-[530px] h-[350px] lg:rounded-[40px] flex flex-col justify-end items-center relative`}>
+              <div className={`bg-red-500 rounded-2xl lg:rounded-[40px] h-[50%] w-full`}></div>
               <img
                 className={`absolute bottom-10 -ml-6 scale-[1.2] w-full`}
                 src={`${process.env.PUBLIC_URL}/images/eqp1.png`}
@@ -72,7 +75,7 @@ const TeamWork = ({id}) => {
                 <FontAwesomeIcon className={`text-3xl`} icon={faUsers} />
                 <p className={`font-bold text-base`}>{content.footer[language]}</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       );

@@ -5,6 +5,7 @@ import { setScrollVal } from "../../redux(toolKit)/slices/scrollSlice";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import translations from "./Datas/firstInterFaceDats.json";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FirstInterface = () => {
     const { language } = useSelector((state) => state.presntion); // Access language from Redux state
@@ -19,92 +20,126 @@ const FirstInterface = () => {
     }, [inView, dispatch, scrollValue]);
 
     const yr = new Date().getFullYear();
+    const leftAnimation = (d = 0) => ({
+        initial: { x: -50, opacity: 0 },
+        whileInView: { x: 0, opacity: 1 },
+        transition: { type: "spring", damping: 10, delay: d }
+      });
+      
+      const rightAnimation = (d = 0) => ({
+        initial: { x: 50, opacity: 0 },
+        whileInView: { x: 0, opacity: 1 },
+        transition: { type: "spring", damping: 10, delay: d }
+      });
+      
+      const topAnimation = (d = 0) => ({
+        initial: { y: -50, opacity: 0 },
+        whileInView: { y: 0, opacity: 1 },
+        transition: { type: "spring", damping: 10, delay: d }
+      });
+      
+      const bottomAnimation = (d = 0) => ({
+        initial: { y: 50, opacity: 0 },
+        whileInView: { y: 0, opacity: 1 },
+        transition: { type: "spring", damping: 10, delay: d }
+      });
+      const scaleAnimation = (d = 0) => ({
+        initial: { scale: 0, opacity: 0 },
+        whileInView: { scale: 1, opacity: 1 },
+        transition: { type: "spring", damping: 12, delay: d }
+      });
+      
+      
+      
+    
+
 
     return (
         <>
-            <div ref={motherRef} className={`w-[90%]  flex items-center justify-center mb-16 ${language==='ar'?'flex-row-reverse':''}`}>
-                <div className={`w-[55%] gap-y-2 flex flex-col ${language==="ar"&&'items-end'}`}>
-                    <p className={`text-neutral-500  ${language==="ar"&&'text-3xl'}`}>{translations.surNous[language]}</p>
-                    <h1 className={`font-bold ${language==="ar"?'text-9xl leading-tight text-right':'text-7xl'} text-neutral-900`}>
+            <div ref={motherRef} className={`w-[90%] flex-col lg:flex-row flex items-center justify-center mb-10 lg:mb-16  ${language==='ar'?'flex-row-reverse':''}`}>
+                <div className={`w-full  lg:w-[55%] mb-5 gap-y-2 flex flex-col ${language==="ar"&&'items-end'}`}>
+                    <motion.p {...leftAnimation()}  className={`text-neutral-500  ${language==="ar"&&'text-3xl'}`}>{translations.surNous[language]}</motion.p>
+                    <motion.h1 {...leftAnimation(0.11)}  className={`text-3xl font-bold ${language==="ar"?'lg:text-9xl leading-tight text-right':'lg:text-7xl'} text-neutral-900`}>
                         <b>{translations.title[language]}</b>
-                    </h1>
-                    <p className={`text-neutral-500`}>{translations.description[language]}</p>
+                    </motion.h1>
+                    <motion.p {...leftAnimation(0.22)}  className={`text-neutral-500`}>{translations.description[language]}</motion.p>
                     <div className={`flex gap-x-4 items-center mt-4`}>
-                        <a href="tel:1234567890">
-                            <div className={`p-4 rounded-full bg-blue-500 text-white/90 cursor-pointer`}>
+         
+                    <motion.a {...leftAnimation(0.33)}  href="tel:1234567890">
+                            <div className={`p-2 lg:p-4 rounded-full bg-blue-500 text-white/90 cursor-pointer`}>
                                 <FontAwesomeIcon className={`mr-2 cursor-pointer`} icon={faPhone} />{" "}
                                 {translations.callUs[language]}
                             </div>
-                        </a>
-                        <p className={`underline text-neutral-500 ml-6 text-xl`}>{translations.readMore[language]}</p>
+                        </motion.a>
+                        
                     </div>
                 </div>
-                <div className={`w-[45%] flex flex-col gap-y-5 ${language==="ar"?'pr-4':'pl-4'}`}>
-                    <div className={`flex w-full gap-x-5`}>
-                        <div className={`flex-1 h-64 relative`}>
-                            <div className={`absolute z-40 border border-white/10 -top-12 right-8 w-24 h-24 rounded-full flex items-center justify-center bg-black/5 backdrop-blur-xl shadow-lg text-5xl text-blue-500`}>
+                <div className={`w-full lg:w-[45%] flex flex-col gap-y-5 p-0 ${language==="ar"?'lg:pr-4':'lg:pl-4'}`}>
+                    <div className={`flex w-full gap-x-2 lg:gap-x-5`}>
+                        <motion.div {...topAnimation()}  className={`flex-1 lg:h-64 relative`}>
+                            <motion.div initial={{y:-100,scale:0}} whileInView={{y:0,scale:1}} transition={{type:'spring',damping:13,delay:0.6}}  className={`absolute z-40 border border-white/10 -top-12 right-8 hidden lg:w-24 lg:h-24 rounded-full lg:flex items-center justify-center bg-black/5 backdrop-blur-xl shadow-lg lg:text-5xl text-blue-500`}>
                                 <FontAwesomeIcon icon={faArrowTrendUp} />
-                            </div>
+                            </motion.div>
                             <div className={`w-full h-full overflow-hidden rounded-tl-full`}>
                                 <img
                                     src={process.env.PUBLIC_URL + "/images/about.jpg"}
-                                    className={`-z-10 w-full h-full object-cover rounded-[40px] transform -scale-x-100 rounded-br-[20px]`}
+                                    className={`-z-10 w-full h-full object-cover rounded-2xl lg:rounded-[40px] transform -scale-x-100 rounded-br-[20px]`}
                                 />
                             </div>
-                        </div>
-                        <div className={`flex-1 h-64 bg-black/5 rounded-[40px] py-3 px-5`}>
-                            <div className={`w-full flex flex-col items-center justify-center text-neutral-500`}>
-                                <p>{translations.since[language]}</p>
-                                <h1 className={`text-8xl text-red-500`}>
+                        </motion.div>
+                        <motion.div {...topAnimation(0.35)}  className={`flex-1 lg:h-64 bg-black/5 rounded-2xl lg:rounded-[40px] py-3 px-5`}>
+                            <div className={`w-full flex flex-col items-center lg:text-sm text-[8px] justify-center text-neutral-500`}>
+                                <motion.p {...scaleAnimation(0.4)}>{translations.since[language]}</motion.p>
+                                <motion.h1 {...scaleAnimation(0.36)} className={`lg:text-8xl text-3xl text-red-500`}>
                                     <b>{translations.year[language]}</b>
-                                </h1>
-                                <p className={`text-sm text-neutral-500 mt-3 text-center`}>
+                                </motion.h1>
+                                <motion.p {...scaleAnimation(0.42)} className={`lg:text-sm text-neutral-500 mt-3 text-center`}>
                                     {translations.successStory[language]}
-                                </p>
-                            </div>
-                        </div>
+                                </motion.p>
+                            </div> 
+                        </motion.div>
                     </div>
-                    <div className={`w-full rounded-[40px] h-64 bg-neutral-900 flex px-4 overflow-hidden`}>
-                        <div className={`flex-1 h-full relative overflow-hidden`}>
+                    <motion.div {...bottomAnimation(0.25)}  className={`w-full bg-red rounded-2xl lg:rounded-[40px] h-48 lg:h-64 bg-neutral-900 flex pr-2 lg:px-4 overflow-hidden`}>
+                        <motion.div {...leftAnimation(0.33)} className={`flex-1  h-full relative overflow-hidden`}>
                             <img
-                                className={`w-full h-full object-cover top-0 left-0 absolute`}
+                                className={`w-full h-full object-cover top-0 left-0 absolute hidden lg:block`}
                                 src={process.env.PUBLIC_URL + "/images/bon.jpg"}
                             />
                             <div className={`w-full items-center justify-center flex flex-col h-[65%] top-[17.5%] px-5 left-0 absolute text-white/90`}>
-                                <div className={`w-full flex items-center justify-center text-2xl font-bold mb-4`}>
+                                <div className={`w-full flex items-center justify-center text:base  lg:text-2xl font-bold mb-4`}>
                                     <div className={`h-[2px] bg-white/50 w-[28%]`} />
-                                    <p className={`w-[70%] text-right`}>
+                                    <p className={`w-[70%]  text-right`}>
                                         {translations.yearsOfSuccess[language].replace(
                                             "{yr-2008}",
                                             yr - 2008
                                         )}
                                     </p>
                                 </div>
-                                <p className={`w-full`}>{translations.sharedSuccess[language]}</p>
-                                <p className={`w-full text-justify`}>{translations.sharedFuture[language]}</p>
+                                <p className={`w-full text-[10px] lg:text-lg`}>{translations.sharedSuccess[language]}</p>
+                                <p className={`w-full text-[10px] lg:text-lg lg:text-justify`}>{translations.sharedFuture[language]}</p>
                             </div>
-                        </div>
+                        </motion.div>
                         <div className={`flex-1 h-full gap-x-4 flex items-end overflow-hidden`}>
-                            <div className={`flex-1 bg-red-300 h-[40%] rounded-t-3xl`}></div>
-                            <div className={`flex-1 bg-red-400 h-[60%] rounded-t-3xl`}></div>
-                            <div className={`flex-1 bg-red-500 h-[80%] rounded-t-3xl`}></div>
+                            <motion.div {...bottomAnimation(0.32)} className={`flex-1 bg-red-300 h-[60%] -mb-[20%] rounded-t-3xl`}></motion.div>
+                            <motion.div {...bottomAnimation(0.41)}className={`flex-1 bg-red-400 h-[80%]  -mb-[20%]  rounded-t-3xl`}></motion.div>
+                            <motion.div {...bottomAnimation(0.5)}className={`flex-1 bg-red-500 h-[100%]  -mb-[20%]  rounded-t-3xl`}></motion.div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-            <div className={`w-[90%] flex items-center justify-center ${language==="ar"&&'flex-row-reverse'}`}>
-                <div className={`flex-1 text-neutral-500 ${language==="ar"&&'flex flex-col-reverse items-end '}`}>
+            <div className={`w-[90%] lg:flex items-center justify-center ${language==="ar"&&'flex-row-reverse'}`}>
+                <motion.div {...leftAnimation()}  className={`flex-1 text-neutral-500 ${language==="ar"&&'flex flex-col-reverse items-end '}`}>
                     <p>{translations.collaboration[language]}</p>
-                    <h1 className={`${language==="ar"?'text-6xl':'text-5xl'} text-blue-500`}>
+                    <h1 className={`${language==="ar"?'lg:text-6xl':'lg:text-5xl'} text-3xl text-blue-500`}>
                         <b>{translations.partnerWith[language]}</b>
                     </h1>
-                </div>
-                <div className={`flex-1 flex flex-row-reverse `}>
+                </motion.div>
+                <motion.div {...rightAnimation(0.33)}  className={`flex-1 flex flex-row-reverse `}>
                     <img
                         src={process.env.PUBLIC_URL + "/images/prtb.png"}
                         className={`w-full h-24 object-cover opacity-90`}
                     ></img> 
-                </div>
+                </motion.div>
             </div>
         </>
     );}

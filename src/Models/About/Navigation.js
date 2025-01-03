@@ -41,30 +41,40 @@ const Navigation = () => {
         }
     };
   const { language } = useSelector((state) => state.presntion); 
+  const leftAnimation = (d = 0) => ({
+    initial: { x: -50, opacity: 0 },
+    whileInView: { x: 0, opacity: 1 },
+    transition: { type: "spring", damping: 10, delay: d }
+  });
+  const bottomAnimation = (d = 0) => ({
+    initial: { y: 50, opacity: 0 },
+    whileInView: { y: 0, opacity: 1 },
+    transition: { type: "spring", damping: 10, delay: d }
+  });
 
     return (
         <>
             {/* Main Navigation */}
-            <div className="w-[45%]  rounded-full p-2 mt-20 flex items-center navi justify-center">
+            <div className="lg:w-[45%] w-full  rounded-full p-2 lg:mt-20 flex items-center navi justify-center">
                 <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex">
                     <span
                         style={{
                             width: 100 / menuList[language].length + "%",
                             left: linked * (100 / menuList[language].length) + "%",
                         }}
-                        className="absolute bottom-1 h-2 flex justify-center items-center flash"
+                        className="absolute -bottom-1 lg:bottom-1 h-1 lg:h-2 flex justify-center items-center flash"
                     >
-                        <div className="w-[50%] bg-blue-500 h-full rounded-full shadow-xl"></div>
+                        <motion.div {...leftAnimation()} className="w-[50%] bg-blue-500 h-full rounded-full shadow-xl"></motion.div>
                     </span>
                     {menuList[language].map((text, index) => (
-                        <a
+                        <motion.a {...leftAnimation(0.15*index)}
                             key={index}
                             style={{ width: 100 / menuList[language].length + "%" }}
-                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 ${language==="ar"&&"text-xl"} ${linked === index ? 'text-blue-500 text-base ' : 'text-black/50 text-sm'}`}
+                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 text-[8px]  ${language==="ar"&&"text-xl"} ${linked === index ? 'text-blue-500 lg:text-base  text-sm' : 'text-black/50 text-[10px] lg:text-sm'}`}
                             onClick={() => {setlinked(index);handleScroll(index)}}
                         >
                             {text}
-                        </a>
+                        </motion.a>
                     ))}
                 </div>
             </div>
@@ -72,21 +82,21 @@ const Navigation = () => {
                
            {
             scrollValue !== null && 
-            <motion.div  initial={{y:50}} animate={{opacity:1,y:0}}exit={{y:50}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-[50%] p-5 -bottom-3 fixed items-center justify-center  flex z-50 cursor-pointer ">
+            <motion.div  initial={{y:50}} animate={{opacity:1,y:0}}exit={{y:50}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-[50%] hidden p-5 -bottom-3 fixed items-center justify-center  lg:flex z-50 cursor-pointer ">
                 <motion.div initial={{opacity:0}} animate={{opacity:1}}exit={{opacity:0}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-full scale-x-110 h-20 bg-black/90 blur-3xl fixed -bottom-14 z-50"></motion.div>
                 {menuList[language].map((text, index) => (
                     <motion.div
                         key={index}
-                        className={` flex h-16 cursor-pointer pops rounded-full border  border-transparent bg-transparent  ${linked == index ? ' rounded-full  px-3 py-3 bg-white/5  backdrop-blur-xl border  border-white/10 shadow-xl' : 'py-2 mt-3 px-2 scale-90'} z-50 gap-x-2`}
+                        className={` flex h-16 cursor-pointer pops rounded-full border  border-transparent bg-transparent  ${linked == index ? ' rounded-full p-2  lg:px-3 lg:py-3 bg-white/5  backdrop-blur-xl border  border-white/10 shadow-xl' : 'py-2 mt-3 px-2 scale-90'} z-50 gap-x-2`}
                         onClick={() => {handleScroll(index);}}
                         initial={{y:50}} animate={{y:0}}exit={{y:50}} transition={{type:'spring',stiffness: 150, damping: 20,delay:0.09*index}}
                     >
 
-                        <div className={`items-center mix-blend-difference ${language==="ar"&&'text-xl'} origin-center flex justify-center ease-in-out duration-200 px-2 ${linked == index ? 'text-white font-semibold' : 'text-white/60 hover:animate-pulse hidden text-sm'}`}>
+                        <div className={`items-center mix-blend-difference ${language==="ar"&&'text-xl'} origin-center flex justify-center ease-in-out duration-200  lg:px-2 ${linked == index ? 'text-white/90 font-semibold' : 'text-white/60 hover:animate-pulse hidden '}`}>
                             {text} 
                         </div>
                         
-                            <div className={`w-10 h-10 ${linked == index?'bg-blue-500  text-white':'text-white/70 hover:text-white hover:animate-fast-pulse'} flex items-center justify-center rounded-full  text-xl scale-105`}>
+                            <div className={` lg:w-10 lg:h-10 ${linked == index?'bg-blue-500 w-16  text-white/90':'text-white/70 hover:text-white hover:animate-fast-pulse'} flex items-center justify-center rounded-full text-base  lg:text-xl scale-105`}>
                                 <FontAwesomeIcon icon={icons[index]} />
                             </div>
                         

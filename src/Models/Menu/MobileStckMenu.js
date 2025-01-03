@@ -37,7 +37,7 @@ const MobileStckMenu = ({ visible, onOpen }) => {
 
     return (
         <motion.div
-            className="top-0 fixed w-full p-4 bg-gradient-to-b from-black/70 pb-7 to-transparent  md:hidden flex items-baseline justify-center z-40"
+            className="top-0 fixed w-full p-4 bg-gradient-to-b from-black/70 pb-7 to-transparent  md:hidden flex items-baseline justify-center z-50"
             initial="hidden"
             animate={visible ? "visible" : "hidden"}
             exit="exit"

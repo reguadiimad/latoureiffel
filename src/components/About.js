@@ -20,7 +20,7 @@ const About = () => {
   return (
     <>
     <div className='w-screen py-20 mb-40 flex flex-col items-center justify-center overflow-scroll relative'>
-      <div className='w-full h-[100px]'></div>
+      <div className='w-full lg:h-[100px]'></div>
       <FirstInterface/>
       <Navigation/>
       <MotDeFondateur id='0'/>

@@ -44,6 +44,7 @@ const Navbar = () => {
       contact: "اتصل",
     },
   };
+  const routes = ["/", "/about", "/cycles", "/services", "/news", "/gallery", "/contact", "/registration"];
 
   return (
     <>
@@ -61,6 +62,7 @@ const Navbar = () => {
        <div className="hidden lg:flex lg:w-[50%] xl:w-[50%] justify-between text-center">
          {menuItems[language].map((text, index) => (
            <Link
+           to={routes[index]}
              key={index}
              className={`w-[16.6666666667%] ${index > 3 ? 'text-white' : 'text-neutral-900'} hover:animate-pulse`}
            >
@@ -71,10 +73,10 @@ const Navbar = () => {
 
        {/* Contact & Registration Section - Desktop */}
        <div className="hidden lg:flex lg:w-[30%] items-center flex-row-reverse -mr-10">
-         <Link className="m-2 lg:p-3.5 lg:py-3 py-5 bg-red-500 rounded-[30px] hover:bg-red-500/90 shadow-lg">
+         <Link to={'/inscription'} className="m-2 lg:p-3.5 lg:py-3 py-5 bg-red-500 rounded-[30px] hover:bg-red-500/90 shadow-lg">
            <span className="text-white mx-2">{buttonsText[language].inscription}</span>
          </Link>
-         <Link className="m-2 text-white">{buttonsText[language].contact}</Link>
+         <Link  to={'/contact'} className="m-2 text-white">{buttonsText[language].contact}</Link>
        </div>
 
        {/* Mobile Menu Icon */}
