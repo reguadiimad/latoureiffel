@@ -62,7 +62,7 @@ const Navigation = () => {
                             width: 100 / menuList[language].length + "%",
                             left: linked * (100 / menuList[language].length) + "%",
                         }}
-                        className="absolute -bottom-1 lg:bottom-1 h-1 lg:h-2 flex justify-center items-center flash"
+                        className="absolute -bottom-1  lg:bottom-1 h-1 md:h-2 flex justify-center items-center flash"
                     >
                         <motion.div {...leftAnimation()} className="w-[50%] bg-blue-500 h-full rounded-full shadow-xl"></motion.div>
                     </span>
@@ -70,7 +70,7 @@ const Navigation = () => {
                         <motion.a {...leftAnimation(0.15*index)}
                             key={index}
                             style={{ width: 100 / menuList[language].length + "%" }}
-                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 text-[8px]  ${language==="ar"&&"text-xl"} ${linked === index ? 'text-blue-500 lg:text-base  text-sm' : 'text-black/50 text-[10px] lg:text-sm'}`}
+                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 text-[8px] md:text-sm md:mt-10 lg:text-lg  ${language==="ar"&&"text-xl"} ${linked === index ? 'text-blue-500 lg:text-base  text-sm' : 'text-black/50 text-[10px] lg:text-sm'}`}
                             onClick={() => {setlinked(index);handleScroll(index)}}
                         >
                             {text}
@@ -82,7 +82,7 @@ const Navigation = () => {
                
            {
             scrollValue !== null && 
-            <motion.div  initial={{y:50}} animate={{opacity:1,y:0}}exit={{y:50}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-[50%] hidden p-5 -bottom-3 fixed items-center justify-center  lg:flex z-50 cursor-pointer ">
+            <motion.div  initial={{y:50}} animate={{opacity:1,y:0}}exit={{y:50}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-[50%] hidden p-5 -bottom-3 fixed items-center justify-center  md:flex z-50 cursor-pointer ">
                 <motion.div initial={{opacity:0}} animate={{opacity:1}}exit={{opacity:0}} transition={{type:'spring',stiffness: 150, damping: 20}} className="w-full scale-x-110 h-20 bg-black/90 blur-3xl fixed -bottom-14 z-50"></motion.div>
                 {menuList[language].map((text, index) => (
                     <motion.div

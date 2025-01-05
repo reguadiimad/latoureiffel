@@ -26,8 +26,8 @@ const Education = ({ id }) => {
 
     return (
         <>
-            <div id={id} ref={motherRef} className={`w-full items-center justify-center flex flex-col ${language==="ar"&&'text-xl'}`}>
-                <motion.div {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative flex items-center justify-center`}>
+            <div id={id} ref={motherRef} className={`w-full items-center h-auto  justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
+                <motion.div {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
                     <img className={`w-full opacity-90 `} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
                     <div className={`absolute w-full h-full flex hhy ${language==="ar"&&'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-xl'}`}>           
@@ -86,6 +86,8 @@ const Education = ({ id }) => {
                         </div>
                     </div>
                 </motion.div>
+                
+
                 <div className={`w-[90%] my-20`}>
                     <div className={`rounded-[50px] flex gapx-10 items-center ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
                         <div className={`flex-1`}>
@@ -136,7 +138,62 @@ const Education = ({ id }) => {
                         {t.slideText[language]}  {/* Here's the corrected line */}
                     </div>
                 </div>
+            </div>
+
+            <div id={id} ref={motherRef} className={`w-full items-center h-auto justify-center flex lg:hidden flex-col ${language === "ar" && 'text-xl'}`}>
+                {/* Top Section */}
+                <motion.div {...bottomAnimation()} className={`w-[90%] hhy overflow-hidden rounded-[30px] sm:rounded-[50px] mt-10 relative flex flex-col lg:flex-row items-center justify-center`}>
+                    <img className={`w-full  lg:w-[60%] opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
+                    <div className={`absolute hhy w-full h-full flex flex-col lg:flex-row ${language === "ar" && 'flex-row-reverse text-right'}`}>
+                        <div className={`flex-1 px-5 sm:px-12 py-6 sm:py-12 flex justify-center flex-col gap-y-4 sm:gap-y-10`}>
+                            <motion.p {...bottomAnimation(0.1)} className={`text-red-500 text-sm sm:text-lg`}>{texts.tagline[language]}</motion.p>
+                            <motion.h1 {...bottomAnimation(0.2)} className={`${language === "ar" ? 'text-4xl sm:text-8xl' : 'text-3xl sm:text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
+                            <motion.p {...bottomAnimation()} className={`text-white text-sm sm:text-base`}>{texts.section1[language]}</motion.p>
+                            <motion.p {...bottomAnimation()} className={`text-white text-sm sm:text-base`}>{texts.section2[language]}</motion.p>
+                            <motion.button {...scaleAnimation()} className={`bg-red-500 shadow-xl p-2 sm:p-4 rounded-xl flex gap-x-2 w-full sm:w-auto`}>
+                                <b><FontAwesomeIcon icon={faDownload} className={`mr-2`} /> {texts.button[language]}</b>
+                            </motion.button>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Cards Section */}
+                <div className={`w-[90%] my-10 flex flex-col sm:flex-row gap-4`}>
+                    {[
+                        { icon: faFlask, title: texts.categoryTitles[language].innovation, heading: texts.innovation_title[language], text: texts.innovation_text[language] },
+                        { icon: faGlobe, title: texts.categoryTitles[language].engagement, heading: texts.engagement_title[language], text: texts.engagement_text[language] },
+                        { icon: faLanguage, title: texts.categoryTitles[language].languages, heading: texts.languages_title[language], text: texts.languages_text[language] }
+                    ].map((item, index) => (
+                        <motion.div key={index} {...leftAnimation(0.1 * index)} className={`bg-white/50 w-full sm:w-[30%] p-4 rounded-xl shadow-md flex flex-col items-center`}>
+                            <FontAwesomeIcon icon={item.icon} className={`text-black/10 text-xl sm:text-2xl mb-2`} />
+                            <p className={`text-blue-500 font-semibold`}>{item.title}</p>
+                            <h1 className={`text-red-500 text-lg sm:text-2xl my-2`}><b>{item.heading}</b></h1>
+                            <p className={`text-sm text-black/50 text-center`}>{item.text}</p>
+                        </motion.div>
+                    ))}
                 </div>
+
+                {/* Bottom Section */}
+                <div className={`w-[90%] my-10 flex flex-col gap-y-5`}>
+                    <motion.h1 {...leftAnimation(0.2)} className={`text-blue-500 text-2xl sm:text-5xl  text-center`}><b>{t.mainHeading[language]}</b></motion.h1>
+                    <div className={`flex flex-col sm:flex-row gap-y-4 sm:gap-x-4`}>
+                        {[
+                            { title: t.whatIsISO[language], text: t.whatIsISODescription[language] },
+                            { title: t.howItHelps[language], text: t.howItHelpsDescription[language] },
+                            { title: t.whatYouGain[language], text: t.whatYouGainDescription[language] },
+                            { title: t.whyChooseUs[language], text: t.whyChooseUsDescription[language] }
+                        ].map((item, index) => (
+                            <motion.div key={index} {...leftAnimation(0.2 * index)} className={`p-4 border border-black/10 rounded-xl flex-1 text-center`}>
+                                <strong className={`text-blue-500 text-lg`}>{item.title}</strong>
+                                <p className={`text-sm`}>{item.text}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                    <div className={`text-center text-neutral-600 animate-pulse mt-5`}>
+                        
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

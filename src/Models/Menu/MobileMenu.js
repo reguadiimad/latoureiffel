@@ -36,7 +36,7 @@ const MobileMenu = ({ visble, onClose }) => {
     };
 
     return (
-        <AnimatePresence>
+        <>
             {visble && (
                 <motion.div
                     className="w-full h-screen bg-black/20 fixed top-0 left-0 z-50 flex items-center lg:hidden navMobile mobile"
@@ -108,7 +108,7 @@ const MobileMenu = ({ visble, onClose }) => {
 
                 </motion.div>
             )}
-        </AnimatePresence>
+        </>
     );
 };
 

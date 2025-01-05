@@ -33,7 +33,7 @@ const MotDeFondateur = ({id}) =>{
           >
             {/* Main Left Section */}
           
-            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] w-full lg:h-[700px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
+            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full lg:h-[700px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
             <img
                   className={`rounded-[40px] w-full h-full object-cover -z-10 absolute top-0 lg:hidden `}
                   src={process.env.PUBLIC_URL + "/images/founder.jpg"}
@@ -55,10 +55,10 @@ const MotDeFondateur = ({id}) =>{
               <motion.div {...leftAnimation(0.51)}  className={`lg:flex-1 w-full ${language==="ar"&&"flex flex-col items-end"}  h-full p-4 lg:p-0 pr-5 lg:pr-10 ${language==="ar"?'text-base':'text-base'} text-white text-justify py-4`}>
                 <FontAwesomeIcon 
                   icon={faQuoteLeft}
-                  className={`lg:text-9xl text-2xl text-shadow-xl w-full lg:w-auto text-white ${language==="ar"&&'-scale-x-100'}`}
+                  className={`lg:text-9xl md:text-6xl text-2xl text-shadow-xl w-full lg:w-auto text-white ${language==="ar"&&'-scale-x-100'}`}
                 />
-                <motion.p {...bottomAnimation(0.20)} className={`p-2 lg:text-base text-[10px]`}>{texts.paragraph1[language]}</motion.p>
-                <motion.p {...bottomAnimation(0.30)} className={`my-2 p-2 lg:text-base text-[10px]`}>{texts.paragraph2[language]}</motion.p>
+                <motion.p {...bottomAnimation(0.20)} className={`p-2 md:text-base text-[10px]`}>{texts.paragraph1[language]}</motion.p>
+                <motion.p {...bottomAnimation(0.30)} className={`my-2 p-2 md:text-base text-[10px]`}>{texts.paragraph2[language]}</motion.p>
                 <motion.p {...bottomAnimation(0.20)} className={`text-red-500 bg-white font-bold p-2 rounded-xl text-center`}>
                   {texts.welcome[language]}
                 </motion.p>
@@ -71,7 +71,7 @@ const MotDeFondateur = ({id}) =>{
             </motion.div>
       
             {/* Main Right Section */}
-            <motion.div {...rightAnimation()} className={`lg:w-[30%] mt-20 h-[500px] flex items-center flex-col bg-red-500 rounded-[40px] py-10 relative`}>
+            <motion.div {...rightAnimation()} className={`lg:w-[30%] w-full  mt-20 h-[500px] flex items-center flex-col bg-red-500 rounded-[40px] py-10 relative`}>
               <motion.h1 {...scaleAnimation(0.2)} className={`text-blue-500 text-9xl font-extrabold -mt-24`}>4</motion.h1>
               <motion.div {...scaleAnimation(0.4)} className={`w-[90%] text-center text-white ${language==="ar"?'text-4xl':'text-2xl'}`}>
                 <b>{texts.promisesOfFounder[language]}</b>

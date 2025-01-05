@@ -81,7 +81,7 @@ const Navbar = () => {
 
        {/* Mobile Menu Icon */}
        <div className="flex lg:hidden w-[50%] justify-end">
-         <FontAwesomeIcon icon={faBars} className="text-3xl md:text-4xl hover:animate-pulse" onClick={() => setIsMobile(true)} />
+         <FontAwesomeIcon icon={faBars} className="text-3xl md:text-4xl z-50 hover:animate-pulse"  onClick={()=>setIsMobile(true)} />
        </div>
      </nav>
      }
