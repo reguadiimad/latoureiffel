@@ -37,13 +37,13 @@ const ParentEleve = ({ id }) => {
                     <div className={`w-full md:w-[40%] py-5`}>
                         <motion.div {...leftAnimation()} className={`w-[100%] h-full bg-red-500 rounded-[50%] rounded-bl-3xl rounded-br-[30%] relative items-end overflow-x-hidden flex`}>
                             <img className={`absolute scale-[1.19] origin-bottom`} src={process.env.PUBLIC_URL + '/images/dad.png'} alt="Parent" />
-                            <div className={`absolute w-[45%] bg-white/5 rounded-3xl p-5 backdrop-blur-xl top-[45%] right-[5%] text-white border border-white/10 shadow-xl`}>
+                            <div className={`absolute w-[45%] bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl top-[45%] right-[5%] text-white border border-white/10 shadow-xl`}>
                                 <motion.div {...bottomAnimation()} className={`w-full flex items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />
                                     <p className={`${language === "ar" ? "text-xl" : 'text-base'}`}>{parent.quote1[language]}<br /><p className={`text-sm text-white/30`}>{parent.quote1Author[language]}</p></p>
                                 </motion.div>
                             </div>
-                            <div className={`absolute w-[45%] scale-75 bg-white/5 rounded-3xl p-5 backdrop-blur-xl bottom-[5%] left-[5%] text-white border border-white/10 shadow-xl`}>
+                            <div className={`absolute w-[45%] scale-75 bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl bottom-[5%] left-[5%] text-white border border-white/10 shadow-xl`}>
                                 <motion.div  {...scaleAnimation()} className={`w-full flex items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />
                                     <p className={`${language === "ar" ? "text-xl" : 'text-base'}`}>{parent.quote2[language]}<br /><p className={`text-sm text-white/30`}>{parent.quote2Author[language]}</p></p>
@@ -128,13 +128,13 @@ const ParentEleve = ({ id }) => {
                     <div className={`w-full md:w-[40%] p-5`}>
                         <motion.div {...rightAnimation()} className={`w-[100%] h-full bg-blue-500 rounded-[50%] rounded-br-3xl rounded-bl-[30%] relative items-end overflow-x-hidden flex`}>
                             <img className={`absolute scale-[1.19] origin-bottom`} src={process.env.PUBLIC_URL + '/images/kid.png'} alt="Student" />
-                            <div className={`absolute w-[45%] bg-white/5 rounded-3xl p-5 backdrop-blur-xl top-[42.5%] right-[5%] text-white border border-white/10 shadow-2xl`}>
+                            <div className={`absolute w-[45%] bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl top-[42.5%] right-[5%] text-white border border-white/10 shadow-2xl`}>
                                 <motion.div {...topAnimation()} className={`w-full flex items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />
                                     <p className={`${language === "ar" ? "text-xl" : 'text-base'}`}>{student.quote1[language]}<br /><p className={`text-sm text-white/30`}>{student.quote1Author[language]}</p></p>
                                 </motion.div>
                             </div>
-                            <div {...scaleAnimation()} className={`absolute w-[45%] scale-[0.8] bg-white/5 rounded-3xl p-5 backdrop-blur-xl bottom-[5%] left-[9%] text-white border border-white/10 shadow-xl`}>
+                            <div {...scaleAnimation()} className={`absolute w-[45%] scale-[0.8] bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl bottom-[5%] left-[9%] text-white border border-white/10 shadow-xl`}>
                                 <motion.div {...bottomAnimation()} className={`w-full flex items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />
                                     <p className={`${language === "ar" ? "text-xl" : 'text-base'}`}>{student.quote2[language]}<br /><p className={`text-sm text-white/30`}>{student.quote2Author[language]}</p></p>

@@ -49,13 +49,13 @@ const Education = ({ id }) => {
                         </div>
                         <div className={`w-[45%] h-full flex gap-x-3 flex-row-reverse ${language==='ar'&&'-scale-x-100'}`}>
                             <div className={`w-[20%] h-full flex flex-col gap-y-3 `}>
-                                <div className={`bg-white/10 w-full h-[20%] backdrop-blur-md border border-white/20 border-t-0 border-r-0 rounded-bl-[20px] shadow-md`}></div>
-                                <div className={`bg-white/10 w-full h-[50%] backdrop-blur-md border border-white/20 border-r-0 rounded-l-[20px] shadow-md`}></div>
-                                <div className={`bg-white/10 w-full h-[30%] backdrop-blur-md border border-white/20 border-b-0 border-r-0 rounded-tl-[20px] shadow-md`}></div>
+                                <div className={`bg-white/10 w-full h-[20%] blurey backdrop-blur-md border border-white/20 border-t-0 border-r-0 rounded-bl-[20px] shadow-md`}></div>
+                                <div className={`bg-white/10 w-full h-[50%] blurey backdrop-blur-md border border-white/20 border-r-0 rounded-l-[20px] shadow-md`}></div>
+                                <div className={`bg-white/10 w-full h-[30%] blurey backdrop-blur-md border border-white/20 border-b-0 border-r-0 rounded-tl-[20px] shadow-md`}></div>
                             </div>
                             <div className={`w-[40%] h-full flex flex-col gap-y-3`}>
-                                <div className={`bg-white/10 w-full h-[5%] backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
-                                <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
+                                <div className={`bg-white/10 w-full h-[5%] blurey backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
+                                <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
                                     <FontAwesomeIcon icon={faFlask} className={`text-black/10 text-2xl absolute top-3 right-3`} />
                                     <div className={`w-full flex scale-95 flex-col items-center justify-center`}>
                                         <p className={`bg-black/5 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].innovation}</p>
@@ -63,7 +63,7 @@ const Education = ({ id }) => {
                                         <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.innovation_text[language]}</p>
                                     </div>
                                 </div>
-                                <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
+                                <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
                                     <FontAwesomeIcon icon={faGlobe} className={`text-black/10 text-2xl absolute top-3 right-3`} />
                                     <div className={`w-full flex scale-95 flex-col items-center justify-center`}>
                                         <p className={`bg-black/5 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].engagement}</p>
@@ -71,17 +71,17 @@ const Education = ({ id }) => {
                                         <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.engagement_text[language]}</p>
                                     </div>
                                 </div>
-                                <div className={`bg-white/10 w-full h-[15%] backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
+                                <div className={`bg-white/10 w-full h-[15%] blurey backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
                             </div>
                             <div className={`${language==='ar'&&'-scale-x-100'} w-[40%] h-full flex flex-col gap-y-3`}>
-                                <div className={`bg-white/5 w-full h-[30%] backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
-                                <div className={`bg-white/50 w-full h-[40%] backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
+                                <div className={`bg-white/5 w-full h-[30%] blurey backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
+                                <div className={`bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
                                     <FontAwesomeIcon icon={faLanguage} className={`text-black/10 text-2xl absolute top-3 right-3`} />
                                     <p className={`bg-black/10 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].languages}</p>
                                     <h1 className={`text-5xl text-red-500/90 my-2`}><b>{texts.languages_title[language]}</b></h1>
                                     <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.languages_text[language]}</p>
                                 </div>
-                                <div className={`bg-white/10 w-full h-[30%] backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
+                                <div className={`bg-white/10 w-full h-[30%] blurey backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
                             </div>
                         </div>
                     </div>
@@ -173,22 +173,28 @@ const Education = ({ id }) => {
                     ))}
                 </div>
 
-                {/* Bottom Section */}
-                <div className={`w-[90%] my-10 flex flex-col gap-y-5`}>
+ 
+                <div className={`w-[90%] my-10  flex flex-col gap-y-5`}>
                     <motion.h1 {...leftAnimation(0.2)} className={`text-blue-500 text-2xl sm:text-5xl  text-center`}><b>{t.mainHeading[language]}</b></motion.h1>
-                    <div className={`flex flex-col sm:flex-row gap-y-4 sm:gap-x-4`}>
-                        {[
-                            { title: t.whatIsISO[language], text: t.whatIsISODescription[language] },
-                            { title: t.howItHelps[language], text: t.howItHelpsDescription[language] },
-                            { title: t.whatYouGain[language], text: t.whatYouGainDescription[language] },
-                            { title: t.whyChooseUs[language], text: t.whyChooseUsDescription[language] }
-                        ].map((item, index) => (
-                            <motion.div key={index} {...leftAnimation(0.2 * index)} className={`p-4 border border-black/10 rounded-xl flex-1 text-center`}>
-                                <strong className={`text-blue-500 text-lg`}>{item.title}</strong>
-                                <p className={`text-sm`}>{item.text}</p>
-                            </motion.div>
-                        ))}
-                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {[
+        { title: t.whatIsISO[language], text: t.whatIsISODescription[language] },
+        { title: t.howItHelps[language], text: t.howItHelpsDescription[language] },
+        { title: t.whatYouGain[language], text: t.whatYouGainDescription[language] },
+        { title: t.whyChooseUs[language], text: t.whyChooseUsDescription[language] }
+    ].map((item, index) => (
+        <motion.div
+            key={index}
+            {...leftAnimation(0.2 * index)}
+            className="p-4 border border-black/10 rounded-xl text-center"
+        >
+            <strong className="text-blue-500 text-lg">{item.title}</strong>
+            <p className="text-sm">{item.text}</p>
+        </motion.div>
+    ))}
+</div>
+
                     <div className={`text-center text-neutral-600 animate-pulse mt-5`}>
                         
                     </div>

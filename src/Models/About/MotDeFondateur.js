@@ -13,7 +13,7 @@ const MotDeFondateur = ({id}) =>{
     const dispatch = useDispatch();
     const scrollValue = useSelector((state) => state.scrollVal); // Assuming this is correctly defined in your Redux store
     const { ref: motherRef, inView } = useInView({
-      threshold: 1, // Trigger when 50% of the component is visible
+      threshold: 0.5, // Trigger when 50% of the component is visible
     });
     const { language } = useSelector((state) => state.presntion); 
     
@@ -45,7 +45,7 @@ const MotDeFondateur = ({id}) =>{
                   src={process.env.PUBLIC_URL + "/images/fondateur.png"}
                   alt="Founder"
                 />
-                <motion.div {...leftAnimation(0.5)} className={`absolute hidden lg:w-52 bg-gradient-to-tr from-black/10 to-white/10 backdrop-blur-xl drop-shadow-2xl -bottom-8 -left-5 rounded-[40px] font-semibold text-white/70 border border-white/10 text-center lg:flex items-center flex-col justify-center gap-y-2 px-10 py-6 shadow-md`}>
+                <motion.div {...leftAnimation(0.5)} className={`absolute hidden lg:w-52 bg-gradient-to-tr from-black/10 to-white/10 blurey backdrop-blur-xl drop-shadow-2xl -bottom-8 -left-5 rounded-[40px]  font-semibold text-white/70 border border-white/10 text-center lg:flex items-center flex-col justify-center gap-y-2 px-10 py-6 shadow-md`}>
                   <FontAwesomeIcon className={`drop-shadow-md` } icon={faGraduationCap} />
                   <p className={`text-white/70 text-base drop-shadow-md font-bold`}>
                     {texts.educateForFuture[language]}
@@ -88,9 +88,9 @@ const MotDeFondateur = ({id}) =>{
                           faComments,
                         ][index]
                       }
-                      className={`text-white text-6xl `}
+                      className={`text-white/95 text-6xl md:text-7xl lg:text-6xl`}
                     />
-                    <p className={`px-4 text-[12px] lg:text-base ${language==="ar"&&'text-xl'}`}>{promise}</p>
+                    <p className={`px-4 text-[12px] md:text-base ${language==="ar"&&'text-xl'}`}>{promise}</p>
                   </motion.div>
                 ))}
                 <p className={`absolute w-[90%] left-[5%] text-center bottom-2 text-white/60 text-[10px] ${language==="ar"&&'text-sm bottom-4'}`}>

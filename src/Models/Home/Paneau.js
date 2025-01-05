@@ -24,7 +24,7 @@ const Panneau = () => {
     return (
         <section
             ref={ref}
-            className="lg:w-[90%] w-[94%] p-2 py-7 md:p-10 md:py-16 rounded-3xl md:rounded-[40px] bg-white/20 mb-10 border border-white/20 md:-mt-40 lg:-mt-32 -mt-44 blurey backdrop-blur-xl flex justify-center items-center z-10"
+            className="lg:w-[90%] w-[94%] p-2 py-7 md:p-10 md:py-16 rounded-3xl md:rounded-[40px] bg-white/20 mb-10 border border-white/20 md:-mt-40 lg:-mt-32 -mt-44 blurey blurey backdrop-blur-xl flex justify-center items-center z-10"
         >
             <animated.div className="w-full flex justify-center">
                 {/* Élèves Inscrits */}

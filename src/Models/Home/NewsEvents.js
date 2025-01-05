@@ -191,7 +191,7 @@ const nextSlide = () => {
 
           <div onClick={()=>setCurrentIndex(totalSlides-1)} key="static-final" className={`relative cursor-pointer w-[300px] dots dotds h-[90%] flex-shrink-0 flex items-center justify-center rounded-[40px] overflow-hidden ${currentIndex !== totalSlides - 1 ? "scale-90 scale-y-85 opacity-80" : ""}`}>
             <img alt='img' src={process.env.PUBLIC_URL + "/images/madrasa.jpeg"} className="w-full h-full object-cover" />
-            <div className="absolute top-0 left-0 w-full h-full bg-black/5 backdrop-blur-md flex items-center justify-center flex-col text-white/80 text-base">
+            <div className="absolute top-0 left-0 w-full h-full bg-black/5 blurey backdrop-blur-md flex items-center justify-center flex-col text-white/80 text-base">
             <FontAwesomeIcon className={`text-6xl text-white ${ currentIndex === totalSlides - 1 ? "scale-1" : "scale-50 opacity-10"}`} icon={faMousePointer}/>
             <p className={`mt-3 ${ currentIndex !== totalSlides - 1 ? "opacity-10" : "opacity-100"}`}>{texts.more[language]}</p>
           </div>
@@ -237,7 +237,7 @@ const Card = ({id, isActive, title, description, category, image, icon, date, on
 
       <img src={process.env.PUBLIC_URL + image} className={`w-full h-[52%] bottom-0 left-0 absolute object-cover rounded-[40px] ${!isActive&&'blur-[0.5px]'} `} alt={title} />
 
-      <span className={`absolute bottom-5 -left-3 flex items-center justify-center dots backdrop-blur-md bg-black/30 text-white pl-5 py-2 pr-2 rounded-full gap-x-4 text-base ${ isActive ? "opacity-100 shadow-2xl scale-100 translate-x-8" : "opacity-0  translate-x-20 "}`}>
+      <span className={`absolute bottom-5 -left-3 flex items-center justify-center dots blurey backdrop-blur-md bg-black/30 text-white pl-5 py-2 pr-2 rounded-full gap-x-4 text-base ${ isActive ? "opacity-100 shadow-2xl scale-100 translate-x-8" : "opacity-0  translate-x-20 "}`}>
          {readMore}
         <div className="w-10 h-10 flex items-center justify-center bg-white/80 rounded-full text-blue-500">
           <FontAwesomeIcon icon={faArrowRight} />

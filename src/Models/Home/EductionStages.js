@@ -68,7 +68,7 @@ export default function EducationStages() {
 
           <span style={{transform: `translateY(${direction * (0.8 + 1) * 10}px)`}} className='md:flex-1 w-[90%] mx-2 md:mx h-72 md:h-[450px] lg:h-[600px] roundedd  lg:mx-3 overflow-hidden relative boxyy '>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk1.jpg'} alt='Maternelle' />
-            <div  className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
+            <div  className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[0].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 md:my-2 font-semibold flex flex-col justify-center items-center'>2-5<p className='lg:text-xl text-lg -mt-2 font-bold text-white'>{texts.texts.stages[0].age[language]}</p></h1>
               <p className='w-[90%] hidden lg:block  text-center  xl:text-base'>
@@ -81,7 +81,7 @@ export default function EducationStages() {
   
           <span  className='md:flex-1 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
             <div style={{transform: `translateY(${direction * (1.3 + 1) * 10}px)`}} className='w-full mb-5 h-[50%] overflow-hidden relative'>
-              <div  className='w-[90%] lg:h-[80%] py-4 lg:py-0  absolute bottom-4 left-[5%] bg-white/50 backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
+              <div  className='w-[90%] lg:h-[80%] py-4 lg:py-0  absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
                 <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[1].name[language]}</span>
                 <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 my-2 font-semibold flex flex-col justify-center items-center'>6-10<p className='md:text-xl text-lg -mt-2 text-white font-bold'>{texts.texts.stages[0].age[language]}</p></h1>
                 <p className='w-[90%] hidden lg:block text-center text-neutral-900/50 text-base'>
@@ -98,7 +98,7 @@ export default function EducationStages() {
   
           <span style={{transform: `translateY(${direction * (2 + 1) * 10}px)`}} className='md:flex-1 mt-4  w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk3.jpg'} alt='Collège' />
-            <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
+            <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[2].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 my-2 font-semibold flex flex-col justify-center items-center'>11-14<p className='md:text-xl text-lg -mt-2 text-white font-bold'>{texts.texts.stages[0].age[language]}</p></h1>
               <p className='w-[90%] hidden lg:block text-center text-neutral-900/50 text-base'>
@@ -112,7 +112,7 @@ export default function EducationStages() {
   
           <span style={{transform: `translateY(${direction * -(1.7 + 1) * 10}px)`}} className='md:flex-1 mt-4 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3  overflow-hidden relative boxyy'>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk4.jpg'} alt='Lycée' />
-            <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-3 lg:bottom-4 left-[5%] bg-white/50 backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
+            <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-3 lg:bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[3].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 my-2 font-semibold flex flex-col justify-center items-center'>15-18<p className='md:text-xl text-lg -mt-2 text-white font-bold'>{texts.texts.stages[0].age[language]}</p></h1>
               <p className='w-[90%] hidden lg:block text-center text-neutral-900/50 text-base'>

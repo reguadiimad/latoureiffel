@@ -69,20 +69,20 @@ const PresentationVideo = ({onClose,prsntation}) => {
 
                 <motion.div exit={{y:'-100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} } className="lg:w-[85%] w-[95%] text-white/70 text-sm md:text-2xl lg:text-3xl font-semibold flex items-center justify-center relative mb-3">
                     <span className="w-[15%] flex">
-                    <div className="text-center blurey border-white/20 roundedd border bg-white/10 shadow-lg/10 backdrop-blur-xl text-sm  md:text-lg flex items-center justify-center p-1 md:p-2 text-white/70">
+                    <div className="text-center blurey border-white/20 roundedd border bg-white/10 shadow-lg/10 blurey backdrop-blur-xl text-sm  md:text-lg flex items-center justify-center p-1 md:p-2 text-white/70">
                         <FontAwesomeIcon className=" hover:animate-pulse cursor-pointer w-8" icon={!isMute?faVolumeHigh:faVolumeMute} onClick={mute}/>
                         </div>
                     </span>
                     <h1 className="w-[70%] text-center">{content?.videoTitle?.[language] || 'Loading...'}</h1>
                     <span className="w-[15%]  flex flex-row-reverse">
-                        <div className="text-center blurey border-white/20 roundedd border bg-white/10 shadow-lg/10 backdrop-blur-xl md:text-lg flex items-center justify-center p-1 md:p-2 text-white/70">
+                        <div className="text-center blurey border-white/20 roundedd border bg-white/10 shadow-lg/10 blurey backdrop-blur-xl md:text-lg flex items-center justify-center p-1 md:p-2 text-white/70">
                             <FontAwesomeIcon onClick={()=>replay()} className="mr-4 text-sm md:text-xl hover:animate-pulse cursor-pointer" icon={faRefresh}/>
                             <FontAwesomeIcon className="hover:animate-pulse cursor-pointer text-sm md:text-xl" icon={faClose} onClick={onClose}/>
                         </div>
                     </span>
                 </motion.div>
 
-                <motion.div initial={{opacity:0,y:50,scale:0.5}} animate={{opacity:1,y:0,scale:1}} exit={{y:'100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  style={{padding:'20px'}} className="lg:w-[85%] w-[98%] md:w-[95%] lg:h-[75%] h-[40%]  roundedd backdrop-blur-xl bg-white/10 shadow-lg/10 border border-white/20 flex items-center justify-center overflow-hidden blurey ">
+                <motion.div initial={{opacity:0,y:50,scale:0.5}} animate={{opacity:1,y:0,scale:1}} exit={{y:'100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  style={{padding:'20px'}} className="lg:w-[85%] w-[98%] md:w-[95%] lg:h-[75%] h-[40%]  roundedd blurey backdrop-blur-xl bg-white/10 shadow-lg/10 border border-white/20 flex items-center justify-center overflow-hidden blurey ">
                     <div style={{borderRadius:'20px'}} className="w-full h-full overflow-hidden">
                         <video  className="w-full h-full object-cover outline-none" ref={videoRef} autoPlay controls loop>
                             <source src={process.env.PUBLIC_URL+"/videos/latourieffela.mp4"} type="video/mp4" />
@@ -90,7 +90,7 @@ const PresentationVideo = ({onClose,prsntation}) => {
                     </div>
                 </motion.div>
 
-                <motion.div initial={{y:100,scale:0.5}} animate={{y:0,scale:1}} exit={{y:'-100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  className=" px-6 p-2 roundedd backdrop-blur-xl bg-white/10 shadow-lg/10 mt-4 border border-white/20 flex items-center justify-center">
+                <motion.div initial={{y:100,scale:0.5}} animate={{y:0,scale:1}} exit={{y:'-100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  className=" px-6 p-2 roundedd blurey backdrop-blur-xl bg-white/10 shadow-lg/10 mt-4 border border-white/20 flex items-center justify-center">
                     <img alt='img'  onClick={()=>skipTime(-10)} className="md:h-7 h-5 opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/-10.png'}/>
                     <FontAwesomeIcon icon={isPlay?faPause:faPlay} className="text-center w-16 text-2xl md:text-5xl text-white/70 md:mx-7 cursor-pointer hover:text-white hover:animate-pulse" onClick={handlePlayPause}/>
                     <img alt='img' onClick={()=>skipTime(10)} className="md:h-7 h-5  opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/+10.png'}/>

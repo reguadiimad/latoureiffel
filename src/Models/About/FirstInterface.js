@@ -77,7 +77,7 @@ const FirstInterface = () => {
                 <div className={`w-full lg:w-[45%] flex flex-col gap-y-5 p-0 ${language==="ar"?'lg:pr-4':'lg:pl-4'}`}>
                     <div className={`flex w-full gap-x-2 lg:gap-x-5`}>
                         <motion.div {...topAnimation()}  className={`flex-1 lg:h-64 relative`}>
-                            <motion.div initial={{y:-100,scale:0}} whileInView={{y:0,scale:1}} transition={{type:'spring',damping:13,delay:0.6}}  className={`absolute z-40 border border-white/10 -top-12 right-8 hidden lg:w-24 lg:h-24 rounded-full lg:flex items-center justify-center bg-black/5 backdrop-blur-xl shadow-lg lg:text-5xl text-blue-500`}>
+                            <motion.div initial={{y:-100,scale:0}} whileInView={{y:0,scale:1}} transition={{type:'spring',damping:13,delay:0.6}}  className={`absolute z-40 border border-white/10 -top-12 right-8 hidden lg:w-24 lg:h-24 rounded-full lg:flex items-center justify-center bg-black/5 blurey backdrop-blur-xl shadow-lg lg:text-5xl text-blue-500`}>
                                 <FontAwesomeIcon icon={faArrowTrendUp} />
                             </motion.div>
                             <div className={`w-full h-full overflow-hidden rounded-tl-full`}>

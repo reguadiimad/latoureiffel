@@ -84,7 +84,7 @@ const Menu = ({ visible }) => {
                     >
                         <motion.div
                             {...dropAndPopAnimation()}
-                            className="mt-10 xl:w-[58%] md:w-[85%] md:block p-2.5 bg-gradient-to-tr from-white/10 to-white/30 blurey backdrop-blur-2xl border border-white/30 rounded-full flex items-center justify-center shadow-xl "
+                            className="mt-10 xl:w-[58%] md:w-[85%] md:block p-2.5 bg-gradient-to-tr from-white/10 to-white/30 blurey blurey backdrop-blur-2xl border border-white/30 rounded-full flex items-center justify-center shadow-xl "
                         >
                             <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex ">
                                 <motion.span
@@ -124,7 +124,7 @@ const Menu = ({ visible }) => {
                         <motion.div
                             key="lang-menu"
                             initial={{y:50,scale:0.5}} animate={{y:0,scale:1}} exit={{y:80,scale:0.2}} duration={200}  transition={{type:"spring",damping:13,duration:'0.1s'}}
-                            className="w-10  text-white/70 bg-black/10 backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 py-2"
+                            className="w-10  text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 py-2"
                         >
                             {langButtons(language)}
                         </motion.div>
@@ -132,7 +132,7 @@ const Menu = ({ visible }) => {
                 </AnimatePresence>
                 <button
                     onClick={() => setLangClicked(!langClicked)}
-                    className="text-white/70 bg-black/10 rounded-full w-10 h-10 backdrop-blur-lg font-semibold hover:bg-black/5"
+                    className="text-white/70 bg-black/10 rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5"
                 >
                     {language}
                 </button>

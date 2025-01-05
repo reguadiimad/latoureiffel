@@ -98,7 +98,7 @@ const GalleryPrev = () => {
                     </div>
                 </div>
                 </div>
-                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 z-10 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 backdrop-blur-lg gap-y-3 galCover">
+                <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 z-10 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 blurey backdrop-blur-lg gap-y-3 galCover">
                     <p className="text-white/60  md:text-xl">{content[language].gallery_description}
                     </p>
                     <h1 className="md:text-8xl text-4xl text-white/85 font-extrabold">

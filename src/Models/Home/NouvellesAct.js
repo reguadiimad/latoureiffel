@@ -125,7 +125,7 @@ const NouvellesAct = () => {
           <div className=" w-full h-full absolute top-0 left-0 z-0 flex items-center justify-center md:hidden">
               <img alt='img' className={` h-80 transition-all ease-in-out duration-200  ${activestyle.image}`} src={process.env.PUBLIC_URL+lesServices[activeIndex].images}></img>
           </div>
-          <div className=" w-full h-full absolute top-0 left-0 z-0 backdrop-blur-[3px] bg-black/5 md:hidden">
+          <div className=" w-full h-full absolute top-0 left-0 z-0 blurey backdrop-blur-[3px] bg-black/5 md:hidden">
       
           </div>
           <div className="flex-1 px-10 overflow-hidden text-base md:text-sm lg:text-2xl z-10 h-full md:pt-0 pt-10">

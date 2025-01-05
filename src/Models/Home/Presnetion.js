@@ -42,7 +42,7 @@ const Presontation = () => {
                     {/* Categories */}
                     <div className="flex justify-center lg:justify-start mb-3">
                         {(content?.categories?.[language] || []).map((category, index) => (
-                            <motion.span {...customAnimation(0, '-100%', 0, 0.25 * index)} key={index} className={`${index % 2 === 0 ? 'bg-blue-500' : 'bg-red-500'} backdrop-blur-lg text-white p-2 px-4 rounded-full mx-1`}>
+                            <motion.span {...customAnimation(0, '-100%', 0, 0.25 * index)} key={index} className={`${index % 2 === 0 ? 'bg-blue-500' : 'bg-red-500'} blurey backdrop-blur-lg text-white p-2 px-4 rounded-full mx-1`}>
                                 {category}
                             </motion.span>
                         ))}
