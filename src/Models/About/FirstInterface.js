@@ -59,7 +59,7 @@ const FirstInterface = () => {
             <div ref={motherRef} className={`w-[90%] flex-col lg:flex-row flex items-center justify-center mb-10 lg:mb-16  ${language==='ar'?'flex-row-revers lg:flex-row-reverse  ':''}`}>
                 <div className={`w-full  lg:w-[55%] mb-5 gap-y-2 flex flex-col ${language==="ar"&&'items-end'}`}>
                     <motion.p {...leftAnimation()}  className={`text-neutral-500  ${language==="ar"&&'text-3xl'}`}>{translations.surNous[language]}</motion.p>
-                    <motion.h1 {...leftAnimation(0.11)}  className={`text-3xl md:text-5xl font-bold ${language==="ar"?'lg:text-9xl leading-tight text-right':'lg:text-7xl'} text-neutral-900`}>
+                    <motion.h1 {...leftAnimation(0.11)}  className={`text-3xl md:text-5xl font-bold ${language==="ar"?'lg:text-9xl leading-tight text-right':'lg:text-6xl xl:text-7xl'} text-neutral-900`}>
                         <b>{translations.title[language]}</b>
                     </motion.h1>
                     <motion.p {...leftAnimation(0.22)}  className={`text-neutral-500`}>{translations.description[language]}</motion.p>
@@ -77,7 +77,7 @@ const FirstInterface = () => {
                 <div className={`w-full lg:w-[45%] flex flex-col gap-y-5 p-0 ${language==="ar"?'lg:pr-4':'lg:pl-4'}`}>
                     <div className={`flex w-full gap-x-2 lg:gap-x-5`}>
                         <motion.div {...topAnimation()}  className={`flex-1 lg:h-64 relative`}>
-                            <motion.div initial={{y:-100,scale:0}} whileInView={{y:0,scale:1}} transition={{type:'spring',damping:13,delay:0.6}}  className={`absolute z-40 border border-white/10 -top-12 right-8 hidden lg:w-24 lg:h-24 rounded-full lg:flex items-center justify-center bg-black/5 blurey backdrop-blur-xl shadow-lg lg:text-5xl text-blue-500`}>
+                            <motion.div initial={{y:-100,scale:0}} whileInView={{y:0,scale:1}} transition={{type:'spring',damping:13,delay:0.6}}  className={`absolute z-40 border border-white/10 -top-12 right-8 hidden lg:w-24 lg:h-24 rounded-full lg:flex  items-center justify-center bg-black/5 blurey backdrop-blur-xl shadow-lg lg:text-5xl text-blue-500`}>
                                 <FontAwesomeIcon icon={faArrowTrendUp} />
                             </motion.div>
                             <div className={`w-full h-full overflow-hidden rounded-tl-full`}>
@@ -90,7 +90,7 @@ const FirstInterface = () => {
                         <motion.div {...topAnimation(0.35)}  className={`flex-1 lg:h-64 bg-black/5 rounded-2xl md:rounded-[30px] lg:rounded-[40px] py-3 px-5`}>
                             <div className={`w-full flex flex-col items-center lg:text-sm text-[8px] md:text-sm justify-center text-neutral-500`}>
                                 <motion.p {...scaleAnimation(0.4)}>{translations.since[language]}</motion.p>
-                                <motion.h1 {...scaleAnimation(0.36)} className={`lg:text-8xl text-3xl md:text-6xl text-red-500`}>
+                                <motion.h1 {...scaleAnimation(0.36)} className={`xl:text-8xl  text-3xl md:text-6xl text-red-500`}>
                                     <b>{translations.year[language]}</b>
                                 </motion.h1>
                                 <motion.p {...scaleAnimation(0.42)} className={`lg:text-sm text-neutral-500 mt-3 text-center`}>
@@ -106,7 +106,7 @@ const FirstInterface = () => {
                                 src={process.env.PUBLIC_URL + "/images/bon.jpg"}
                             />
                             <div className={`w-full items-center justify-center flex flex-col h-[65%] top-[17.5%] px-5 left-0 absolute text-white/90`}>
-                                <div className={`w-full flex items-center justify-center text:base md:text-xl  lg:text-2xl font-bold mb-4`}>
+                                <div className={`w-full flex items-center justify-center text:base md:text-xl  xl:text-2xl font-bold mb-4`}>
                                     <div className={`h-[2px] bg-white/50 w-[28%]`} />
                                     <p className={`w-[70%]  text-right`}>
                                         {translations.yearsOfSuccess[language].replace(
@@ -115,8 +115,8 @@ const FirstInterface = () => {
                                         )}
                                     </p>
                                 </div>
-                                <p className={`w-full text-[10px] md:text-base lg:text-lg`}>{translations.sharedSuccess[language]}</p>
-                                <p className={`w-full text-[10px] md:text-base lg:text-lg lg:text-justify`}>{translations.sharedFuture[language]}</p>
+                                <p className={`w-full text-[10px] md:text-base xl:text-lg`}>{translations.sharedSuccess[language]}</p>
+                                <p className={`w-full text-[10px] md:text-base xl:text-lg xl:text-justify`}>{translations.sharedFuture[language]}</p>
                             </div>
                         </motion.div>
                         <div className={`flex-1 h-full gap-x-4 flex items-end `}>

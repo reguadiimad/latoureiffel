@@ -26,14 +26,14 @@ const Education = ({ id }) => {
 
     return (
         <>
-            <div id={id} ref={motherRef} className={`w-full items-center h-auto  justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
+            <div id={id} ref={motherRef} className={`w-full items-center   justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
                 <motion.div {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
-                    <img className={`w-full opacity-90 `} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
+                    <img className={`w-full opacity-90 h-auto min-h-[700px] xl:min-h-[870px] object-cover`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
                     <div className={`absolute w-full h-full flex hhy ${language==="ar"&&'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-xl'}`}>           
                             <div className={`w-full pr-10`}>
                                 <motion.p {...bottomAnimation(0.1)} className={`text-red-500 `}>{texts.tagline[language]}</motion.p>
-                                <motion.h1 {...bottomAnimation(0.2)} className={`${language==="ar"?'text-8xl':'text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
+                                <motion.h1 {...bottomAnimation(0.2)} className={`${language==="ar"?'text-8xl':'text-5xl xl:text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
                             </div>
                             <div className={`w-full flex pr-10`}>
                                 <div className={`text-white drop-shadow-2xl text-justify`}>
@@ -56,19 +56,19 @@ const Education = ({ id }) => {
                             <div className={`w-[40%] h-full flex flex-col gap-y-3`}>
                                 <div className={`bg-white/10 w-full h-[5%] blurey backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
                                 <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
-                                    <FontAwesomeIcon icon={faFlask} className={`text-black/10 text-2xl absolute top-3 right-3`} />
+                                    <FontAwesomeIcon icon={faFlask} className={`text-black/10 text-2xl absolute xl:top-3 lg:bottom-2 right-2`} />
                                     <div className={`w-full flex scale-95 flex-col items-center justify-center`}>
-                                        <p className={`bg-black/5 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].innovation}</p>
-                                        <h1 className={`text-4xl text-red-500/90 my-2`}><b>{texts.innovation_title[language]}</b></h1>
-                                        <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.innovation_text[language]}</p>
+                                        <p className={`bg-black/5 xl:p-2 xl:px-3 text-center lg:text-[12px] xl:text-base px-2 py-1 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].innovation}</p>
+                                        <h1 className={`text-2xl xl:text-3xl 2xl:text-4xl text-red-500/90 my-2`}><b>{texts.innovation_title[language]}</b></h1>
+                                        <p className={`text-[10px] xl:text-sm w-[90%] tracking-tighter xl:tracking-normal text-center text-black/35`}>{texts.innovation_text[language]}</p>
                                     </div>
                                 </div>
                                 <div className={`${language==='ar'&&'-scale-x-100'} bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
-                                    <FontAwesomeIcon icon={faGlobe} className={`text-black/10 text-2xl absolute top-3 right-3`} />
+                                    <FontAwesomeIcon icon={faGlobe} className={`text-black/10 text-2xl absolute xl:top-3 lg:bottom-2 right-2`} />
                                     <div className={`w-full flex scale-95 flex-col items-center justify-center`}>
-                                        <p className={`bg-black/5 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].engagement}</p>
-                                        <h1 className={`text-4xl text-red-500/90 my-3`}><b>{texts.engagement_title[language]}</b></h1>
-                                        <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.engagement_text[language]}</p>
+                                        <p className={`bg-black/5 xl:p-2 xl:px-3 text-center lg:text-[12px] px-2 py-1  xl:text-base rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].engagement}</p>
+                                        <h1 className={`text-2xl xl:text-3xl 2xl:text-4xl text-red-500/90 my-3`}><b>{texts.engagement_title[language]}</b></h1>
+                                        <p className={`text-[10px] xl:text-sm w-[90%] tracking-tighter xl:tracking-normal text-center text-black/35`}>{texts.engagement_text[language]}</p>
                                     </div>
                                 </div>
                                 <div className={`bg-white/10 w-full h-[15%] blurey backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
@@ -76,10 +76,10 @@ const Education = ({ id }) => {
                             <div className={`${language==='ar'&&'-scale-x-100'} w-[40%] h-full flex flex-col gap-y-3`}>
                                 <div className={`bg-white/5 w-full h-[30%] blurey backdrop-blur-md border border-white/20 border-t-0 rounded-b-[20px] shadow-md`}></div>
                                 <div className={`bg-white/50 w-full h-[40%] blurey backdrop-blur-xl border border-white rounded-[20px] shadow-xl flex flex-col items-center justify-center relative`}>
-                                    <FontAwesomeIcon icon={faLanguage} className={`text-black/10 text-2xl absolute top-3 right-3`} />
-                                    <p className={`bg-black/10 p-2 px-3 rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].languages}</p>
-                                    <h1 className={`text-5xl text-red-500/90 my-2`}><b>{texts.languages_title[language]}</b></h1>
-                                    <p className={`text-sm w-[90%] text-center text-black/35`}>{texts.languages_text[language]}</p>
+                                    <FontAwesomeIcon icon={faLanguage} className={`text-black/10 text-2xl absolute xl:top-3 lg:bottom-2 right-2`} />
+                                    <p className={`bg-black/10 xl:p-2 xl:px-3 text-center lg:text-[12px] px-2 py-1  xl:text-base rounded-full text-blue-500 font-semibold`}>{texts.categoryTitles[language].languages}</p>
+                                    <h1 className={`text-3xl xl:text-4xl 2xl:text-5xl text-red-500/90 my-2`}><b>{texts.languages_title[language]}</b></h1>
+                                    <p className={` text-[10px] xl:text-sm tracking-tighter xl:tracking-normal w-[90%] text-center text-black/35`}>{texts.languages_text[language]}</p>
                                 </div>
                                 <div className={`bg-white/10 w-full h-[30%] blurey backdrop-blur-md border border-white/20 border-b-0 rounded-t-[20px] shadow-md`}></div>
                             </div>
@@ -88,14 +88,14 @@ const Education = ({ id }) => {
                 </motion.div>
                 
 
-                <div className={`w-[90%] my-20`}>
+                <div  className={`w-[90%] my-20`}>
                     <div className={`rounded-[50px] flex gapx-10 items-center ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
                         <div className={`flex-1`}>
                             <motion.p  {...leftAnimation()} className={`text-neutral-500 text-xl mb-5`}>{t.title[language]}</motion.p>
-                            <motion.h1 {...leftAnimation(0.1)} className={`text-8xl text-blue-500 `}><b>{t.mainHeading[language]}</b></motion.h1>
+                            <motion.h1 {...leftAnimation(0.1)} className={`2xl:text-8xl xl:text-7xl lg:text-6xl text-blue-500 `}><b>{t.mainHeading[language]}</b></motion.h1>
                         </div>
                         <div className={`flex flex-row-reverse`}>
-                            <motion.img {...rightAnimation(0.2)} className={`h-64`} src={process.env.PUBLIC_URL +'/images/iso.png'} alt="ISO Certification"/>
+                            <motion.img {...rightAnimation(0.2)} className={`xl:h-64 h-52`} src={process.env.PUBLIC_URL +'/images/iso.png'} alt="ISO Certification"/>
                         </div>
                     </div>
                     <div className={`w-full flex mt-10 ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
@@ -114,7 +114,7 @@ const Education = ({ id }) => {
                         </motion.div>
                         </div>
                         <div className={`w-[80%] overflow-x-scroll ${language==="ar"?'mr-10':'ml-10'}`}>
-                        <div className={`flex w-[120%] items-stretch justify-center gap-x-4 text-neutral-700 text-base`}>
+                        <div className={`flex xl:w-[120%] w-[155%] items-stretch justify-center gap-x-4 text-neutral-700 text-base`}>
                             <motion.div {...leftAnimation(0.2)} className={`p-7 border border-black/10 rounded-[40px] flex-1 flex flex-col items-center justify-center gap-y-3`}>
                             <strong className={`text-blue-500 text-xl`}>{t.whatIsISO[language]}</strong>
                             <p>{t.whatIsISODescription[language]}</p>
@@ -174,10 +174,10 @@ const Education = ({ id }) => {
                 </div>
 
  
-                <div className={`w-[90%] my-10  flex flex-col gap-y-5`}>
+                <div className={`w-[90%] my-10   flex flex-col gap-y-5`}>
                     <motion.h1 {...leftAnimation(0.2)} className={`text-blue-500 text-2xl sm:text-5xl  text-center`}><b>{t.mainHeading[language]}</b></motion.h1>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:text-lg ">
     {[
         { title: t.whatIsISO[language], text: t.whatIsISODescription[language] },
         { title: t.howItHelps[language], text: t.howItHelpsDescription[language] },

@@ -55,7 +55,7 @@ const Navigation = () => {
     return (
         <>
             {/* Main Navigation */}
-            <div className="lg:w-[45%] w-full  rounded-full p-2 lg:mt-20 flex items-center navi justify-center">
+            <div className="xl:w-[45%] lg:w-[70%] w-full  rounded-full p-2 lg:mt-20 flex items-center navi justify-center">
                 <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex">
                     <span
                         style={{

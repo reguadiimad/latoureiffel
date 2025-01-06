@@ -28,7 +28,7 @@ const TeamWork = ({id}) => {
         <div id={id} ref={motherRef} className={`w-[90%] lg:flex ${language==="ar"&&'flex-row-reverse text-xl text-right'} items-center justify-center gap-x-5 my-20 text-neutral-900`}>
           <div className={`lg:w-[70%] flex flex-col riri`}>
             <motion.p {...leftAnimation(0)} className={`text-neutral-500`}>{content.heading[language]}</motion.p>
-            <motion.h1 {...leftAnimation(0.2)} className={`lg:text-8xl md:text-5xl w-full  text-3xl ${language==="ar"&&'text-9xl'} text-blue-500`}>
+            <motion.h1 {...leftAnimation(0.2)} className={`xl:text-8xl lg:text-6xl md:text-5xl w-full  text-3xl ${language==="ar"&&'text-9xl'} text-blue-500`}>
               <b>{content.title[language]}</b>
             </motion.h1>
       
@@ -40,8 +40,8 @@ const TeamWork = ({id}) => {
                     index === 1 ? "bg-blue-500 text-white/80 " : "border-black/10"
                   } md:p-5 lg:p-8 p-2`}
                 >
-                  <p className={`mb-8 md:text-base `}>{block.title[language]}</p>
-                  <p className={`mb-4 md:text-base`}>
+                  <p className={`mb-8 md:text-base lg:text-sm xl:text-base`}>{block.title[language]}</p>
+                  <p className={`mb-4 md:text-base lg:text-sm xl:text-base`}>
                     <b className={index === 1 ? "text-white" : "text-neutral-600"}>
                       {block.description[language]}
                     </b>
@@ -52,7 +52,7 @@ const TeamWork = ({id}) => {
       
             <div className={`w-full flex gap-x-2`}>
               {content.additionalInfo.map((info, index) => (
-                <motion.div {...bottomAnimation(index*0.22)} key={index} className={`flex-1  text-neutral-500 text-[10px] mt-2 lg:mt-0  md:pl-5 lg:p-8 md:text-sm lg:text-base`}>
+                <motion.div {...bottomAnimation(index*0.22)} key={index} className={`flex-1  text-neutral-500 text-[10px] lg:text-sm xl:text-base mt-2 lg:mt-0  md:pl-5 lg:p-8 md:text-sm `}>
                   {info[language]}
                 </motion.div>
               ))}
@@ -60,14 +60,14 @@ const TeamWork = ({id}) => {
           </div>
       
           <div className={`lg:w-[30%] w-full md:flex lg:flex-col md:gap-x-4 justify-between`}>
-            <motion.div {...rightAnimation(0.2)} className={`w-full bg-red-500 text-white md:flex items-center justify-center rounded-2xl lg:rounded-[40px] text-[10px] md:text-base lg:text-base mt-4 lg:mt-0 text-center p-2 md:p-5 lg:p-8`}>
+            <motion.div {...rightAnimation(0.2)} className={`w-full bg-red-500 text-white md:flex items-center justify-center rounded-2xl lg:rounded-[40px] text-[10px] md:text-base lg:text-sm xl:text-base mt-4 lg:mt-0 text-center p-2 md:p-5 lg:p-8`}>
               {content.sidebar[language]}
             </motion.div>
 
             <motion.div {...bottomAnimation(0.2)} className={`w-full lg:h-[530px] h-[350px] lg:rounded-[40px] flex flex-col justify-end items-center relative`}>
-              <div className={`bg-red-500 rounded-2xl lg:rounded-[40px] h-[50%] w-full`}></div>
+              <div className={`bg-red-500 rounded-2xl lg:rounded-[40px]  h-[50%] w-full`}></div>
               <img
-                className={`absolute bottom-10 -ml-6 scale-[1.2]  w-full`}
+                className={`absolute bottom-10 -ml-6 scale-[1.2] lg:scale-[1.4] xl:scale-[1.2]  w-full`}
                 src={`${process.env.PUBLIC_URL}/images/eqp1.png`}
                 alt="Team"
               />
