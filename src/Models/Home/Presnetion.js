@@ -27,7 +27,7 @@ const Presontation = () => {
 
     return (
         <>
-            <div className={`w-full lg:w-[60%] flex items-center justify-center ${language==='ar'&&'arabic'}` }>
+            <div className={`w-full pt-10 md:pt-0 lg:w-[60%] flex items-center justify-center ${language==='ar'&&'arabic'}` }>
                 <div className="md:w-[90%] text-center lg:text-left">
                     {/* Title */}
                     <motion.h1 {...customAnimation(0, '-70%', 0)} className={`  text-neutral-900 md:text-6xl lg:text-5xl  font-semibold  mb-5 ${language==='ar'?'xl:text-8xl text-5xl ':'xl:text-7xl text-4xl '}`}>

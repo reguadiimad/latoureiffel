@@ -115,16 +115,16 @@ const Menu = ({ visible }) => {
                 )}
             </AnimatePresence>
 
-            <div className="fixed bottom-0 left-0 w-52 h-52 blur-3xl scale-150 z-40">
+            <div className="fixed bottom-0 left-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
                 <div className="w-44 h-44 bg-black/50 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
             </div>
-            <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 left-6 fixed flex flex-col items-center language ease-in duration-200 z-40">
+            <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 left-6 lg:left-1 fixed flex flex-col items-center language ease-in duration-200 z-40">
                 <AnimatePresence>
                     {langClicked && (
                         <motion.div
                             key="lang-menu"
                             initial={{y:50,scale:0.5}} animate={{y:0,scale:1}} exit={{y:80,scale:0.2}} duration={200}  transition={{type:"spring",damping:13,duration:'0.1s'}}
-                            className="w-10  text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 py-2"
+                            className="w-10  text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
                         >
                             {langButtons(language)}
                         </motion.div>

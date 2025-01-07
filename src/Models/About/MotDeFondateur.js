@@ -33,9 +33,9 @@ const MotDeFondateur = ({id}) =>{
           >
             {/* Main Left Section */}
           
-            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full  lg:h-[700px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
+            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full   md:h-[740px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
             <img
-                  className={`rounded-[40px] w-full h-full object-cover -z-10 absolute top-0 lg:hidden `}
+                  className={`rounded-[40px] w-full h-full object-cover object-top -z-10 absolute top-0 lg:hidden origin-top `}
                   src={process.env.PUBLIC_URL + "/images/founder.jpg"}
                   alt="Founder"
                 />

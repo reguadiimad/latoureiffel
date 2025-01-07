@@ -98,7 +98,7 @@ const NouvellesAct = () => {
               <p className={`w-full text-neutral-900/40 mt-3 text-[10px] lg:text-sm xl:text-base md:text-base md:mb-10 lg:mb-0 text-justify ${language==="ar"&&' w-full '}`}>{texts.texts.description[language]}</p>
           </motion.div>
 
-          <motion.div {...costumeAnimtion('70%')} className="flex-1  lg:flex-1 overflow-hidden rounded-b-[50px] z-0 iphone  relative scale-[0.7] md:scale-[1] -mt-10  md:mt-0">
+          <motion.div {...costumeAnimtion('70%')} className="flex-1 lg:flex-1 overflow-hidden rounded-b-[50px] z-0 iphone  relative scale-[0.7] md:scale-[1] -mt-10  md:mt-0">
               <div className="absolute rounded-[50px] w-[100%]  h-[86%] bg-neutral-100 bottom-0 left-0 z-0"></div>
               <div className="absolute rounded-[50px] w-[87%] h-full bg-neutral-100 top-0 left-0 z-0"></div>
               <div className="absolute rounded-full w-40 h-40 bg-neutral-100 top-[9%] right-[9%] z-0"></div>

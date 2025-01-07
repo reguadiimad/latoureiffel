@@ -13,7 +13,7 @@ const PopUp = ({white=false,text,ar=false}) => {
 
                 className="rounded-full flex h-16  py-3 blurey backdrop-blur-lg pl-6 pr-2 bg-white/5 border border-white/10 shadow-lg z-50 gap-x-2 ">
                     
-                    <motion.div initial={{opacity:0,scale:0.8,y:15}} animate={{y:0,scale:1,opacity:1}} exit={{scale:0}} transition={{type:"spring",delay:0.2}}  className={`items-center ${ar&&'text-2xl'} mix-blend-difference flex justify-center font-semibold  px-2 ${white?'text-white/90':'text-black/70'}`}>
+                    <motion.div initial={{opacity:0,scale:0.8,y:15}} animate={{y:0,scale:1,opacity:1}} exit={{scale:0}} transition={{type:"spring",delay:0.2}}  className={`items-center ${ar&&'text-base lg:text-2xl'} mix-blend-difference flex justify-center font-semibold  px-2 ${white?'text-white/90':'text-black/70'}`}>
                     {text}
                     </motion.div>
                     <motion.div className="">

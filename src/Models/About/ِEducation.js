@@ -30,10 +30,10 @@ const Education = ({ id }) => {
                 <motion.div {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
                     <img className={`w-full opacity-90 h-auto min-h-[700px] xl:min-h-[870px] object-cover`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
                     <div className={`absolute w-full h-full flex hhy ${language==="ar"&&'flex-row-reverse text-right'}`}>
-                        <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-xl'}`}>           
+                        <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-base  xl:text-xl'}`}>           
                             <div className={`w-full pr-10`}>
                                 <motion.p {...bottomAnimation(0.1)} className={`text-red-500 `}>{texts.tagline[language]}</motion.p>
-                                <motion.h1 {...bottomAnimation(0.2)} className={`${language==="ar"?'text-8xl':'text-5xl xl:text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
+                                <motion.h1 {...bottomAnimation(0.2)} className={`${language==="ar"?'text-5xl xl:text-8xl':'text-5xl xl:text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
                             </div>
                             <div className={`w-full flex pr-10`}>
                                 <div className={`text-white drop-shadow-2xl text-justify`}>
@@ -142,17 +142,14 @@ const Education = ({ id }) => {
 
             <div id={id} ref={motherRef} className={`w-full items-center h-auto justify-center flex lg:hidden flex-col ${language === "ar" && 'text-xl'}`}>
                 {/* Top Section */}
-                <motion.div {...bottomAnimation()} className={`w-[90%] hhy overflow-hidden rounded-[30px] sm:rounded-[50px] mt-10 relative flex flex-col lg:flex-row items-center justify-center`}>
-                    <img className={`w-full  lg:w-[60%] opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
+                <motion.div {...bottomAnimation()} className={`w-[90%] hhy md:h-[600px] h-[500px] overflow-hidden rounded-[30px] sm:rounded-[50px] mt-10 relative flex flex-col lg:flex-row items-center justify-center`}>
+                    <img className={`h-full object-cover  opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
                     <div className={`absolute hhy w-full h-full flex flex-col lg:flex-row ${language === "ar" && 'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 px-5 sm:px-12 py-6 sm:py-12 flex justify-center flex-col gap-y-4 sm:gap-y-10`}>
                             <motion.p {...bottomAnimation(0.1)} className={`text-red-500 text-sm sm:text-lg`}>{texts.tagline[language]}</motion.p>
                             <motion.h1 {...bottomAnimation(0.2)} className={`${language === "ar" ? 'text-4xl sm:text-8xl' : 'text-3xl sm:text-7xl'} text-white`}><b>{texts.main_heading[language]}</b></motion.h1>
                             <motion.p {...bottomAnimation()} className={`text-white text-sm sm:text-base`}>{texts.section1[language]}</motion.p>
-                            <motion.p {...bottomAnimation()} className={`text-white text-sm sm:text-base`}>{texts.section2[language]}</motion.p>
-                            <motion.button {...scaleAnimation()} className={`bg-red-500 shadow-xl p-2 sm:p-4 rounded-xl flex gap-x-2 w-full sm:w-auto`}>
-                                <b><FontAwesomeIcon icon={faDownload} className={`mr-2`} /> {texts.button[language]}</b>
-                            </motion.button>
+                            
                         </div>
                     </div>
                 </motion.div>

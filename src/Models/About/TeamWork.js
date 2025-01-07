@@ -28,7 +28,7 @@ const TeamWork = ({id}) => {
         <div id={id} ref={motherRef} className={`w-[90%] lg:flex ${language==="ar"&&'flex-row-reverse text-xl text-right'} items-center justify-center gap-x-5 my-20 text-neutral-900`}>
           <div className={`lg:w-[70%] flex flex-col riri`}>
             <motion.p {...leftAnimation(0)} className={`text-neutral-500`}>{content.heading[language]}</motion.p>
-            <motion.h1 {...leftAnimation(0.2)} className={`xl:text-8xl lg:text-6xl md:text-5xl w-full  text-3xl ${language==="ar"&&'text-9xl'} text-blue-500`}>
+            <motion.h1 {...leftAnimation(0.2)} className={`xl:text-8xl lg:text-6xl md:text-5xl text-3xl w-full   ${language==="ar"&&'xl:text-9xl lg:text-7xl md:text-6xl text-4xl '} text-blue-500`}>
               <b>{content.title[language]}</b>
             </motion.h1>
       
@@ -64,10 +64,10 @@ const TeamWork = ({id}) => {
               {content.sidebar[language]}
             </motion.div>
 
-            <motion.div {...bottomAnimation(0.2)} className={`w-full lg:h-[530px] h-[350px] lg:rounded-[40px] flex flex-col justify-end items-center relative`}>
+            <motion.div {...bottomAnimation(0.2)} className={`w-full lg:h-[530px] md:min-h-[400px] h-[350px] lg:rounded-[40px] flex flex-col justify-end items-center relative`}>
               <div className={`bg-red-500 rounded-2xl lg:rounded-[40px]  h-[50%] w-full`}></div>
               <img
-                className={`absolute bottom-10 -ml-6 scale-[1.2] lg:scale-[1.4] xl:scale-[1.2]  w-full`}
+                className={`absolute bottom-8 md:bottom-10 max-h-80 md:max-h-max -ml-6 scale-[1.2] sm:scale-x-[0.7] md:scale-x-100 md:scale-[1.25] lg:scale-[1.4] xl:scale-[1.2]  w-full`}
                 src={`${process.env.PUBLIC_URL}/images/eqp1.png`}
                 alt="Team"
               />

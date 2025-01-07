@@ -70,7 +70,7 @@ const Navigation = () => {
                         <motion.a {...leftAnimation(0.15*index)}
                             key={index}
                             style={{ width: 100 / menuList[language].length + "%" }}
-                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 text-[8px] md:text-sm md:mt-10 lg:text-lg  ${language==="ar"&&"text-xl"} ${linked === index ? 'text-blue-500 lg:text-base  text-sm' : 'text-black/50 text-[10px] lg:text-sm'}`}
+                            className={`text-center cursor-pointer z-40 xl:py-5 md:py-4 text-[8px] md:text-sm md:mt-10 lg:text-lg  ${language==="ar"&&"text-sm lg:text-xl"} ${linked === index ? 'text-blue-500 lg:text-base  text-sm' : 'text-black/50 text-[10px] lg:text-sm'}`}
                             onClick={() => {setlinked(index);handleScroll(index)}}
                         >
                             {text}

@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.div initial={{scale:(window.innerWidth <= 1024?0.5:1),opacity:0}} whileInView={{scale:1,opacity:1,y:0}} transition={{type:"spring",damping:10,duration:0.5}} className="home w-screen   h-screen relative flex items-center justify-center text-neutral-900 pt-7">
+      <motion.div initial={{scale:(window.innerWidth <= 1024?0.5:1),opacity:0}} whileInView={{scale:1,opacity:1,y:0}} transition={{type:"spring",damping:10,duration:0.5}} className="home w-screen h-screen relative flex items-center justify-center text-neutral-900 pt-7">
         <Presontation/>
         <div className="lg:w-[40%]"></div>
         <ParallaxImage/>

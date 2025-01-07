@@ -59,15 +59,15 @@ const FirstInterface = () => {
             <div ref={motherRef} className={`w-[90%] flex-col lg:flex-row flex items-center justify-center mb-10 lg:mb-16  ${language==='ar'?'flex-row-revers lg:flex-row-reverse  ':''}`}>
                 <div className={`w-full  lg:w-[55%] mb-5 gap-y-2 flex flex-col ${language==="ar"&&'items-end'}`}>
                     <motion.p {...leftAnimation()}  className={`text-neutral-500  ${language==="ar"&&'text-3xl'}`}>{translations.surNous[language]}</motion.p>
-                    <motion.h1 {...leftAnimation(0.11)}  className={`text-3xl md:text-5xl font-bold ${language==="ar"?'lg:text-9xl leading-tight text-right':'lg:text-6xl xl:text-7xl'} text-neutral-900`}>
+                    <motion.h1 {...leftAnimation(0.11)}  className={`text-3xl md:text-5xl font-bold ${language==="ar"?'2xl:text-9xl lg:text-8xl leading-tight text-right text-4xl md:text-6xl':'lg:text-6xl xl:text-7xl'} text-neutral-900`}>
                         <b>{translations.title[language]}</b>
                     </motion.h1>
                     <motion.p {...leftAnimation(0.22)}  className={`text-neutral-500`}>{translations.description[language]}</motion.p>
                     <div className={`flex gap-x-4 items-center mt-4`}>
          
                     <motion.a {...leftAnimation(0.33)}  href="tel:1234567890">
-                            <div className={`p-2 md:p-3 lg:p-4 md:text-base rounded-full bg-blue-500 text-white/90 cursor-pointer`}>
-                                <FontAwesomeIcon className={`mr-2 cursor-pointer`} icon={faPhone} />{" "}
+                            <div className={`p-2 md:p-3 lg:p-4 md:text-base rounded-full bg-blue-500 text-white/90 cursor-pointer ${language==="ar"&&'flex flex-row-reverse text-xl lg:text-2xl'}`}>
+                                <FontAwesomeIcon className={`${language==="ar"?'ml-1  -scale-x-100':'mr-2'} cursor-pointer`} icon={faPhone} />{" "}
                                 {translations.callUs[language]}
                             </div>
                         </motion.a>
@@ -88,12 +88,12 @@ const FirstInterface = () => {
                             </div>
                         </motion.div>
                         <motion.div {...topAnimation(0.35)}  className={`flex-1 lg:h-64 bg-black/5 rounded-2xl md:rounded-[30px] lg:rounded-[40px] py-3 px-5`}>
-                            <div className={`w-full flex flex-col items-center lg:text-sm text-[8px] md:text-sm justify-center text-neutral-500`}>
+                            <div className={`w-full flex flex-col items-center  lg:text-sm text-[8px] md:text-sm justify-center text-neutral-500 `}>
                                 <motion.p {...scaleAnimation(0.4)}>{translations.since[language]}</motion.p>
                                 <motion.h1 {...scaleAnimation(0.36)} className={`xl:text-8xl  text-3xl md:text-6xl text-red-500`}>
                                     <b>{translations.year[language]}</b>
                                 </motion.h1>
-                                <motion.p {...scaleAnimation(0.42)} className={`lg:text-sm text-neutral-500 mt-3 text-center`}>
+                                <motion.p {...scaleAnimation(0.42)} className={`lg:text-sm text-neutral-500 mt-3 text-center ${language=="ar"&&'text-base md:text-xl'}`}>
                                     {translations.successStory[language]}
                                 </motion.p>
                             </div> 
