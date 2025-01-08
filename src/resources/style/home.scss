@@ -323,3 +323,37 @@
   transition: transform none !important;
   
 }
+.psd::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+
+  border-bottom-left-radius: 25px;
+  box-shadow: 0 10px 0 0 #ffffff;
+}
+.psdr::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+
+  border-top-left-radius: 25px;
+  box-shadow: 0 -10px 0 0 #ffffff;
+}
+.psdl::before{
+  content: "";
+  position: absolute;
+  top:10px;
+  left: -10px;
+  width: 10px;
+  height: 20px;
+
+  border-bottom-left-radius: 25px;
+  box-shadow: 0 10px 0 0 #ffffff;
+  scale:-1 ;
+}
