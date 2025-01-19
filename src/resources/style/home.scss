@@ -57,7 +57,7 @@
     } 
   }
   .blurey{
-    -webkit-backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(60px);
   }
   
  
@@ -323,6 +323,7 @@
   transition: transform none !important;
   
 }
+.psd,.psdr{position: relative;z-index: -1;}
 .psd::before{
   content: "";
   position: absolute;
@@ -356,4 +357,14 @@
   border-bottom-left-radius: 25px;
   box-shadow: 0 10px 0 0 #ffffff;
   scale:-1 ;
+}
+.dh{
+ *{
+    transition: .1s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    
+ } 
+}
+
+.trr{
+  line-height: 1.5;
 }

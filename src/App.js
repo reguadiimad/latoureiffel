@@ -13,6 +13,7 @@ import './resources/style/home.scss'
 import Cycles from './components/Cycles';
 
 
+
 function App() {
   const { language } = useSelector((state) => state.presntion); 
   return (

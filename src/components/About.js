@@ -4,10 +4,10 @@ import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
 import { useEffect } from 'react';
 import FirstInterface from '../Models/About/FirstInterface';
 import MotDeFondateur from '../Models/About/MotDeFondateur';
-import Navigation from '../Models/About/Navigation';
 import TeamWork from '../Models/About/TeamWork';
 import Education from '../Models/About/ِEducation';
 import ParentEleve from '../Models/About/ParentEleve';
+import Navigation from '../Models/Globe/Navigation';
 
 
 const About = () => {
@@ -17,12 +17,17 @@ const About = () => {
   }, [dispatch]);
   
   const scrollValue = useSelector((state) => state.scrollVal);
+  const menuList = {
+          fr: ["Mot de fondateur", "Equipe Pedagogique", "Enseignement", "Parents Eleve"],
+          ar: ["كلمة المؤسس", "الفريق التعليمي", "التعليم", "الآباء و التلاميذ"],
+          en: ["Founder’s Word", "Teaching Team", "Teaching", "Parents & Students"],
+      };
   return (
     <>
     <div className='w-screen py-20 mb-40 flex flex-col items-center justify-center  z-0 overflow-hidden relative'>
       <div className='w-full lg:h-[100px]'></div>
       <FirstInterface/>
-      <Navigation/>
+      <Navigation menuList={menuList}/>
       <MotDeFondateur id='0'/>
       <TeamWork id='1'/>
       <Education id='2'/>
