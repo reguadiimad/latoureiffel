@@ -17,7 +17,7 @@ import Cycles from './components/Cycles';
 function App() {
   const { language } = useSelector((state) => state.presntion); 
   return (
-    <div className={`overflow-hidden text-xs md:text-sm lg:text-sm xl:text-lg 3xl:text-2xl ${language==='ar'&&'arabic'}`}>
+    <div className={`overflow-hidden  ${language==='ar'?'arabic text-sm md:text-base lg:text-sm xl:text-xl 3xl:text-3xl':'text-xs md:text-sm lg:text-sm xl:text-lg 3xl:text-2xl'}`}>
       <Router>
         <Routes>
           <Route path={'/'} element={<Home />} />

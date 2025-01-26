@@ -1,14 +1,24 @@
 import CyclInterface from "../Models/Cycles/CyclInterface";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
-import Navigation from "../Models/Globe/Navigation";
-import Materneelle from "../Models/Cycles/Maternelle";
 
+import CycleDetails from "../Models/Cycles/CycleDetais";
+import maternelleContent from "../Models/Cycles/Datas/MaternelleData.json";
+import PrimaireContent from "../Models/Cycles/Datas/PrimaireData.json";
+import CollegeContent from "../Models/Cycles/Datas/CollegeData.json";
+import LyceeContent from "../Models/Cycles/Datas/LyceeData.json";
+import NavigationCyc from "../Models/Cycles/NavigationCyc";
+import CycleConclusion from "../Models/Cycles/CyclesConclusion";
 
   
 const Cycles = () => {
+
     const dispatch = useDispatch();
+    const [selectedCyc,setSelectedCyc]=useState(3);
+    const theCycles = [maternelleContent,PrimaireContent,CollegeContent,LyceeContent]
+    const theCyclesImages = [{"pc":'/images/mateernel.png',"phn":'/images/m2.png'},{"pc":'/images/primaire.png',"phn":'/images/primaire1.png'},{"pc":'/images/college.png',"phn":'/images/college1.png'},{"pc":'/images/lycee.png',"phn":'/images/lycee1.png'}]
+
   useEffect(() => {
     dispatch(setIsHome(false));
   }, [dispatch]);
@@ -17,14 +27,22 @@ const Cycles = () => {
     ar: ["روضة", "ابتدائي", "إعدادي", "ثانوي"], // Arabic translations
     en: ["Preschool", "Primary", "Middle School", "High School"], // English translations
 };
-
+ const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.jpg`);
+ const prImages = Array.from({ length: 12 }, (_, i) => `/images/pr/p${i}.jpg`);
+ const clImages = Array.from({ length: 12 }, (_, i) => `/images/col/col${i}.jpg`);
+ const lyImages = Array.from({ length: 13 }, (_, i) => `/images/lyc/lyc${i}.jpg`);
+ const cycImage = [mtImages,prImages,clImages,lyImages] 
 
     return(
         <div className='w-screen py-20 mb-40 flex flex-col items-center justify-center  z-0 overflow-hidden relative'>
             <div className='w-full lg:h-[30px]'></div>
             <CyclInterface/>
-            <Navigation menuList={menuList}/>
-            <Materneelle/>
+            <NavigationCyc selected={selectedCyc} onClick={i=>setSelectedCyc(i)}/>
+            <div className="w-[90%] p-[40px] rounded-[80px] flex items-center justify-center flex-col border z-10 border-black/5 shadow-sm mt-10 relative">
+              <CycleDetails key={selectedCyc} content={theCycles[selectedCyc]} cycImages={cycImage[selectedCyc]} coverImage={theCyclesImages[selectedCyc]} />
+            </div>
+            <CycleConclusion/>
+=
         </div>
     )
 }

@@ -34,7 +34,9 @@
     
   }
   
-
+.lp{
+  transition: all ease  .3s !important;
+}
   .mobile{
     -webkit-backdrop-filter: blur(5px) !important;
     @media (max-width: 640px) {

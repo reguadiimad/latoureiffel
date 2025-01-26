@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSwipeable } from "react-swipeable";
-import content from "./Datas/MaternelleData.json";
+import { leftAnimation,rightAnimation,topAnimation,bottomAnimation } from "./animation";
 
-const Maternelle = () => {
+
+const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
     const { language } = useSelector((state) => state.presntion);
-    const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.jpg`);
     const [direction, setDirection] = useState(1);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -22,12 +22,12 @@ const Maternelle = () => {
 
     const handleNext = () => {
         setDirection(1);
-        setSelectedIndex((prev) => (prev + 1) % mtImages.length);
+        setSelectedIndex((prev) => (prev + 1) % cycImages.length);
     };
 
     const handlePrev = () => {
         setDirection(-1);
-        setSelectedIndex((prev) => (prev - 1 + mtImages.length) % mtImages.length);
+        setSelectedIndex((prev) => (prev - 1 + cycImages.length) % cycImages.length);
     };
 
     const handleClose = () => {
@@ -43,19 +43,23 @@ const Maternelle = () => {
         };
     }, [selectedIndex]);
 
-    // Helper function to increase text size for Arabic
     const getTextSize = (baseSize, increaseSize) => {
         return language === "ar" ? increaseSize : baseSize;
     };
+
+    const getColor = (defaultColor, alternateColor) => {
+        return isBlue ? defaultColor : alternateColor;
+    };
+
     useEffect(() => {
-        
         const handleKeyDown = (event) => {
             if (selectedIndex !== null) {
-            if (event.key === "ArrowLeft") {
-                handlePrev();
-            } else if (event.key === "ArrowRight") {
-                handleNext();
-            }}
+                if (event.key === "ArrowLeft") {
+                    handlePrev();
+                } else if (event.key === "ArrowRight") {
+                    handleNext();
+                }
+            }
         };
 
         window.addEventListener("keydown", handleKeyDown);
@@ -63,102 +67,98 @@ const Maternelle = () => {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [handlePrev, handleNext,selectedIndex]);
-
+    }, [handlePrev, handleNext, selectedIndex]);
 
     return (
-        <div className={`w-[90%] mt-8 md:mt-20 `}>
-            <div className={`w-full flex ${language=="ar"&&'flex-row-reverse text-right'} justify-center`}>
+        <div className={`w-full`}>
+            <div className={`w-full flex ${language === "ar" && 'flex-row-reverse text-right'} `}> 
                 <div className={`w-[60%]`}>
-                    <p className={`text-neutral-500`}>{content.subtitle[language]}</p>
-                    <h1 className={`font-bold ${getTextSize("text-5xl", "text-6xl")} md:${getTextSize("text-6xl", "text-7xl")} lg:${getTextSize("text-7xl", "text-8xl")} xl:${getTextSize("text-8xl", "text-9xl")} text-blue-500`}>
-                        {content.title[language]}
-                    </h1>
+                    <motion.p {...leftAnimation()} className={`text-neutral-500`}>{content.subtitle[language]}</motion.p>
+                    <motion.h1 {...leftAnimation(0.13)} className={` ${getTextSize("text-5xl", "text-6xl")} md:${getTextSize("text-6xl", "text-7xl")} lg:${getTextSize("text-7xl", "text-8xl")} xl:${getTextSize("text-8xl", "text-9xl")} ${getColor("text-blue-500", "text-red-500")}`}>
+                       <b> {content.title[language]}</b>
+                    </motion.h1>
                 </div>
-                <div className={`w-[40%] hidden sm:flex justify-end text-right ${language=="ar"&&'flex-row-reverse text-right'} text-neutral-500`}>
+                <motion.div {...leftAnimation(0.15)} className={`w-[40%] hidden sm:flex justify-end text-right ${language === "ar" && 'flex-row-reverse text-right'} text-neutral-500`}>
                     {content.description[language]}
-                </div>
+                </motion.div>
             </div>
 
-            <div className={`flex w-full mt-10 flex-col-reverse lg:flex-row`}>
+            <div className={`flex w-full mt-10 flex-col-reverse lg:flex-row ${isBlue?'':'lg:flex-row-reverse'} `}>
                 <div className={`lg:w-[45%] w-full text-neutral-500 flex flex-col gap-y-5`}>
-                    <p className={`text-neutral-500`}>
+                    <motion.p {...leftAnimation(0.15)} className={`text-neutral-500`}>
                         {content.explication[language]}
-                    </p>
-                    <div className={`w-full flex items-center mt-10 gap-x-5`}>
-                        <div className={`w-20 h-20 sm:bg-blue-500 rounded-[35px] rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
-                            <p className={`-rotate-45 text-blue-500 sm:text-white font-extrabold`}>1</p>
+                    </motion.p>
+                    <motion.div {...leftAnimation()} className={`w-full flex items-center mt-10 gap-x-5`}>
+                        <div  className={`w-20 h-20 ${isBlue?'sm:bg-blue-500':'sm:bg-red-500'}  rounded-[35px] rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
+                            <p className={`-rotate-45 ${getColor("text-blue-500", "text-red-500")} sm:text-white font-extrabold`}>1</p>
                         </div>
                         <div>
-                            <h1 className={`${getTextSize("text-2xl", "text-3xl")} font-bold text-blue-500`}>{content.benefit1.title[language]}</h1>
-                            <p>{content.benefit1.description[language]}</p>
+                            <motion.h1 {...leftAnimation(0.15)} className={`${getTextSize("text-2xl", "text-3xl")} font-bold ${getColor("text-blue-500", "text-red-500")}`}>{content.benefit1.title[language]}</motion.h1>
+                            <motion.p {...leftAnimation(0.16)}>{content.benefit1.description[language]}</motion.p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className={`w-full flex items-center mt-10 gap-x-5`}>
-                        <div className={`w-20 h-20 sm:bg-blue-500 rounded-[35px] -rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
-                            <p className={`rotate-45 text-blue-500 sm:text-white font-extrabold`}>2</p>
+                    <motion.div {...leftAnimation()} className={`w-full flex items-center mt-10 gap-x-5`}>
+                        <div className={`w-20 h-20 ${isBlue?'sm:bg-blue-500':'sm:bg-red-500'}  rounded-[35px] -rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
+                            <p className={`rotate-45 ${getColor("text-blue-500", "text-red-500")} sm:text-white font-extrabold`}>2</p>
                         </div>
                         <div>
-                            <h1 className={`${getTextSize("text-2xl", "text-3xl")} font-bold text-blue-500`}>{content.benefit2.title[language]}</h1>
+                            <h1 className={`${getTextSize("text-2xl", "text-3xl")} font-bold ${getColor("text-blue-500", "text-red-500")}`}>{content.benefit2.title[language]}</h1>
                             <p>{content.benefit2.description[language]}</p>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className={`w-full flex items-center mt-10 gap-x-5`}>
-                        <div className={`w-20 h-20 sm:bg-blue-500 rounded-[35px] rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
-                            <p className={`-rotate-45 text-blue-500 sm:text-white font-extrabold`}>3</p>
+                    <motion.div {...leftAnimation()} className={`w-full flex items-center mt-10 gap-x-5`}>
+                        <div className={`w-20 h-20 ${isBlue?'sm:bg-blue-500':'sm:bg-red-500'} rounded-[35px] rotate-45 flex items-center justify-center text-5xl font-bold shadow-sm`}>
+                            <p className={`-rotate-45 ${getColor("text-blue-500", "text-red-500")} sm:text-white font-extrabold`}>3</p>
                         </div>
                         <div>
-                            <h1 className={`${getTextSize("text-2xl", "text-3xl")} font-bold text-blue-500`}>{content.benefit3.title[language]}</h1>
+                            <h1 className={`${getTextSize("text-2xl", "text-3xl")} font-bold ${getColor("text-blue-500", "text-red-500")}`}>{content.benefit3.title[language]}</h1>
                             <p>{content.benefit3.description[language]}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className={`w-[55%] pl-20 relative hidden lg:flex items-center justify-center`}>
-                    <img className={`absolute bottom-2 right-0 h-full scale-110`} src={process.env.PUBLIC_URL + '/images/mateernel.png'} alt="Maternelle" />
-                    <div className={`absolute left-20 p-4 2xl:p-10 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/5 rounded-[40px] shadow-xl w-[56%] hidden xl:block blurey backdrop-blur-3xl`}>
-                        <h1 className={`2xl:${getTextSize("text-2xl", "text-3xl")} ${getTextSize("text-lg", "text-xl")} font-extrabold text-blue-500 mb-3 2xl:mb-10`}>{content.highlight.title[language]}</h1>
-                        <p className={`text-left ${getTextSize("text-sm", "text-base")} ${language=="ar"&&' text-right'} 2xl:${getTextSize("text-base", "text-lg")} text-neutral-900/40`}>
+                    <motion.img {...bottomAnimation()} className={`absolute bottom-2 right-0 h-full scale-110 ${!isBlue&&'-scale-x-100 left-0'} `} src={process.env.PUBLIC_URL + coverImage.pc} alt="Maternelle" />
+                    <motion.div {...bottomAnimation(0.21)} className={`absolute  ${isBlue?'left-20':'right-20'} p-4 2xl:p-10 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/30 rounded-[40px] shadow-xl w-[56%] hidden xl:block blurey backdrop-blur-3xl`}>
+                        <h1 className={`2xl:${getTextSize("text-2xl", "text-3xl")} ${getTextSize("text-lg", "text-xl")} font-extrabold ${getColor("text-blue-500", "text-red-500")} mb-3 2xl:mb-10`}>{content.highlight.title[language]}</h1>
+                        <p className={`text-left ${getTextSize("text-sm", "text-base")} ${language === "ar" && ' text-right'} 2xl:${getTextSize("text-base", "text-lg")} text-neutral-900/40`}>
                             {content.highlight.description[language]}
                         </p>
                         <p className={`${getTextSize("text-sm", "text-base")} text-left text-neutral-900/50 font-bold mt-2`}>{content.highlight.sub_description[language]}</p>
-                    </div>
+                    </motion.div>
                     <div className={`absolute bottom-0 right-0 flex gap-2`}>
-                        <div className={`text-center flex items-center justify-center border border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl`}>
+                        <motion.div {...rightAnimation()} className={`text-center flex items-center justify-center border border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl`}>
                             <FontAwesomeIcon className={`text-neutral-700/40 text-4xl`} icon={faQuoteLeft} />
-                        </div>
-                        <div className={`2xl:text-neutral-700/40 items-center justify-center border px-4 text-left border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl lg:text-white ${getTextSize("text-sm", "text-base")}`}>
+                        </motion.div>
+                        <motion.div {...rightAnimation(0.2)} className={`2xl:text-neutral-700/40 items-center justify-center border px-4 text-left border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl lg:text-white ${getTextSize("text-sm", "text-base")}`}>
                             {content.testimonials[language]}<br /><p className={`font-bold`}>{content.testimonials_author[language]}</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-
-                <div className={`w-full flex lg:hidden items-center justify-center relative mb-14`}></div>
-
                 <div className={`w-full flex lg:hidden items-center justify-center relative mb-14`}>
-                    <img className={`w-full h-full sm:h-[450px] md:h-[550px] sm:w-auto`} src={process.env.PUBLIC_URL + '/images/m2.png'} alt="Maternelle Mobile" />
-                    <div className={`absolute -bottom-10 left-0 p-4 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl w-[70%] blurey backdrop-blur-3xl`}>
-                        <h1 className={`${getTextSize("text-base", "text-lg")} text-left font-extrabold text-blue-500 mb-2`}>{content.highlight.title[language]}</h1>
-                        <p className={`text-neutral-900/70 hidden md:block text-left`}>{content.highlight.sub_description[language]}</p>
-                    </div>
+                    <motion.img {...bottomAnimation()} className={`w-full h-full sm:h-[450px] md:h-[550px] sm:w-auto`} src={process.env.PUBLIC_URL + coverImage.phn} alt="Maternelle Mobile" />
+                    <motion.div {...bottomAnimation()} className={`absolute -bottom-10 left-0 p-4 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl w-[70%] blurey backdrop-blur-3xl`}>
+                        <motion.h1 className={`${getTextSize("text-base", "text-lg")} text-left font-extrabold ${getColor("text-blue-500", "text-red-500")} mb-2`}>{content.highlight.title[language]}</motion.h1>
+                        <motion.p className={`text-neutral-900/70 hidden md:block text-left`}>{content.highlight.sub_description[language]}</motion.p>
+                    </motion.div>
                 </div>
             </div>
 
-            <div className={`w-full flex p-[20px] bg-neutral-100 rounded-[50px] mt-10 overflow-x-scroll`}>
+            <div className={`w-full flex p-[20px] bg-neutral-100 rounded-[40px] mt-10 overflow-x-scroll`}>
                 <div>
                     <div>
                         <div className={`flex gap-4 pr-[20px]`}>
-                            {mtImages.map((image, index) => (
-                                <img
+                            {cycImages.map((image, index) => (
+                                <motion.img {...leftAnimation(0.1*index)}
                                     key={index}
                                     src={process.env.PUBLIC_URL + image}
-                                    className={`h-[150px] sm:h-[200px] md:h-[250px] rounded-[30px] shadow-sm border-4 border-white ease-in-out duration-200 hover:scale-[1.08] hover:shadow-lg cursor-pointer hover:border-[10px]`}
+                                    className={`h-[150px] sm:h-[200px] md:h-[250px] rounded-[20px] shadow-sm border-4 border-white ease-in-out duration-200 hover:scale-[1.08] hover:shadow-lg cursor-pointer hover:border-[10px] hover:rounded-[30px]`}
                                     onClick={() => setSelectedIndex(index)}
                                     alt={`Maternelle Image ${index}`}
                                 />
                             ))}
-                            <div className={`h-[150px] sm:h-[200px] md:h-[250px] rounded-[30px] text-center mr-[20px] items-center justify-center flex text-neutral-400/70 ${getTextSize("text-2xl", "text-3xl")} font-bold cursor-pointer pl-6 pr-14 duration-200 ease-in-out hover:text-blue-500/90`}>
+                            <div className={`h-[150px] sm:h-[200px] md:h-[250px] rounded-[30px] text-center mr-[20px] items-center justify-center flex text-neutral-400/70 ${getTextSize("text-2xl", "text-3xl")} font-bold cursor-pointer pl-6 pr-14 duration-200 ease-in-out hover:${getColor("text-blue-500", "text-red-500")}/90`}>
                                 {content.more_photos[language]}
                             </div>
                         </div>
@@ -176,7 +176,7 @@ const Maternelle = () => {
                                     <motion.div initial={{ x: 70 }} animate={{ x: 0 }} exit={{ x: 100 }} className={`border border-white/40 bg-white/20 blurey backdrop-blur-2xl rounded-[50px] p-[25px] z-50`}>
                                         <motion.img
                                             key={selectedIndex}
-                                            src={process.env.PUBLIC_URL + mtImages[selectedIndex]}
+                                            src={process.env.PUBLIC_URL + cycImages[selectedIndex]}
                                             className={`rounded-[25px] h-[300px] md:h-[700px] border border-white/60`}
                                             initial={{ x: direction * 100, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
@@ -216,4 +216,4 @@ const Maternelle = () => {
     );
 };
 
-export default Maternelle;
+export default CycleDetails;
