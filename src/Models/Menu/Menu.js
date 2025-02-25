@@ -76,31 +76,43 @@ const Menu = ({ visible }) => {
 
     return (
         <>
+        
+
             <AnimatePresence>
+            
                 {visible && showMenu && (
+                    <>
+                    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur backdrop-blur-3xl"></motion.div>
                     <motion.div
-                        className="md:w-full fixed top-0 left-0 flex items-center justify-center bg-gradient-to-b from-black/10 to-transparent pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
+                        className="md:w-full fixed top-0 left-0 flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
                         {...dropAndPopAnimation()}
                     >
+                        <div className="xl:w-[21%] h-full mt-8 p-2.5 pl-10">
+                        <motion.img initial={{y:-50,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-80}} transition={{type:'spring',delay:0.2}}
+                            alt="logo"
+                            src={process.env.PUBLIC_URL + `/logos/${language==='ar'?'logo1ar.png':(language==='en'?'logo1eng.png':'logo1.png')}`}
+                            className={`h-12 md:h-16 object-cover filter invert opacity-80 mb-4`}
+                            />
+                        </div>
                         <motion.div
                             {...dropAndPopAnimation()}
-                            className="mt-10 xl:w-[58%] md:w-[85%] md:block p-2.5 bg-gradient-to-tr from-white/10 to-white/30 blurey blurey backdrop-blur-2xl border border-white/30 rounded-full flex items-center justify-center shadow-xl "
+                            className="mt-8 xl:w-[58%] md:w-[85%] md:block p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full flex items-center justify-center shadow-lg "
                         >
                             <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex ">
                                 <motion.span
                                     whileHover={{ opacity: 0.5, scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
                                     style={{ width: 100 / currentMenuList.length + "%", left: linked * (100 / currentMenuList.length) + "%" }}
-                                    className="absolute bg-red-500/90 h-full rounded-full flash"
+                                    className="absolute bg-red-500  h-full rounded-full flash border border-white/80"
                                 />
                                 {currentMenuList.map((text, index) => (
                                     <Link
                                         to={routes[index]}
                                         key={index}
                                         style={{ width: 100 / currentMenuList.length + "%" }}
-                                        className={`text-center z-40  xl:py-5 md:py-4 lg:text-base md:text-sm ${
+                                        className={`text-center z-40  xl:py-5 md:py-4 lg:text-base md:text-sm ease-out duration-200 ${
                                             language === "ar" ? "lg:text-lg" : "lg:text-base"
-                                        } ${linked === index ? "text-white/90" : "text-neutral-900/90 hover:animate-pulse mix-blend-difference"}`}
+                                        } ${linked === index ? "text-white/90 font-bold " : "text-neutral-900 hover:animate-pulse mix-blend-difference"}`}
                                         onClick={() => {
                                             setlinked(index);
                                             scrollToTop(); // Scroll to the top when clicking a link
@@ -111,7 +123,9 @@ const Menu = ({ visible }) => {
                                 ))}
                             </div>
                         </motion.div>
-                    </motion.div>
+                        <div className="xl:w-[21%]"></div>
+
+                    </motion.div></>
                 )}
             </AnimatePresence>
 

@@ -60,7 +60,7 @@ export default function BottomPage() {
       */}
       </div>
       <div className='w-full h-full absolute top-0 left-0 '></div>
-      <div className='lg:w-[95%] w-full pt-2 h-full bg-gradient-to-t from-white/50  to-white/5  blurey backdrop-blur-xl md:p-10 rounded-t-[40px] galCover'>
+      <div className='lg:w-[95%] w-full pt-2 h-full bg-gradient-to-t from-white/0  to-white/5  blurey backdrop-blur-3xl md:p-10 rounded-t-[40px] galCover'>
       <div className="opacity-65 mb-4 ml-2">
         <div className="w-full flex md:text-base text-[10px] items-end">
           <div className="w-[20%] lg:mr-40 mr-6 -mb-1">

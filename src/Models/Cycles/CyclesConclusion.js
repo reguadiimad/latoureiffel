@@ -11,7 +11,7 @@ const CycleConclusion = () => {
                 className={`border border-black/5 rounded-[50px] mt-10 p-10 w-[90%] text-neutral-600  ${language==="ar"?'text-right': 'text-justify '}`}
                 dangerouslySetInnerHTML={{ __html: data[language].content }}
             />
-        </>
+        </> 
     )
 }
 

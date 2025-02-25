@@ -8,7 +8,7 @@ import {motion} from "framer-motion"
 import { bottomAnimation, leftAnimation, rightAnimation, topAnimation } from "./animation";
 
 
-const CyclInterface = () => {
+const CyclInterface = ({handelSelect}) => {
     const { language } = useSelector((state) => state.presntion);
     const cycleImages = [
         { src: '/images/c1.jpg', alt: 'Cycle 1', borderClasses: 'border-r-[4px] border-b-[4px]' },
@@ -155,7 +155,7 @@ const CyclInterface = () => {
                             </div>
 
                             <div className="w-full flex justify-end my-5 mb-7">
-                                <button className="p-3 bg-white/10 shadow-2xl backdrop-blur-xl sm:text-lg lg:text-sm 2xl:text-lg font-bold text-white border-white border-2 rounded-[20px] mr-4">{content1.texts.readMore["Voir Plus"][language]}</button>
+                                <button onClick={()=>handelSelect(0)} className="p-3 bg-white/10 shadow-2xl backdrop-blur-xl sm:text-lg lg:text-sm 2xl:text-lg font-bold text-white border-white border-2 rounded-[20px] mr-4">{content1.texts.readMore["Voir Plus"][language]}</button>
                             </div>
                         </div>
 
@@ -180,7 +180,7 @@ const CyclInterface = () => {
                                 </div>
 
                                 <div className=" text-right w-[30%]">
-                                    <button className="p-2 mt-2 bg-white  font-bold text-red-500 rounded-[20px]">{content1.texts.readMore["Lire Plus"][language]}</button>
+                                    <button onClick={()=>handelSelect(1)} className="p-2 cursor-pointer mt-2 bg-white font-bold text-red-500 rounded-[20px]">{content1.texts.readMore["Lire Plus"][language]}</button>
 
                                 </div>
                         </div>
@@ -195,9 +195,9 @@ const CyclInterface = () => {
                                     <h1 className="sm:text-5xl text-3xl lg:text-3xl 2xl:text-5xl"><b>{content1.texts.college.title[language]}</b></h1>
                                 </div>
 
-                                <div className=" text-right w-[70%]">
+                                <div className=" text-right w-[70%] z-50">
                                     <p className="text-white/70 text-sm hidden lg:block lg:text-sm ">{content1.texts.college.description[language]}</p>
-                                    <button className="sm:p-3 p-1 lg:p-2 2xl:p-3 mt-2 bg-white sm:text-base lg:text-sm 2xl:text-base font-bold text-red-500 rounded-[20px] shadow-2xl">{content1.texts.readMore["En Savoir Plus"][language]}</button>
+                                    <button onClick={()=>handelSelect(2)} className=" sm:p-3 cursor-pointer z-50 p-1 lg:p-2 2xl:p-3 mt-2 bg-white sm:text-base lg:text-sm 2xl:text-base font-bold text-red-500 rounded-[20px] shadow-2xl">{content1.texts.readMore["En Savoir Plus"][language]}</button>
 
                                 </div>
                                
@@ -216,8 +216,8 @@ const CyclInterface = () => {
 
                                         </div>
 
-                                        <div className=" text-right w-[30%]">
-                                            <button className="2xl:p-3 p-2 mt-2 bg-white 2xl:text-base lg:text-[12px] font-bold text-red-500 rounded-[20px]">{content1.texts.readMore["Lire Plus"][language]}</button>
+                                        <div className=" text-right w-[30%] z-50">
+                                            <button onClick={()=>handelSelect(1)} className="2xl:p-3 p-2 mt-2 bg-white cursor-pointer z-50 2xl:text-base lg:text-[12px] font-bold text-red-500 rounded-[20px]">{content1.texts.readMore["Lire Plus"][language]}</button>
 
                                         </div>
                                 </div>
@@ -261,7 +261,7 @@ const CyclInterface = () => {
                                     </div>
                                     
                                     <div className="w-full flex justify-end">
-                                    <button className="p-3 bg-white/10 backdrop-blur-xl  font-bold text-white rounded-[20px] shadow-lg border-white border-2 -mb-3 -mr-3 z-40 blurey">{content1.texts.readMore["Découvrir Plus"][language]}</button>
+                                    <button onClick={()=>handelSelect(3)} className="p-3 bg-white/10 backdrop-blur-xl  font-bold text-white rounded-[20px] shadow-lg border-white border-2 -mb-3 -mr-3 z-40 blurey">{content1.texts.readMore["Découvrir Plus"][language]}</button>
                                     </div>
                                     
                                 </div>

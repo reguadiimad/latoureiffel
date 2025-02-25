@@ -11,6 +11,9 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         
       },
+      colors: {
+        'the-gray': '#daeae5',
+      },
       
       textShadow: {
         sm: '1px 1px 2px rgba(0, 0, 0, 0.05)',

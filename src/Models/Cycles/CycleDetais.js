@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSwipeable } from "react-swipeable";
 import { leftAnimation,rightAnimation,topAnimation,bottomAnimation } from "./animation";
+import BottomNavigation from "./BottomNavigation";
 
 
 const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
@@ -70,7 +71,8 @@ const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
     }, [handlePrev, handleNext, selectedIndex]);
 
     return (
-        <div className={`w-full`}>
+        <div className={`w-full relative`}>
+
             <div className={`w-full flex ${language === "ar" && 'flex-row-reverse text-right'} `}> 
                 <div className={`w-[60%]`}>
                     <motion.p {...leftAnimation()} className={`text-neutral-500`}>{content.subtitle[language]}</motion.p>

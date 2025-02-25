@@ -11,11 +11,13 @@ import BottomPage from './components/BottomPage'
 import { useSelector } from 'react-redux'
 import './resources/style/home.scss'
 import Cycles from './components/Cycles';
+import Services from './components/Services';
 
 
 
 function App() {
   const { language } = useSelector((state) => state.presntion); 
+  
   return (
     <div className={`overflow-hidden  ${language==='ar'?'arabic text-sm md:text-base lg:text-sm xl:text-xl 3xl:text-3xl':'text-xs md:text-sm lg:text-sm xl:text-lg 3xl:text-2xl'}`}>
       <Router>
@@ -23,6 +25,7 @@ function App() {
           <Route path={'/'} element={<Home />} />
           <Route path={"/about"} element={<About />} />
           <Route path={"/cycles"} element={<Cycles />} />
+          <Route path={"/services"} element={<Services />} />
         </Routes>
         <Navbar />
         <BottomPage/>

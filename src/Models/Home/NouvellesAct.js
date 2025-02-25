@@ -79,7 +79,7 @@ const NouvellesAct = () => {
               <span className={`flex ${language==='ar'&&'flex-row-reverse '}`}>
                   <h1 className="font-normal  m-0 p-0 md:mr-4 md:mb-2"><b>{texts.texts.header1[language]}</b></h1>
                   <motion.span {...costumeAnimtion('200%')} className=" text-center flex-1 flex items-center justify-center ">
-                      <p className="bg-black/5 md:text-2xl lg:text-lg xl:text-xl 3xl:text-2xl text-[12px] lg:py-4 xl:py-6 md:py-6 py-3 w-full md:px-10 rounded-full font-semibold">{texts.texts.header2[language]}</p>
+                      <p className="bg-neutral-100 md:text-2xl lg:text-lg xl:text-xl 3xl:text-2xl text-[12px] lg:py-4 xl:py-6 md:py-6 py-3 w-full md:px-10 rounded-full font-semibold">{texts.texts.header2[language]}</p>
                   </motion.span>
               </span>
               <h1 className="font-normal mb-2"><b>{texts.texts.header3[language]}</b></h1>
