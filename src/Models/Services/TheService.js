@@ -1,8 +1,13 @@
 import { faBell, faBookOpen,faComments, faLock, faShieldAlt, faTachometerAlt, faBus, faUsers, faAppleAlt,faUtensils, faLeaf, faBroom, faFutbol, faTheaterMasks, faPalette, faRobot, faUserNurse, faBriefcaseMedical,faSyringe ,faAmbulance,faBabyCarriage,faChalkboardTeacher,faCalculator,faUserTie,faBook,faSuperscript } from "@fortawesome/free-solid-svg-icons";
-import {spring,motion,AnimatePresence} from 'framer-motion'
+import {spring,motion,AnimatePresence} from 'framer-motion';
+import { useSelector } from "react-redux";
+
+
     
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const TheService = ({selectedCyc,srvData,lang,isOther}) => {
+const TheService = ({selectedCyc,srvData,lang,isOther,textt}) => {
+  const { language } = useSelector((state) => state.presntion);
+
 
     const iconMap = {
         faBell: faBell,
@@ -151,12 +156,17 @@ const TheService = ({selectedCyc,srvData,lang,isOther}) => {
       </AnimatePresence>
     );
   }
+  const shrtsImages=[{"ar":"srvAppArb.png","fr":"srvAppFrc.png","en":"srvAppEng.PNG"},{"ar":"srvTrnsArb.png","fr":"srvTrnsFrc.png","en":"srvTrnsEng.PNG"},"srvCantine.png",{"fr":"srvClubs.png","en":"srvClubsEng.png","ar":"srvClubsArb.png"},"srvInfermerie.png",];
+  
     
     return(
         <>
         <AnimatePresence>
-            <div key={selectedCyc}  className="w-full flex items-center justify-center flex-col mt-10 text-neutral-500">
-                <div className="w-full pt-32 flex flex-col items-center justify-center">
+            <p className={` lg:hidden flex text-justify mt-5`}>
+                  {textt}
+                </p>
+            <div key={selectedCyc}  className="w-full lg:flex items-center justify-center flex-col lg:mt-10 text-neutral-500 hidden ">
+                <div className="w-full lg:pt-32 mt-10 flex flex-col items-center justify-center">
                     <motion.p initial={{opacity:0,y:-24}} whileInView={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:12,scale:0.9}}  transition={{type: "ease",visualDuration: 0.14}} className={`font-bold text-xl origin-bottom mb-6 ${lang === 'ar' && 'text-2xl'}`}>{srvData.title[lang]}</motion.p>
                     <motion.h1 initial={{opacity:0,y:-10}} whileInView={{opacity:1,y:0}} exit={{opacity:0,y:-1}} transition={{type: "ease",visualDuration: 0.14}} className={`text-7xl origin-bottom w-[80%] text-center text-blue-500 mb-2  ${lang === 'ar' && 'text-8xl'}`}><b> {srvData.subtitle[lang]}</b></motion.h1>
                 </div>
@@ -184,7 +194,11 @@ const TheService = ({selectedCyc,srvData,lang,isOther}) => {
                         <motion.img  initial={{ y: 10, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
-                        transition={{ duration: 0.2 }}  className="w-full" src={process.env.PUBLIC_URL + '/images/' + srvData.image}/>
+                        transition={{ duration: 0.2 }}  className="w-full"
+                        src={process.env.PUBLIC_URL + '/images/' + 
+                          ([0, 1,3].includes(selectedCyc) ? shrtsImages[selectedCyc][language] : shrtsImages[selectedCyc])
+                      } 
+                        />
                     </div>
 
                     <div className="h-full flex flex-col gap-16 w-[25%] pl-6">
@@ -207,6 +221,14 @@ const TheService = ({selectedCyc,srvData,lang,isOther}) => {
                 </div>
 
                 <p className={`w-[80%] text-center text-sm ${lang === 'ar' && 'text-base'}`}>{srvData.footer[lang]}</p>
+            </div>
+            <div key={'mb-'+selectedCyc}  className="w-full flex flex-col items-center lg:hidden mt-10 text-center">
+              <p className="">{srvData.title[lang]}</p>
+              <h1 className="text-blue-500 text-4xl"><b>{srvData.subtitle[lang]}</b></h1>
+              <img key={'img-'+selectedCyc} className="w-full" src={process.env.PUBLIC_URL + '/images/' + 
+                          ([0, 1,3].includes(selectedCyc) ? shrtsImages[selectedCyc][language] : shrtsImages[selectedCyc])}>
+              </img>
+              
             </div>
         </AnimatePresence>
         </>

@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer";
 
 export default function BottomPage() {
   const { language } = useSelector((state) => state.presntion); 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const scrollValue = useSelector((state) => state.scrollVal);
   const { ref: motherRef, inView } = useInView({
       threshold: 0.2, // Trigger when 50% of the component is visible

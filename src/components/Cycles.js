@@ -12,6 +12,8 @@ import NavigationCyc from "../Models/Cycles/NavigationCyc";
 import CycleConclusion from "../Models/Cycles/CyclesConclusion";
 import BottomNavigation from "../Models/Cycles/BottomNavigation";
 import { useInView } from "react-intersection-observer";
+import { useSelector } from 'react-redux';
+import { setPageIndex } from '../redux(toolKit)/slices/pageIndexSlice';
 
 
   
@@ -19,6 +21,11 @@ const Cycles = () => {
   const { ref: motherRef, inView } = useInView({
     threshold: 0.4, // Trigger when 50% of the component is visible
   });
+
+    const {pageIndex}=useSelector((state)=>state.pageIndex);
+    useEffect(() => {
+      dispatch(setPageIndex(2));
+    }, [pageIndex]);
 
     const dispatch = useDispatch();
     const [selectedCyc,setSelectedCyc]=useState(3);

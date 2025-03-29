@@ -8,6 +8,7 @@ import TeamWork from '../Models/About/TeamWork';
 import Education from '../Models/About/ِEducation';
 import ParentEleve from '../Models/About/ParentEleve';
 import Navigation from '../Models/Globe/Navigation';
+import { setPageIndex } from '../redux(toolKit)/slices/pageIndexSlice';
 
 
 const About = () => {
@@ -15,6 +16,10 @@ const About = () => {
   useEffect(() => {
     dispatch(setIsHome(false));
   }, [dispatch]);
+    const {pageIndex}=useSelector((state)=>state.pageIndex);
+    useEffect(() => {
+      dispatch(setPageIndex(1));
+    }, [pageIndex]);
   
   const scrollValue = useSelector((state) => state.scrollVal);
   const menuList = {

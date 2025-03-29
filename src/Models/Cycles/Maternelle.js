@@ -1,9 +1,9 @@
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSwipeable } from "react-swipeable";
 import content from "./Datas/MaternelleData.json";
 

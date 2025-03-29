@@ -7,11 +7,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    backdrop-filter: blur(10px); /* Maximum blur intensity */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent); /* Transparent gradient overlay */
-    mask-image: linear-gradient(to bottom, black 0%, transparent 100%); /* Fades out the blur effect */
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%); 
     -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-    pointer-events: none; /* Allows interaction with elements below */
+    pointer-events: none;
   }
   .flash{
     transition: .3s cubic-bezier(0.25, -0.52, 0.32, 1.79); ;
@@ -29,6 +29,9 @@
   }
   .arabic{
     *{
+      font-family: "Cairo", serif;
+    }
+    h1,h2,h3,h4,h5,h6,b{
       font-family: "Lalezar", system-ui !important;
     }
     
@@ -59,7 +62,11 @@
     } 
   }
   .blurey{
-    -webkit-backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .blurey2{
+    -webkit-backdrop-filter: blur(90px);
   }
   
  
@@ -420,6 +427,13 @@
 
 .servicesQte{
   *{
-    transition: ease-in-out .3s;
+    transition: ease-in-out ;
   }
+}
+.theBars {
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) .3s all !important;
+
+*{
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) .3s all !important;
+}
 }

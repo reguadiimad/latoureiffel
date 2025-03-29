@@ -20,7 +20,7 @@ const NouvellesAct = () => {
     const [popupVisible, setPopupVisible] = useState(false);
 
     const { ref: motherRef, inView } = useInView({
-      threshold: 0.6, // Trigger when 50% of the component is visible
+      threshold: 0.4, // Trigger when 50% of the component is visible
     });
         useEffect(() => {
       setPopupVisible(inView);

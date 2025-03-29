@@ -14,7 +14,7 @@ export default function EducationStages() {
     const [popupVisible, setPopupVisible] = useState(false);
 
     const { ref: motherRef, inView } = useInView({
-      threshold: 0.6, // Trigger when 50% of the component is visible
+      threshold: 0.5, // Trigger when 50% of the component is visible
     });
 
     const animationProps = (delay,sacled=true) => ({

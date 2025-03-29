@@ -3,7 +3,8 @@ import presntion from '../../Models/Home/Datas/presontionData.json'
 
 
 const initialState = {
-  language: 'fr', // Default language
+  language: 'fr',
+  showLang:false, // Default language
   presntion // Use imported JSON as the initial state content
 };
 

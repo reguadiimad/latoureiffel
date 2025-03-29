@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../../redux(toolKit)/slices/contentSlice";
-
+import Draggable from 'react-draggable';
 const Menu = ({ visible }) => {
     const isHome = useSelector((state) => state.isHome);
     const dispatch = useDispatch();
     const [linked, setlinked] = useState(0);
     const [langClicked, setLangClicked] = useState(false);
-    const { language } = useSelector((state) => state.presntion); // Assuming Redux store
+    const { language } = useSelector((state) => state.presntion);
+    const { showLang } = useSelector((state) => state.showLang);
+    
+
+     // Assuming Redux store
     const menuList = {
         fr: ["Accueil", "À propos", "Cycles", "Services", "Actualités", "Galerie", "Contact", "Inscription"],
         en: ["Home", "About", "Cycles", "Services", "News", "Gallery", "Contact", "Registration"],
@@ -82,7 +86,7 @@ const Menu = ({ visible }) => {
             
                 {visible && showMenu && (
                     <>
-                    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur backdrop-blur-3xl"></motion.div>
+                    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur hidden lg:block backdrop-blur-3xl"></motion.div>
                     <motion.div
                         className="md:w-full fixed top-0 left-0 flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
                         {...dropAndPopAnimation()}
@@ -100,10 +104,9 @@ const Menu = ({ visible }) => {
                         >
                             <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex ">
                                 <motion.span
-                                    whileHover={{ opacity: 0.5, scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
+                                    layout transition={{type: "spring",visualDuration: 0.14,bounce: 0.2}}
                                     style={{ width: 100 / currentMenuList.length + "%", left: linked * (100 / currentMenuList.length) + "%" }}
-                                    className="absolute bg-red-500  h-full rounded-full flash border border-white/80"
+                                    className="absolute bg-red-500  h-full rounded-full  border border-white/80"
                                 />
                                 {currentMenuList.map((text, index) => (
                                     <Link
@@ -128,29 +131,48 @@ const Menu = ({ visible }) => {
                     </motion.div></>
                 )}
             </AnimatePresence>
-
-            <div className="fixed bottom-0 left-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
-                <div className="w-28 h-28 lg:w-44 lg:h-44 bg-black/50 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
-            </div>
-            <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 left-6 lg:left-1 fixed flex flex-col items-center language ease-in duration-200 z-40">
-                <AnimatePresence>
-                    {langClicked && (
-                        <motion.div
-                            key="lang-menu"
-                            initial={{y:50,scale:0.5}} animate={{y:0,scale:1}} exit={{y:80,scale:0.2}} duration={200}  transition={{type:"spring",damping:13,duration:'0.1s'}}
-                            className="w-10  text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
-                        >
-                            {langButtons(language)}
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                <button
-                    onClick={() => setLangClicked(!langClicked)}
-                    className="text-white/70 bg-black/10 rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5"
-                >
-                    {language}
-                </button>
-            </div>
+            {showLang && (
+    <AnimatePresence>
+        {showLang && (
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+            >
+                <div className="fixed bottom-0 left-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
+                    <div className="w-28 h-28 lg:w-44 lg:h-44 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
+                </div>
+                <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 left-6 lg:left-1 fixed flex flex-col items-center language ease-in duration-200 z-40">
+                    <AnimatePresence>
+                        {langClicked && (
+                            <motion.div
+                                key="lang-menu"
+                                initial={{ y: 50, scale: 0.5 }}
+                                animate={{ y: 0, scale: 1 }}
+                                exit={{ y: 80, scale: 0.2 }}
+                                transition={{ type: "spring", damping: 13, duration: 0.1 }}
+                                className="w-10 text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
+                            >
+                                {langButtons(language)}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    <AnimatePresence>
+                   {
+                    showLang && ( <motion.button initial={{x:-50}} animate={{x:0}} exit={{x:-50}} transition={{type:'spring',damping:13,mass:1}}
+                        onClick={() => setLangClicked(!langClicked)}
+                        className="text-white/70 shadow-lg bg-black/10 rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5"
+                    >
+                        {language}
+                    </motion.button>)
+                   }
+                    </AnimatePresence>
+                </div>
+            </motion.div>
+        )}
+    </AnimatePresence>
+)}
         </>
     );
 };

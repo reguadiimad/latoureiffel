@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <>
      {isHome&&
-       <nav className={`flex items-center justify-between w-[94%] p-2 font-sans absolute ${language==='ar'&&'text-xl'} rounded-lg top-3 left-[3%] text-neutral-900/90 z-30 `}>
+       <nav className={`lg:flex items-center justify-between w-[94%] p-2 hidden font-sans absolute ${language==='ar'&&'text-xl'} rounded-lg top-3 left-[3%] text-neutral-900/90 z-30 `}>
        <div className="w-[50%] lg:w-[30%]">
          <img
            alt="logo"
