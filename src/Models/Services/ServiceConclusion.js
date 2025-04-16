@@ -18,7 +18,7 @@ export default function ServicesConclusion() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
 
-      className={`w-[90%]  rounded-[50px] border border-black/10 p-8 md:p-12 lg:p-16 text-neutral-900 mt-10 ${
+      className={`w-[90%] rounded-[30px] lg:rounded-[50px] border border-black/10 p-4 md:p-12 lg:p-16 text-neutral-900 mt-10 ${
         language === "ar" ? "text-right" : "text-justify"
       }`}
     >

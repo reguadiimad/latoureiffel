@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 
-  showLang:false, // Default language
+  showLang:true, // Default language
 };
 
 const contentSlice = createSlice({

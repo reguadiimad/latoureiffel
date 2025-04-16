@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux'
 import './resources/style/home.scss'
 import Cycles from './components/Cycles';
 import Services from './components/Services';
+import Gallery from './components/Gallery';
+import Contact from './components/Contact';
 
 
 
@@ -26,6 +28,8 @@ function App() {
           <Route path={"/about"} element={<About />} />
           <Route path={"/cycles"} element={<Cycles />} />
           <Route path={"/services"} element={<Services />} />
+          <Route path={"/gallery"} element={<Gallery/>} />
+          <Route path={"/contact"} element={<Contact/>} />
         </Routes>
         <Navbar />
         <BottomPage/>

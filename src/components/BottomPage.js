@@ -47,7 +47,8 @@ export default function BottomPage() {
     
     <div ref={motherRef} className="w-full flex items-center relative justify-center flex-col pt-5 links ">
       <div className='lg:h-[600px] md:h-[500px] h-[300px]  w-full absolute bottom-0 left-0 lg:scale-x-125 z-0 '>
-      {/*
+      {/*$
+
         webGLSupported&& <ShaderGradientCanvas
         className="w-full h-full absolute "
         style={{bottom:'-20%', left:0}}

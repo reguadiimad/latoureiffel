@@ -5,6 +5,7 @@ import indexSice from './slices/indexSice';
 import scrollVal from './slices/scrollSlice';
 import pageIndexSlice from './slices/pageIndexSlice';
 import showLangSlice from './slices/showLang';
+import showMenuSlice from './slices/showMenu';
 const store = configureStore({
   reducer: {
     presntion: contentReducer,
@@ -13,6 +14,7 @@ const store = configureStore({
     scrollVal: scrollVal,
     pageIndex: pageIndexSlice,
     showLang : showLangSlice,
+    showMenu:showMenuSlice,
   },
 });
 

@@ -42,14 +42,14 @@ const MobileStckMenu = () => {
       const currentMenuList = menuItems[language] || menuItems["fr"];
     return (
         <>
-            <div className={`w-full flex justify-center p-4 px-4 lg:hidden absolute top-0 left-0 z-50 ${language==='ar'?'flex-row-reverse':''}`}>
+            <div className={`w-full flex  justify-center p-4 px-4 pr-5 lg:hidden absolute top-0 left-0 z-50 ${language==='ar'?'flex-row-reverse':''}`}>
                 <div className={`w-[50%] z-30 flex ${language==='ar'&&' justify-end'}`}>
-                    <img src={process.env.PUBLIC_URL + (language==="fr"?"/logos/logo1.png":(language==="ar"?"/logos/logo1ar.png":"/logos/logo1eng.png"))} alt="logo" className={`h-10 filter ease-in-out duration-300 invert-[1] ${isOpen&&"opacity-0"}`}/>
+                    <img src={process.env.PUBLIC_URL + (language==="fr"?"/logos/logo1.png":(language==="ar"?"/logos/logo1ar.png":"/logos/logo1eng.png"))} alt="logo" className={`h-10 md:h-12 filter ease-in-out duration-300 ${(pageIndex===5&&!isOpen)?"":"invert-[1]"}  ${isOpen&&"opacity-0"}`}/>
                 </div>
                 <div className={`w-[50%] flex items-end ${language==='ar'?'':'  justify-end'}`}>
                     <div className={`w-7 p-1 flex flex-col gap-2 cursor-pointer relative z-50 theBars mb-1`} onClick={toggleMenu}>
-                        <span className={`w-full h-[2px] rounded-3xl bg-neutral-900  absolute   ${isOpen ? 'rotate-45 absolute w-6 -mt-2' : 'rotate-0 -mt-[9px]'}`}></span>
-                        <span className={`w-full h-[2px] rounded-3xl bg-neutral-900   absolute   ${isOpen ? '-rotate-45 absolute w-6 -mt-2' : 'rotate-0'}`}></span>
+                        <span className={`w-full h-[2px] rounded-3xl ${(pageIndex===5&&!isOpen)?"bg-white/90":"bg-black/90"} absolute   ${isOpen ? 'rotate-45 absolute w-6 -mt-2' : 'rotate-0 -mt-[9px]'}`}></span>
+                        <span className={`w-full h-[2px] rounded-3xl ${(pageIndex===5&&!isOpen)?"bg-white/90":"bg-black/90"}   absolute   ${isOpen ? '-rotate-45 absolute w-6 -mt-2' : 'rotate-0'}`}></span>
                     </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@ const MobileStckMenu = () => {
             animate={{ height: '100%' }} 
             exit={{ y:100,height: 0,opacity:0,duration:0.6 }} 
             transition={{ type: "ease" }} 
-            className="w-full h-screen  bg-white/90 fixed top-0 left-0 z-40 flex items-center justify-center lg:hidden blurey2"
+            className="w-full h-screen  bg-white/90 fixed top-0 left-0 z-40 flex items-center justify-center lg:hidden blurey2 backdrop-blur-md"
         >
-            <div className={`w-[80%] flex flex-col `}>
+            <div className={`w-[80%] flex flex-col menudropd`}>
                 {currentMenuList.map((item, index) => (
                     <motion.div
                         key={index}
@@ -70,9 +70,10 @@ const MobileStckMenu = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ type: "spring", delay: 0.05 * index }}
-                        className="w-full h-14 flex"
+                        className="w-full h-14  md:h-20 flex"
                     >
-                        <Link to={routes[index]} onClick={()=>setIsOpen(false)} className={`${language==='ar'?'text-right justify-end':""} text-neutral-700 font-semibold text-2xl  relative w-full flex items-center`}>{language!=="ar"&&(pageIndex===index&&<span className="w-3  h-3 rounded-full bg-blue-500 mr-2"></span>)} {item} {language==="ar"&&(pageIndex===index&&<span className="w-3  h-3 rounded-full bg-blue-500 ml-2"></span>)}</Link>
+                        <Link to={routes[index]} onClick={()=>setIsOpen(false)} className={`${language==='ar'?'text-right justify-end':""} links text-neutral-700 font-semibold text-2xl md:text-3xl  relative w-full flex items-center`}>
+                        {language!=="ar"&&(pageIndex===index&&<span className="w-3  h-3 rounded-full bg-blue-500 mr-2"></span>)} {item} {language==="ar"&&(pageIndex===index&&<span className="w-3  h-3 rounded-full bg-blue-500 ml-2"></span>)}</Link>
                         
                     </motion.div>
                 ))}
@@ -142,8 +143,8 @@ const text = isFull ? translations[language]?.title : currentPage;
     <AnimatePresence mode="wait">
         <motion.div initial={{opacity:0,y:-80}} animate={{opacity:1,y:0}} transition={{type:"ease"}} exit={{opacity:0,y:-20}} className={`w-full lg:hidden h-screen ${!isFull&&"pointer-events-none"} fixed top-0 left-0 z-50`}>
            
-                {isFull&&(<motion.div onClick={()=>setIsFull(false)} initial={{opacity:0}} animate={{opacity:1,y:0}} transition={{type:"ease"}} exit={{opacity:0,y:-20}} className={`w-full h-screen blurey absolute bg-white/30 -z-10`}></motion.div>)}
-                <motion.div className={`p-2 pointer-events-auto blurey z-50 ${isFull?"bg-white ":"bg-white/50 "} ease-in-out duration-200 w-full border-b border-black/20`}>
+                {isFull&&(<motion.div onClick={()=>setIsFull(false)} initial={{opacity:0}} animate={{opacity:1,y:0}} transition={{type:"ease"}} exit={{opacity:0,y:-20}} className={`w-full h-screen blurey backdrop-blur-lg absolute bg-white/30 -z-10`}></motion.div>)}
+                <motion.div className={`p-2 pointer-events-auto blurey z-50 ${isFull?"bg-white ":"bg-white/50 "} ease-in-out duration-200 backdrop-blur-lg w-full border-b border-black/20`}>
                     <div className={`w-full  flex ${language === 'ar' && 'flex-row-reverse'}`}>
                         <div className={`w-[70%] flex items-center ${language === 'ar' && 'justify-end'}`}>
                         <motion.p

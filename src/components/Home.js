@@ -22,6 +22,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(setIsHome(true));
   }, [dispatch]);
+  useEffect(() => {dispatch(setPageIndex(0))}, [dispatch]);
 
   const {pageIndex}=useSelector((state)=>state.pageIndex);
   useEffect(() => {

@@ -63,12 +63,12 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
       />
       {/* Apply the dynamic text size */}
       <p className={`text-xs lg:${textSm} text-center lg:text-right`}>{texts.heading.subtitle}</p>
-      <h1 className={`text-blue-500 text-4xl lg:${text8xl}  text-center`}>
+      <h1 className={`text-blue-500 text-4xl lg:text-6xl xl:${text8xl}  text-center`}>
         <b>{texts.heading.mainTitle}</b>
       </h1>
 
-      <div className="hidden w-full lg:flex py-20">
-        <div className="w-[55%] h-[650px] flex items-center justify-center p-4 z-10">
+      <div className="hidden w-full lg:flex  2xl:py-20 ">
+        <div className="xl:w-[55%] lg:w-[60%] lg:h-[550px] 2xl:h-[650px] flex items-center justify-center p-4 z-10">
           <div className="w-[32%] bg-white/40 blurey backdrop-blur-3xl h-[80%] border-2 border-white/80 border-r-0 rounded-[50px] rounded-r-none text-neutral-900/60 flex flex-col py-10">
             {services.map((service, index) => (
               <motion.div
@@ -78,7 +78,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 transition={{ type: "ease", duration: 0.14 }}
                 className={`cursor-pointer flex w-[300px] items-center h-[20%] gap-x-2 ${
                   selectedService === index
-                    ? `shadow-2xl -ml-[10%] bg-white/90 ${textXl} gap-x-4 rounded-r-none rounded-3xl text-blue-500 p-10`
+                    ? `shadow-2xl -ml-[10%] blurey bg-white/90 lg:text-lg 2xl:${textXl} gap-x-4 rounded-r-none rounded-3xl text-blue-500 p-10`
                     : "mx-10"
                 }`}
               >
@@ -96,7 +96,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 whileInView={{ opacity: 1, y: 0, scaleX: 1 }}
                 exit={{ opacity: 0, y: theY * 30 }}
                 transition={{ type: "spring" }}
-                className={`w-full absolute ${
+                className={`w-full  absolute ${
                   selectedService === 0 ? "-bottom-[5%] -right-[20%]" : "bottom-0 left-0"
                 }  `}
                 src={process.env.PUBLIC_URL + '/images/' + 
@@ -111,7 +111,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: theY * 20 }}
                 transition={{ type: "spring", delay: 0.1 }}
-                className={`text-red-500 ${textBase} font-bold`}
+                className={`text-red-500 xl:${textBase} font-bold`}
               >
                 {services[selectedService].description}
               </motion.div>
@@ -122,7 +122,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 exit={{ opacity: 0, scaleX: 0.4, y: theY * 30 }}
                 transition={{ type: "spring", delay: 0.1 }}
                 key={services[selectedService].title0}
-                className={`text-white ${text4xl} w-[80%]`}
+                className={`text-white lg:text-2xl xl:${text4xl} w-[80%]`}
               >
                 <b>{services[selectedService].title0}</b>
               </motion.h1>
@@ -150,12 +150,12 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
             </AnimatePresence>
           </div>
         </div>
-        <div className={`w-[45%] p-4 pt-10 ${language==="ar"&&"text-right flex flex-col items-end"}`}>
-          <p className={`${textBase} mb-2`}>{texts.rightSection.intro}</p>
-          <h1 className={`text-blue-500 ${text6xl}  mb-4`}>
+        <div className={`xl:w-[45%] lg:w-[40%] p-4 pt-10 ${language==="ar"&&"text-right flex flex-col items-end"}`}>
+          <p className={`xl:${textBase} mb-2`}>{texts.rightSection.intro}</p>
+          <h1 className={`text-blue-500 lg:text-3xl xl:${text6xl}  mb-4`}>
             <b>{texts.rightSection.heading}</b>
           </h1>
-          <p className={`${textBase}`}>{texts.rightSection.paragraph}</p>
+          <p className={`xl:${textBase}`}>{texts.rightSection.paragraph}</p>
           {texts.rightSection.points.map((point, index) => (
   <div                                                   
     key={index}
@@ -169,7 +169,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
       } rounded-full ${language==="ar"?" ml-4": " mr-4"
       }`}
     ></div>
-    <p className={`${textBase}`}>{point}</p>
+    <p className={`xl:${textBase}`}>{point}</p>
   </div>
 ))}
 
@@ -182,10 +182,10 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
         </div>
       </div>
       <div className="w-full lg:hidden flex flex-col items-center justify-center">
-        <div className="w-full flex justify-between text-white bg-black/5 items-center text-xl shadow-lg px-6 my-2 gap-2  border border-white/50 rounded-3xl py-4 blurey backdrop-blur-xl">
+        <div className={`w-full flex justify-between text-white ${language==="ar"&&"flex-row-reverse"} bg-black/5 items-center text-xl sm:text-2xl shadow-lg px-6 my-2 gap-2  border border-white/50 rounded-3xl py-4 blurey backdrop-blur-xl`}>
         {services.map((service, index) => (
-         <div className="flex items-center justify-center relative ease-in-out duration-300" key={index} onClick={()=>onSelect(index)}>
-           <FontAwesomeIcon className={`${selectedService===index&&'text-blue-500 text-xl'}`}  icon={service.icon}/>
+         <div className={`flex items-center justify-center relative ease-in-out duration-300 `} key={index} onClick={()=>onSelect(index)}>
+           <FontAwesomeIcon className={`${selectedService===index&&'text-blue-500 '}`}  icon={service.icon}/>
             <AnimatePresence>
             {selectedService === index && (
               <motion.span
@@ -221,7 +221,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 animate="animate" 
                 exit="exit" 
                 duration={{delay:0.3}}
-                className="text-white text-xl w-[90%]"
+                className="text-white text-xl sm:text-2xl md:text-3xl w-[90%]"
             >
                 <b>{services[selectedService].description}</b>
             </motion.h1>
@@ -233,7 +233,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
                 exit="exit" 
                 duration={{delay:0.5}}
 
-                className=""
+                className={`sm:w-auto sm:h-[420px] md:h-[500px] ${selectedService===0&&"sm:-mr-80"}  mt-4`}
                 src={process.env.PUBLIC_URL + '/images/' + 
                     ([0, 1, 5].includes(selectedService) ? shrtsImages[selectedService][language] : shrtsImages[selectedService])
                 }
@@ -245,7 +245,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
 
         <div className="w-full  mt-8 text-center flex flex-col items-center">
         <p className={`mb-2`}>{texts.rightSection.intro}</p>
-        <h1 className={`text-blue-500 text-3xl  mb-4`}>
+        <h1 className={`text-blue-500 text-3xl md:text-4xl  mb-4`}>
             <b>{texts.rightSection.heading}</b>
           </h1>
           <p className={``}>{texts.rightSection.paragraph}</p>
@@ -262,7 +262,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
       } rounded-full ${language==="ar"?" ml-4": " mr-4"
       }`}
     ></div>
-    <p className={``}>{point}</p>
+    <p className={`${language==='ar'&&'text-right'}`}>{point}</p>
   </div>
 ))}
 

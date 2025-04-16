@@ -104,7 +104,7 @@ const NouvellesAct = () => {
               <div className="absolute rounded-full w-40 h-40 bg-neutral-100 top-[9%] right-[9%] z-0"></div>
               <div className="absolute top-0 scale-[0.85] md:scale-[1] -right-1 md:right-0 bg-blue-500 text-white rounded-full w-1 h-1 p-9 text-3xl flex items-center justify-center"><FontAwesomeIcon icon={faCircleNodes}/></div>
               <div className=" w-full  top-0 left-0 z-20 p-10 lg:pt-7 xl:pt-16 pt-16 relative"> 
-                  <motion.img {...costumeAnimtion('70%','70%')}   alt='img' src={process.env.PUBLIC_URL+`/images/${language==="ar"?'phoneAr.png':(language==="fr"?'phoneFr.png':'phoneEng.png')}`} className="h-96 lg:h-60 xl:h-96 w-auto absolute md:-bottom-6 bottom-0 -right-40  lg:-right-24 xl:-right-40 z-0"/>
+                  <motion.img initial={{x:70,scale:0.1,y:70}} whileInView={{x:0,scale:1,y:70}}   alt='img' src={process.env.PUBLIC_URL+`/images/${language==="ar"?'phoneAr.png':(language==="fr"?'phoneFr.png':'phoneEng.png')}`} className="h-96 lg:h-60 xl:h-96 w-auto  absolute md:-bottom-6 bottom-0 -right-40  lg:-right-24 xl:-right-40 z-0"/>
                   <p className="w-[80%] text-neutral-900/50 lg:text-xs text-base xl:text-base font-semibold">{texts.texts.real_time_connect[language]}</p>
                   <h1 className={`text-6xl lg:text-4xl mt-5 ${language==="ar"?'xl:text-8xl':'xl:text-6xl'}`}><b>{texts.texts.free_header[language]}</b></h1>
                   <p className="text-neutral-900/50 font-semibold w-full lg:text-xs text-base xl:text-base">{texts.texts.free_description[language]}</p> 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../../redux(toolKit)/slices/contentSlice";
 import Draggable from 'react-draggable';
+import { setPageIndex } from "../../redux(toolKit)/slices/pageIndexSlice";
 const Menu = ({ visible }) => {
     const isHome = useSelector((state) => state.isHome);
     const dispatch = useDispatch();
@@ -11,6 +12,9 @@ const Menu = ({ visible }) => {
     const [langClicked, setLangClicked] = useState(false);
     const { language } = useSelector((state) => state.presntion);
     const { showLang } = useSelector((state) => state.showLang);
+    const {pageIndex}=useSelector((state)=>state.pageIndex);
+
+
     
 
      // Assuming Redux store
@@ -21,24 +25,28 @@ const Menu = ({ visible }) => {
     };
     const routes = ["/", "/about", "/cycles", "/services", "/news", "/gallery", "/contact", "/registration"];
 
-    const [showMenu, setShowMenu] = useState(true); // State to toggle menu visibility
+    const [showMenu, setShowMenu] = useState(true); 
+    const showMenu2 = useSelector((state)=>state.showMenu)// State to toggle menu visibility
     const [lastScrollY, setLastScrollY] = useState(0); // Track the last scroll position
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > lastScrollY) {
+            if (window.scrollY <= 0) {
+                setShowMenu(true); // Ensure menu stays visible at the top
+            } else if (window.scrollY > lastScrollY) {
                 setShowMenu(false); // Hide menu when scrolling down
             } else {
                 setShowMenu(true); // Show menu when scrolling up
             }
             setLastScrollY(window.scrollY);
         };
-
+    
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [lastScrollY]);
+    
 
     const dropAndPopAnimation = () => ({
         initial: { y: "-100%",  scale: 0.5 },
@@ -84,28 +92,32 @@ const Menu = ({ visible }) => {
 
             <AnimatePresence>
             
-                {visible && showMenu && (
+                {visible && (showMenu) && (
                     <>
-                    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur hidden lg:block backdrop-blur-3xl"></motion.div>
+                    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur hidden xl:block backdrop-blur-3xl"></motion.div>
                     <motion.div
-                        className="md:w-full fixed top-0 left-0 flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
+                        className="lg:w-full hidden  lg:fixed top-0 left-0 xl:flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
                         {...dropAndPopAnimation()}
                     >
                         <div className="xl:w-[21%] h-full mt-8 p-2.5 pl-10">
                         <motion.img initial={{y:-50,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-80}} transition={{type:'spring',delay:0.2}}
                             alt="logo"
                             src={process.env.PUBLIC_URL + `/logos/${language==='ar'?'logo1ar.png':(language==='en'?'logo1eng.png':'logo1.png')}`}
-                            className={`h-12 md:h-16 object-cover filter invert opacity-80 mb-4`}
+                            className={`h-12 md:h-16 hidden xl:block object-cover filter invert opacity-80 mb-4`}
                             />
                         </div>
                         <motion.div
                             {...dropAndPopAnimation()}
-                            className="mt-8 xl:w-[58%] md:w-[85%] md:block p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full flex items-center justify-center shadow-lg "
+                            className="mt-8 xl:w-[58%] md:w-[75%]  hidden p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full lg:flex items-center justify-center shadow-lg "
                         >
-                            <div className="w-[100%] flex items-center justify-between relative sm:hidden md:flex ">
+                            <div className={`w-[100%] flex items-center justify-between relative sm:hidden md:flex  ${language === "ar" ? "flex-row-reverse" : "flex-row"}`}>
                                 <motion.span
-                                    layout transition={{type: "spring",visualDuration: 0.14,bounce: 0.2}}
-                                    style={{ width: 100 / currentMenuList.length + "%", left: linked * (100 / currentMenuList.length) + "%" }}
+                                    layout transition={{type: "spring",visualDuration: 0.14,bounce: 0.2,duration:0.2}}
+                                    style={{
+                                        width: 100 / currentMenuList.length + "%",
+                                        [language === "ar" ? "right" : "left"]: pageIndex * (100 / currentMenuList.length) + "%"
+                                      }}
+                                      
                                     className="absolute bg-red-500  h-full rounded-full  border border-white/80"
                                 />
                                 {currentMenuList.map((text, index) => (
@@ -115,9 +127,9 @@ const Menu = ({ visible }) => {
                                         style={{ width: 100 / currentMenuList.length + "%" }}
                                         className={`text-center z-40  xl:py-5 md:py-4 lg:text-base md:text-sm ease-out duration-200 ${
                                             language === "ar" ? "lg:text-lg" : "lg:text-base"
-                                        } ${linked === index ? "text-white/90 font-bold " : "text-neutral-900 hover:animate-pulse mix-blend-difference"}`}
+                                        } ${pageIndex === index ? "text-white/90 font-bold " : "text-neutral-900 hover:animate-pulse mix-blend-difference"}`}
                                         onClick={() => {
-                                            setlinked(index);
+                                            dispatch(setPageIndex(index));
                                             scrollToTop(); // Scroll to the top when clicking a link
                                         }}
                                     >
@@ -131,16 +143,16 @@ const Menu = ({ visible }) => {
                     </motion.div></>
                 )}
             </AnimatePresence>
-            {showLang && (
-    <AnimatePresence>
-        {showLang && (
+            
+    
+  
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className="fixed bottom-0 left-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
+                <div className="fixed bottom-0  left-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
                     <div className="w-28 h-28 lg:w-44 lg:h-44 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
                 </div>
                 <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 left-6 lg:left-1 fixed flex flex-col items-center language ease-in duration-200 z-40">
@@ -159,20 +171,19 @@ const Menu = ({ visible }) => {
                         )}
                     </AnimatePresence>
                     <AnimatePresence>
-                   {
-                    showLang && ( <motion.button initial={{x:-50}} animate={{x:0}} exit={{x:-50}} transition={{type:'spring',damping:13,mass:1}}
+                   <motion.button initial={{x:-50}} animate={{x:0}} exit={{x:-50}} transition={{type:'spring',damping:13,mass:1}}
                         onClick={() => setLangClicked(!langClicked)}
-                        className="text-white/70 shadow-lg bg-black/10 rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5"
+                        className={`text-white/70 shadow-lg bg-black/10  rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5 ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
                     >
                         {language}
-                    </motion.button>)
-                   }
+                    </motion.button>
+                   
                     </AnimatePresence>
                 </div>
             </motion.div>
-        )}
-    </AnimatePresence>
-)}
+    
+
+
         </>
     );
 };

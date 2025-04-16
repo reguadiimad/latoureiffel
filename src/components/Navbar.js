@@ -6,7 +6,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Menu from '../Models/Menu/Menu.js';
 import MobileMenu from "../Models/Menu/MobileMenu.js";
 import MobileStckMenu from "../Models/Menu/MobileStckMenu.js";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
 
 
 const Navbar = () => {
@@ -14,6 +15,8 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { language } = useSelector((state) => state.presntion); 
   const isHome = useSelector((state) => state.isHome);
+  const dispatch =useDispatch();
+  useEffect(()=>{dispatch(setIsHome(false))},[dispatch])
 
   useEffect(() => {
     const handleScroll = () => {

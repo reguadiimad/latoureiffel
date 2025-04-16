@@ -98,13 +98,13 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
       </p>
 
       <div className={`w-full flex justify-center mt-20 ${language === "ar" && "flex-row-reverse"}`}>
-        <div className={`w-[50%] flex ${language === "ar" && " justify-end"}`}>
-          <h1 className={` ${getTextSize("lg:text-8xl", "lg:text-9xl")} text-2xl mb-0 text-blue-500`}>
+        <div className={`w-[50%] lg:w-[47%] xl:w-[50%] items-center flex ${language === "ar" && " justify-end"}`}>
+          <h1 className={`lg:text-6xl xl:${getTextSize("text-7xl", "text-8xl")}   2xl:${getTextSize("text-8xl", "text-9xl")} text-2xl md:text-4xl mb-0 text-blue-500`}>
             <b>{translations[language].servicesTitle}</b>
           </h1>
         </div>
-        <div className="lg:w-[50%] flex flex-col items-end justify-end">
-          <p className={`${language === "ar" ? "lg:text-xl" : "lg:text-lg"} text-right lg:p-4  mb-3 lg:mb-0`}>
+        <div className="lg:w-[53%] xl flex flex-col items-end justify-end">
+          <p className={`2xl:${language === "ar" ? "lg:text-xl" : "lg:text-lg"} text-right lg:p-4  mb-3 lg:mb-0`}>
             {translations[language].servicesSubTitle}
           </p>
 
@@ -142,9 +142,9 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
       <TheService textt={translations[language].intro} selectedCyc={selectedCyc} srvData={servsData[selectedCyc]} lang={language} isOther={selectedCyc === 5} />
 
       {/* Gallery section */}
-      <div className="w-full flex p-[20px] pl-0 rounded-[50px] mt-20 overflow-x-scroll">
+      <div className="w-full flex  lg:p-[20px]  pl-0  lg:mt-20 mt-8 overflow-x-scroll">
         <div>
-          <div className="flex gap-x-8 pr-[20px]">
+          <div className="flex lg:gap-x-8 gap-x-3 pr-[20px]">
             {sellImages[selectedCyc].map((image, index) => (
               <motion.img
                 key={index}
@@ -152,7 +152,7 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ type: "spring", delay: 0.1 }}
                 src={process.env.PUBLIC_URL + image}
-                className="h-[650px] border border-black/10 rounded-[40px] cursor-pointer hover:shadow-lg duration-100 ease-linear hover:border-black/25"
+                className="xl:h-[650px] w-[240px] md:w-auto md:h-[450px] lg:w-auto border border-black/10 rounded-[40px] cursor-pointer hover:shadow-lg duration-100 ease-linear hover:border-black/25"
                 onClick={() => setSelectedIndex(index)}
               />
             ))}
@@ -176,7 +176,7 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
                   <motion.img
                     key={selectedIndex}
                     src={process.env.PUBLIC_URL + sellImages[selectedCyc][selectedIndex]}
-                    className="rounded-[25px] h-[300px] md:h-[700px] border border-white/60"
+                    className="rounded-[25px] 2xl:h-[300px] md:h-[700px] sm:h-44 border border-white/60"
                     initial={{ x: direction * 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -direction * 100, opacity: 0 }}

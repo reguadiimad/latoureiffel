@@ -60,7 +60,7 @@ const Services = () => {
         handelSelect={handelSelect}
         show={showBtmNav}
       />
-      <div className="w-screen lg:py-20 mb-40 flex flex-col items-center justify-center z-0 overflow-hidden relative">
+      <div className="w-screen lg:pt-20  flex flex-col items-center justify-center z-0 overflow-hidden relative">
        
       
         <ServicesFirstInterface />
@@ -72,7 +72,7 @@ const Services = () => {
         {/* Container with ref for Intersection Observer */}
         <div
           ref={detailsRef}
-          className="w-screen lg:py-20 mb-40 flex flex-col items-center justify-center z-0 overflow-hidden relative"
+          className="w-screen 2xl:py-20 2xl:mb-40 flex flex-col items-center justify-center z-0 overflow-hidden relative"
         >  
           <ServicesDetails
             selectedCyc={selectedService}
