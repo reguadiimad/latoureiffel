@@ -13,6 +13,8 @@ const Menu = ({ visible }) => {
     const { language } = useSelector((state) => state.presntion);
     const { showLang } = useSelector((state) => state.showLang);
     const {pageIndex}=useSelector((state)=>state.pageIndex);
+    const { showTopMenu } = useSelector((state) => state.showTopMenu);
+
 
 
     
@@ -92,7 +94,7 @@ const Menu = ({ visible }) => {
 
             <AnimatePresence>
             
-                {visible && (showMenu) && (
+                {visible && (showMenu && showTopMenu) && (
                     <>
                     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur hidden xl:block backdrop-blur-3xl"></motion.div>
                     <motion.div
@@ -164,7 +166,7 @@ const Menu = ({ visible }) => {
                                 animate={{ y: 0, scale: 1 }}
                                 exit={{ y: 80, scale: 0.2 }}
                                 transition={{ type: "spring", damping: 13, duration: 0.1 }}
-                                className="w-10 text-white/70 bg-black/10 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
+                                className="w-10 text-apple-dark bg-apple-light/90 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
                             >
                                 {langButtons(language)}
                             </motion.div>
@@ -173,7 +175,7 @@ const Menu = ({ visible }) => {
                     <AnimatePresence>
                    <motion.button initial={{x:-50}} animate={{x:0}} exit={{x:-50}} transition={{type:'spring',damping:13,mass:1}}
                         onClick={() => setLangClicked(!langClicked)}
-                        className={`text-white/70 shadow-lg bg-black/10  rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5 ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
+                        className={`text-apple-dark shadow-lg bg-apple-light/90  rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5 ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
                     >
                         {language}
                     </motion.button>

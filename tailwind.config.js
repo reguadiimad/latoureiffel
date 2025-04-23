@@ -13,6 +13,9 @@ module.exports = {
       },
       colors: {
         'the-gray': '#daeae5',
+        'apple-light' : '#EDEDF0',
+        'apple-dark': '#6E6E73',
+        'apple-title':'#1D1D20'
       },
       
       textShadow: {

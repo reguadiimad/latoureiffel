@@ -39,8 +39,7 @@ export default function CntMapInterface() {
                 <Nav inView={navInView} selectedMap={selectedMap} clickHandel={(index) => setSelectedMap(index)} language={language} />
 
                 </div>
-                <a href="https://maps.apple.com/place?place-id=I734CF5A751229AC0&address=20400+Casablanca%2C+Morocco&coordinate=33.5758565%2C-7.513023&name=Ecole+La+Tour+Eiffel&_provider=9902" target="_blank"></a>
-                <div ref={navRef} className={`w-[90%] mt-5 xl:mt-10 h-[500px] xl:h-[900px] bg-neutral-100 rounded-[20px] lg:rounded-[35px] shadow-inner overflow-hidden ease-in-out duration-300`}>
+                <motion.div {...upAnimation()} ref={navRef} className={`w-[90%] mt-5 xl:mt-10 h-[500px] xl:h-[900px] bg-neutral-100 rounded-[20px] lg:rounded-[35px] shadow-inner overflow-hidden ease-in-out duration-300`}>
                     <div className={`w-[200%] ease-in-out duration-300 h-full flex items-center justify-center relative ${selectedMap && "translate-x-[-50%]"}`}>
                         <div className={`w-[50%] ease-in-out duration-300 h-full p-[5px] lg:p-[20px]`}>
                             <div className={`w-full h-full bg-white rounded-[15px] lg:rounded-[15px] shadow-lg relative`}>
@@ -108,7 +107,7 @@ export default function CntMapInterface() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </>
     );

@@ -12,7 +12,7 @@ export default function CntMessageInterface() {
   const language = useSelector((state) => state.presntion.language);
   const langContent = content[language] || content.fr;
   const t = langContent.errors;
-  
+
 
   const [isParent, setIsParent] = useState(true);
   const [formData, setFormData] = useState({
@@ -33,34 +33,48 @@ export default function CntMessageInterface() {
   
 
 
-  const validateField = (name, value) => {
-    switch (name) {
-      case "name":
-      case "surname":
-        if (value.length < 2) return langContent.errors?.nameRequired || "Required";
-        if (!/^[a-zA-Z\u0600-\u06FF\s]+$/.test(value)) return langContent.errors?.nameLettersOnly || "Letters only";
-        return "";
-      case "email":
-        if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return langContent.errors?.invalidEmail || "Invalid email";
-        return "";
-      case "phone":
-        if (value && !/^\d{10,10}$/.test(value)) return langContent.errors?.invalidPhone || "Invalid phone";
-        return "";
-      case "message":
-        if (value.length < 5) return langContent.errors?.messageRequired || "Message too short";
-        return "";
-      default:
-        return "";
-    }
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
-  };
-  
+const validateField = (name, value) => {
+  switch (name) {
+    case "name":
+    case "surname":
+      if (value.length < 2) return langContent.errors?.nameRequired || "Required";
+      if (!/^[a-zA-Z\u0600-\u06FF\s]+$/.test(value)) return langContent.errors?.nameLettersOnly || "Letters only";
+      return "";
+    case "email":
+      if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return langContent.errors?.invalidEmail || "Invalid email";
+      return "";
+    case "phone":
+      if (value && !/^\d{6,15}$/.test(value)) return langContent.errors?.invalidPhone || "Invalid phone";
+      return "";
+    case "message":
+      if (value.length < 5) return langContent.errors?.messageRequired || "Message too short";
+      return "";
+    default:
+      return "";
+  }
+};
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  setFormData((prev) => ({ ...prev, [name]: value }));
+
+  const errorMsg = validateField(name, value);
+  setErrors((prev) => ({ ...prev, [name]: errorMsg }));
+};
+
 
   
+const leftAnimation = (x = 0,d=0) => ({
+  initial: { x: x, opacity: 0 },
+  whileInView: { x: 0, opacity: 1 },
+  transition: { type: "spring",delay:d}
+})
+const upAnimation = (x = 0,d=0) => ({
+  initial: { y: x, opacity: 0 },
+  whileInView: { y: 0, opacity: 1 },
+  transition: { type: "spring",delay:d}
+})
 
 
   return (
@@ -74,14 +88,14 @@ export default function CntMessageInterface() {
 
         <div className={`w-[90%] flex flex-col lg:flex-row text-center lg:text-left  items-stretch ${language==="ar"&&'lg:flex-row-reverse  lg:text-right'}  justify-center relative gap-4`}>
           <div className={`lg:w-[55%] w-full flex flex-col ${language=="ar"&&" items-end"}`}>
-            <p>{langContent.always_listening}</p>
-            <h1 className={`text-blue-500 text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-5 w-[95%] ${language==="ar"&&'mt-8 text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl'}`}>
+            <motion.p {...leftAnimation(-50)} >{langContent.always_listening}</motion.p>
+            <motion.h1 {...leftAnimation(-50)}  className={`text-blue-500 text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-5 w-[95%] ${language==="ar"&&'mt-8 text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl'}`}>
               <b>{langContent.main_heading}</b>
-            </h1>
-            <p className={` ${language==="ar"?'text-right':"text-justify"}`}>{langContent.description1}</p>
-            <p className={` ${language==="ar"?'text-right':"text-justify"}`}>{langContent.description2}</p>
+            </motion.h1>
+            <motion.p {...leftAnimation(-50)}  className={` ${language==="ar"?'text-right':"text-justify"}`}>{langContent.description1}</motion.p>
+            <motion.p {...leftAnimation(-50)}  className={` ${language==="ar"?'text-right':"text-justify"}`}>{langContent.description2}</motion.p>
 
-            <div className={`w-full gap-3 flex flex-col bg-white/5 border-[0.5px] border-black/20 backdrop-blur-xl h-auto shadow-xl mt-3 rounded-[15px]  ${language==="ar"?'text-right':"text-left"} lg:rounded-[30px] p-[5px]  lg:p-[20px]  overflow-hidden relative`}>
+            <motion.div {...upAnimation(60)} className={`w-full gap-3 flex flex-col bg-white/5 border-[0.5px] border-black/20 backdrop-blur-xl h-auto shadow-xl mt-3 rounded-[15px]  ${language==="ar"?'text-right':"text-left"} lg:rounded-[30px] p-[5px]  lg:p-[20px]  overflow-hidden relative`}>
               <a
                 href="tel:0522705858"
                 className={`p-2 text-blue-500 backdrop-blur-lg blurey  ${language==="ar"&&"flex-row-reverse"} px-4 rounded-[10px] border border-black/10 flex items-center hover:bg-black/5 transition`}
@@ -150,77 +164,85 @@ export default function CntMessageInterface() {
                   <p className="text-xs sm:text-base">{langContent.youtube}</p>
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className={`lg:w-[45%] w-full ${language=="ar"?"text-right":"text-left"} bg-white/50 text-blue-500 rounded-[30px] p-[20px] shadow-xl border-[0.5px] border-black/20  flex relative overflow-hidden items-center flex-col justify-center`}>
+          <motion.div {...leftAnimation(50)}  className={`lg:w-[45%]  w-full ${language=="ar"?"text-right":"text-left"} bg-white/50 text-blue-500 rounded-[30px] p-[20px] shadow-xl border-[0.5px] border-black/20  flex relative overflow-hidden items-center flex-col justify-center`}>
             <p className={`text-neutral-300`}>{langContent.need_help}</p>
             <h1 className={`text-3xl lg:text-5xl font-bold text-center`}>{langContent.contact_us}</h1>
             <p className={`text-neutral-500 mt-5`}>{langContent.you_are}</p>
             <Nav isParent={isParent} clickHandel={(val) => setIsParent(val)} language={language} />
-            <div className={`flex w-full gap-4 mt-5 relative`}>
-              <div className="flex-1">
-                <p className={`font-bold ${errors.surname ? "text-red-500" : "text-blue-500"}`}>{langContent.surname}*</p>
-                <input
-                  className={`w-full py-2 px-4 bg-black/5 border ${errors.surname ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
-                  name="surname"
-                  value={formData.surname}
-                  onChange={handleChange}
-                  placeholder="Adam"
-                />
-                {errors.surname && <p className="text-red-500 text-xs">{errors.surname}</p>}
-              </div>
-              <div className="flex-1">
-                <p className={`font-bold ${errors.name ? "text-red-500" : "text-blue-500"}`}>{langContent.name}*</p>
-                <input
-                  className={`w-full py-2 px-4 bg-black/5 border ${errors.name ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Doe"
-                />
-                {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
-              </div>
-            </div>
-            <div className="w-full mt-5">
-              <p className={`font-bold ${errors.email ? "text-red-500" : "text-blue-500"}`}>{langContent.email}</p>
-              <input
-                className={`w-full py-2 px-4 bg-black/5 border ${errors.email ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="email@domain.com"
-              />
-              {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
-            </div>
-            <div className="w-full mt-5">
-              <p className={`font-bold ${errors.phone ? "text-red-500" : "text-blue-500"}`}>{langContent.phone}</p>
-              <input
-                className={`w-full py-2 px-4 bg-black/5 border ${errors.phone ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="06XXXXXXXX"
-              />
-              {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
-            </div>
-            <div className="w-full mt-5">
-              <p className={`font-bold ${errors.message ? "text-red-500" : "text-blue-500"}`}>{langContent.message}*</p>
-              <textarea
-                className={`w-full h-[120px] py-2 px-4 bg-black/5 border ${errors.message ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your message here..."
-              />
-              {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
-            </div>
+
+            <div className={`flex flex-col w-full gap-4 mt-5 relative`}>
+  <div className="flex-1">
+    <p className={`font-bold ${errors.surname ? "text-red-500" : "text-blue-500"}`}>{langContent.surname}*</p>
+    <input
+      className={`w-full py-2 px-4 bg-black/5 border ${errors.surname ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
+      name="surname"
+      value={formData.surname}
+      onChange={handleChange}
+      placeholder="Adam"
+    />
+    {errors.surname && <p className="text-red-500 text-xs">{errors.surname}</p>}
+  </div>
+
+  <div className="flex-1">
+    <p className={`font-bold ${errors.name ? "text-red-500" : "text-blue-500"}`}>{langContent.name}*</p>
+    <input
+      className={`w-full py-2 px-4 bg-black/5 border ${errors.name ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+      placeholder="Doe"
+    />
+    {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+  </div>
+</div>
+
+<div className="w-full">
+  <p className={`font-bold ${errors.email ? "text-red-500" : "text-blue-500"}`}>{langContent.email}</p>
+  <input
+    className={`w-full py-2 px-4 bg-black/5 border ${errors.email ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="email@domain.com"
+  />
+  {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+</div>
+
+<div className="w-full">
+  <p className={`font-bold ${errors.phone ? "text-red-500" : "text-blue-500"}`}>{langContent.phone}</p>
+  <input
+    className={`w-full py-2 px-4 bg-black/5 border ${errors.phone ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
+    name="phone"
+    value={formData.phone}
+    onChange={handleChange}
+    placeholder="06XXXXXXXX"
+  />
+  {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
+</div>
+
+
+<div className="w-full">
+  <p className={`font-bold ${errors.message ? "text-red-500" : "text-blue-500"}`}>{langContent.message}*</p>
+  <textarea
+    className={`w-full h-[120px] py-2 px-4 bg-black/5 border ${errors.message ? "border-red-500" : "border-white/50"} outline-none backdrop-blur-lg blurey rounded-[10px]`}
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    placeholder="Your message here..."
+  />
+  {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
+</div>
+
+
             <button
               className={`bg-blue-500 text-white px-4 py-2 rounded-full font-semibold mt-3 hover:bg-blue-600 transition`}
             >
               {langContent.send}
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
