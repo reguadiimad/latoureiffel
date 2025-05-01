@@ -21,7 +21,7 @@ const CyclInterface = ({handelSelect}) => {
 
     return (
         <>
-            <div className={`w-[95%] lg:w-[90%]  h-[590px] md:h-[800px] lg:h-[700px] xl:h-[800px] rounded-2xl md:rounded-[50px] flex overflow-hidden relative flex-col ${language=="ar"&&'items-end'} justify-end lg:p-[25px] text-neutral-700 lg:text-5xl xl:text-7xl ${language==='ar' && 'lg:text-6xl xl:text-7xl 2xl:text-8xl text-right'}`}>
+            <div className={`w-[95%] lg:w-[90%]   h-[590px] md:h-[800px] lg:h-[700px] xl:h-[800px] rounded-2xl md:rounded-[50px]  flex overflow-hidden relative flex-col  justify-end lg:p-[25px] text-neutral-700 lg:text-5xl xl:text-7xl ${language==='ar' && 'lg:text-6xl xl:text-7xl 2xl:text-8xl text-right'}`}>
                 <div className={`absolute top-0 left-0 w-full h-full -z-10 grid grid-cols-2 grid-rows-2 md:flex bg-white`}>
                     {cycleImages.map((image, index) => (
                         <motion.img 
@@ -43,15 +43,15 @@ const CyclInterface = ({handelSelect}) => {
                     <div className={`flex-1 h-full`}></div>
                 </div>
 
-                <motion.div initial={{x:-60,y:80,opacity:0}} whileInView={{x:0,y:0,opacity:1}} transition={{type:'spring'}}>
-                    <div className={`w-fit  hidden lg:block bg-white   -z-10 ${language=="ar"&&"-scale-x-100 flex flex-row-reverse"} rounded-t-[25px] p-[30px] pb-0 flex items-end justify-end   gap-x-2 ${language === 'ar' && 'flex-row-reverse'} psd`}>
+                <motion.div className="" initial={{x:-60,y:80,opacity:0}} whileInView={{x:0,y:0,opacity:1}} transition={{type:'spring'}}>
+                    <div className={`w-fit  hidden lg:block bg-white   -z-10 ${language=="ar"&&" flex flex-row-reverse"} rounded-t-[25px] p-[30px] pb-0 flex items-end justify-end   gap-x-2  psd`}>
                         <motion.div {...leftAnimation(0.1)} className={`flex justify-center items-center ${language=="ar"&&" -scale-x-100 gap-x-4 flex-row-reverse"}`}>
                             <p className={` font-bold mr-2`}>{content.texts.header[language].prt1+' '} </p>
                             <h1 className={`bg-red-500 rounded-[10px] p-4 text-white `}><b>{content.texts.header[language].prt2}</b></h1>
                         </motion.div>
                     </div>
 
-                    <div className={`w-[45%]  lg:w-[55%] xl:w-[50%] 2xl:w-[45%] ${language==="fr"&&"w-[45%]  lg:w-[50%] xl:w-[58%] 2xl:w-[45%]"}   hidden -z-10 lg:block  bg-white ${language=="ar"?"rounded-l-[25px] pb-5":"rounded-r-[25px] pb-1"}   p-[30px] gap-x-2  `}>
+                    <div className={`w-[45%]  lg:w-[55%] xl:w-[50%] 2xl:w-[45%] ${language==="fr"&&"w-[45%]  lg:w-[50%] xl:w-[58%] 2xl:w-[45%]"}   hidden -z-10 lg:block  bg-white ${language=="ar"?"rounded-r-[25px] pb-5":"rounded-r-[25px] pb-1"}   p-[30px] gap-x-2  `}>
                         <motion.div {...leftAnimation(0.15)} className={`flex items-end gap-x-2 ${language === 'ar' && 'flex-row-reverse'}`}>
                             <p className={`pb-[20px] font-bold`}>{content.texts.subHeader[language].prt1}</p>
                             <h1 className={`bg-blue-500 rounded-[10px] p-4 text-white`}><b>{content.texts.subHeader[language].prt2}</b></h1>
@@ -59,14 +59,14 @@ const CyclInterface = ({handelSelect}) => {
                         <motion.p {...leftAnimation(0.16)} className={`xl:text-lg lg:text-base  ${language==="ar"&&"text-xl"} mt-6`}>{content.texts.description[language]}</motion.p>
                     </div>
 
-                    <div {...leftAnimation(0.21)} className={`w-fit  hidden lg:block -z-10 bg-white  ${language=="ar"&&"-scale-x-100 "} rounded-b-[25px] p-[30px] pt-0 shadow-lg psdr block`}>
+                    <div {...leftAnimation(0.21)} className={`w-fit  hidden lg:block -z-10 bg-white  rounded-b-[25px] p-[30px] pt-0 shadow-lg psdr block`}>
                         <motion.button {...leftAnimation(0.3)} className={`bg-red-500 px-5 p-3 ${language=="ar"&&"-scale-x-100 "} text-white rounded-full gap-x-2 font-bold text-base xl:text-xl 2xl:text-xl`}>
                             {content.texts.buttonText[language]} <FontAwesomeIcon className={`mx-2`} icon={faArrowDown} />
                         </motion.button>
                     </div>
                 </motion.div>   
 
-                <motion.div  className={`absolute top-3  lg:top-auto w-full lg:w-auto md:bottom-0 right-0 md:block text-center ${language === 'ar' ? 'left-0 md:right-auto' : 'right-0'}`}>
+                <motion.div  className={`absolute top-3  lg:top-auto w-full lg:w-auto md:bottom-0 right-0 md:block text-center right-0`}>
                     <div className={`md:p-[30px] p-1 flex items-center justify-center text-[14px] sm:text-lg lg:text-base xl:text-xl md:gap-x-2 gap-x-1 relative ${language === 'ar' && 'flex-row-reverse'}`}>
                         <div className="absolute hidden md:block w-full h-full md:p-6 bg-black/70 blur-3xl -top-4 lg:-bottom-4"></div>
                         {Object.keys(content.texts.ageGroups).map((groupKey, index) => {
@@ -100,20 +100,20 @@ const CyclInterface = ({handelSelect}) => {
                 
                 </div>
 
-                <motion.div initial={{x:50,y:-90,opacity:0}} whileInView={{x:0,y:0,opacity:1}} transition={{type:'spring'}} className={`absolute w-[40%] xl:w-[35%] hidden  top-[20px] right-[20px] lg:flex flex-col items-end text-xl gap-x-2 ${language==='ar'&&'left-[20px] right-[auto]  -scale-x-100'}`}>
-                    <div className={`bg-white p-[30px] pb-[20px] flex items-center rounded-t-[20px] rounded-l-[20px] gap-x-5 text-lg xl:text-xl text-right shadow-2xl ${language==='ar'&&'flex-row-reverse'}`}>
+                <motion.div initial={{x:50,y:-90,opacity:0}} whileInView={{x:0,y:0,opacity:1}} transition={{type:'spring'}} className={`absolute w-[40%] xl:w-[35%] hidden  top-[20px] right-[20px] lg:flex flex-col items-end text-xl gap-x-2 `}>
+                    <div className={`bg-white p-[30px] pb-[20px] flex items-center rounded-t-[20px] rounded-l-[20px] gap-x-5 text-lg xl:text-xl text-right shadow-2xl `}>
                         <FontAwesomeIcon className={`lg:text-3xl xl:text-5xl text-blue-500 ${language==="ar"&&'-scale-x-100'}`} icon={faQuoteLeftAlt} />
-                        <p className={`${language==="ar"&&'-scale-x-100 2xl:text-2xl'}`}><b>{content.texts.testimonial.quote[language]}</b></p>
+                        <p className={`${language==="ar"&&'2xl:text-2xl'}`}><b>{content.texts.testimonial.quote[language]}</b></p>
                     </div>
 
                     <div className={` bg-white w-fit p-[30px] pb-[20px] pt-[0px] -mt-[10px] flex items-center rounded-b-[20px] gap-x-5 text-right  text-neutral-500 lg:text-sm xl:text-lg psdl relative`}>
-                        <p className={`${language==="ar"&&'-scale-x-100'}`}>{content.texts.testimonial.author[language]}
+                        <p className={`${language==="ar"&&''}`}>{content.texts.testimonial.author[language]}
                         </p>
                     </div>
                 </motion.div>
             </div>
 
-            <div className="w-[90%] flex items-center justify-center text-center mt-10 lg:mt-20 flex-col">
+            <div className="w-[90%]  flex items-center justify-center text-center mt-10 lg:mt-20 flex-col">
                 <motion.p {...topAnimation()} className="text-neutral-500">{content1.texts.discover[language]}</motion.p>
                 <motion.h1 {...topAnimation(0.2)} className={`text-blue-500 text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl ${language=="ar"&&"text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl"}`}><b>{content1.texts.nos_cycles_pedagogiques[language]}</b></motion.h1>
                 <motion.p {...topAnimation(0.3)} className="text-neutral-500 mt-2 md:mt-6 lg:mt-10 text-[10px] md:text-base lg:text-lg lg:w-[95%] ">
@@ -234,7 +234,7 @@ const CyclInterface = ({handelSelect}) => {
 
                                     
                                 </div>
-                                <div className="p-7 lg:pt-2 2xl:pt-7">
+                                <div className="p-7 lg:pt-2 xl:pt-7">
                                     <div className="w-[60%] flex items-center text-left gap-x-2 text-sm lg:text-[12px] 2xl:text-sm font-semibold my-3 lg:my-2 2xl:my-3">
                                                 <div className="p-4 lg:p-2 2xl:p-4 lg:w-8 2xl:w-14 w-14 text-xl lg:text-sm 2xl:text-xl rounded-2xl bg-white sm:flex hidden items-center justify-center text-blue-500 ">
                                                     <FontAwesomeIcon icon={faGraduationCap}/>
@@ -260,8 +260,8 @@ const CyclInterface = ({handelSelect}) => {
                                                 <p className="w-[60%] font-bold">{content1.texts.lycee.features.key_skills[language]}</p>
                                     </div>
                                     
-                                    <div className="w-full flex justify-end">
-                                    <button onClick={()=>handelSelect(3)} className="p-3 bg-white/10 backdrop-blur-xl  font-bold text-white rounded-[20px] shadow-lg border-white border-2 -mb-3 -mr-3 z-40 blurey">{content1.texts.readMore["Découvrir Plus"][language]}</button>
+                                    <div className="w-full bg-red-500 flex justify-end">
+                                    <button onClick={()=>handelSelect(3)} className="p-3 bg-white/10 backdrop-blur-xl absolute bottom-0  font-bold text-white rounded-[20px]  shadow-lg border-white border-2 mb-5 -mr-3 z-40 blurey">{content1.texts.readMore["Découvrir Plus"][language]}</button>
                                     </div>
                                     
                                 </div>

@@ -8,8 +8,8 @@ import { useSelector,useDispatch } from 'react-redux';
 const PresentationVideo = ({onClose,prsntation}) => {
     useEffect(() => {
         if (prsntation) {
-            window.scrollTo(0, 0);
-        document.body.style.overflow = "hidden";
+          
+        
         }
         return () => {
             document.body.style.overflow = "auto";

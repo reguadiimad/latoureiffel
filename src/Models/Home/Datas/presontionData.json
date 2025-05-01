@@ -1,6 +1,6 @@
 {
     "heading": {
-      "fr": "Aidons nos élèves à s'élever vers le ciel, comme la Tour Eiffel",
+      "fr": "Aidons nos élèves à s'élever vers le ciel, comme la TourEiffel",
       "en": "Let's help our students soar to the sky, like the Eiffel Tower",
       "ar": "نُساعد طلاَّبنا على النمو داخلنا ويرتقوا في السماء مثل برج إيفل"
     },
@@ -8,6 +8,11 @@
       "fr": "Découvrez nos parcours éducatifs adaptés à chaque étape du développement de vos enfants.",
       "en": "Discover our educational paths tailored to each stage of your children's development.",
       "ar": "اكتشفوا مساراتنا التعليمية المُناسبة لكل مرحلة من مراحل تطوير أطفالكم"
+    },
+    "paragraph2": {
+      "fr": "Parcours éducatifs adaptés à chaque étape.",
+      "en": "Educational paths tailored to each stage ",
+      "ar": "اكتشفوا مساراتنا التعليمية المُناسبة لكل مرحلة "
     },
     "categories": {
       "fr": [

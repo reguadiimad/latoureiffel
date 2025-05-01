@@ -33,7 +33,7 @@ const MotDeFondateur = ({id}) =>{
           >
             {/* Main Left Section */}
           
-            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full   md:h-[740px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
+            <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full   md:h-[740px] lg:h-[690px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
             <img
                   className={`rounded-[40px] w-full h-full object-cover object-top -z-10 absolute top-0 lg:hidden origin-top `}
                   src={process.env.PUBLIC_URL + "/images/founder.jpg"}
@@ -41,7 +41,7 @@ const MotDeFondateur = ({id}) =>{
                 />
               <motion.div {...leftAnimation(0.45)}  className={`w-[48%]  hidden lg:block pl-2 h-full relative`}>
                 <img
-                  className={`absolute w-auto hidden lg:block  lg:h-[900px] scale-x-[1.12] xl:scale-x-110 bottom-0 -left-5`}
+                  className={`absolute w-auto hidden lg:block  lg:h-[120%] 2xl:h-[135%] scale-x-[1.12] xl:scale-x-110 bottom-0 -left-5`}
                   src={process.env.PUBLIC_URL + "/images/fondateur.png"}
                   alt="Founder"
                 />
@@ -55,7 +55,7 @@ const MotDeFondateur = ({id}) =>{
               <motion.div {...leftAnimation(0.51)}  className={`lg:flex-1 w-full ${language==="ar"&&"flex flex-col items-end"}  h-full p-4 lg:p-0 pr-5 lg:pr-10 ${language==="ar"?'text-base':'text-base'} text-white text-justify py-4`}>
                 <FontAwesomeIcon 
                   icon={faQuoteLeft}
-                  className={`2xl:text-9xl lg:text-8xl md:text-6xl text-2xl text-shadow-xl w-full lg:w-auto text-white ${language==="ar"&&'-scale-x-100'}`}
+                  className={`2xl:text-9xl lg:text-7xl md:text-6xl text-2xl text-shadow-xl w-full lg:w-auto text-white ${language==="ar"&&'-scale-x-100'}`}
                 />
                 <motion.p {...bottomAnimation(0.20)} className={`p-2 md:text-base lg:text-sm xl:text-base text-[10px]`}>{texts.paragraph1[language]}</motion.p>
                 <motion.p {...bottomAnimation(0.30)} className={`my-1 2xl:my-2 p-2 md:text-base lg:text-sm xl:text-base text-[10px]`}>{texts.paragraph2[language]}</motion.p>

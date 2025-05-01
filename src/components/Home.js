@@ -13,6 +13,7 @@ import { setIsHome } from '../redux(toolKit)/slices/isHomeSlice';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { setPageIndex } from '../redux(toolKit)/slices/pageIndexSlice';
+import PresontationPhone from '../Models/Home/PresnetionPhone';
 
 
 
@@ -31,15 +32,14 @@ export default function Home() {
 
   return (
     <>
-    
-      <motion.div initial={{scale:(window.innerWidth <= 1024?0.5:1),opacity:0}} whileInView={{scale:1,opacity:1,y:0}} transition={{type:"spring",damping:10,duration:0.5}} className="home w-screen h-screen relative flex items-center justify-center text-neutral-900 pt-7">
+      <PresontationPhone/>
+      <motion.div initial={{scale:(window.innerWidth <= 1024?0.5:1),opacity:0}} whileInView={{scale:1,opacity:1,y:0}} transition={{type:"spring",damping:10,duration:0.5}} className="home w-screen hidden h-[100vh] relative lg:flex items-center justify-center text-neutral-900 pt-7">
         <Presontation/>
         <div className="lg:w-[40%]"></div>
         <ParallaxImage/>
       </motion.div>
 
       <div className="w-screen relative flex flex-col items-center">
-   
         <Paneau/>
         <EducationStages/>
         <NouvellesAct/>

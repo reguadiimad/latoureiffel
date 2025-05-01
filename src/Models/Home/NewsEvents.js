@@ -129,12 +129,12 @@ const nextSlide = () => {
     <>
     <section ref={motherRef} className="w-[90.3%] flex justify-center pt-20 items-center flex-col rounded-[60px] md:my-10 md:mb-20">
       <div className="w-full">
-        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-lg lg:text-2xl">{texts.stay_informed[language]}</motion.p>
+        <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-neutral-400 text-sm md:text-lg xl:text-2xl">{texts.stay_informed[language]}</motion.p>
         <div className="w-full flex mb-10">
-          <motion.h1  {...custumAnimation(0,'-100%',0,0)} className="text-4xl md:text-7xl lg:text-8xl w-[70%] text-blue-500 mt-3">
+          <motion.h1  {...custumAnimation(0,'-100%',0,0)} className="text-4xl md:text-7xl xl:text-8xl w-[80%] text-blue-500 mt-3">
             <b>{texts.dont_miss_news[language]}</b>
           </motion.h1>
-          <div className="w-[30%] flex-row-reverse flex items-end mb-2.5">
+          <div className="flex-1 flex-row-reverse flex items-end mb-2.5">
 
             <motion.button  {...custumAnimation(0,'100%',0,0)} onClick={nextSlide} className={`w-10 h-10 text-lg md:w-20 md:h-20 bg-red-500 ml-2 text-white rounded-lg md:rounded-[30px] md:text-2xl hover:animate-pulse`}>
               <FontAwesomeIcon icon={faArrowRight} />
@@ -205,7 +205,7 @@ const nextSlide = () => {
     </section>
      <AnimatePresence>
      {
-       popupVisible&&<PopUp ar={language==="ar"} text={texts.popUp[language]}/>
+       popupVisible&&<PopUp ar={language==="ar"} navTo={'/news'} text={texts.popUp[language]}/>
      }
      </AnimatePresence></>
        

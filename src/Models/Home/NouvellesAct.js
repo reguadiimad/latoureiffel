@@ -7,6 +7,7 @@ import { motion,AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import texts from "./Datas/nouvellesActData.json";
 import PopUp from "./PopUp";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -70,7 +71,7 @@ const NouvellesAct = () => {
     }
 
     
-
+    const navigate = useNavigate()
     return (
       <>  <div ref={motherRef} className="w-[90%] md:-scroll-my-10 lg:my-20  flex-col flex  justify-center  text-neutral-900">
 
@@ -79,15 +80,15 @@ const NouvellesAct = () => {
               <span className={`flex ${language==='ar'&&'flex-row-reverse '}`}>
                   <h1 className="font-normal  m-0 p-0 md:mr-4 md:mb-2"><b>{texts.texts.header1[language]}</b></h1>
                   <motion.span {...costumeAnimtion('200%')} className=" text-center flex-1 flex items-center justify-center ">
-                      <p className="bg-neutral-100 md:text-2xl lg:text-lg xl:text-xl 3xl:text-2xl text-[12px] lg:py-4 xl:py-6 md:py-6 py-3 w-full md:px-10 rounded-full font-semibold">{texts.texts.header2[language]}</p>
+                      <p className="bg-neutral-100 md:text-2xl lg:text-sm xl:text-xl 3xl:text-2xl text-[12px] lg:py-4 xl:py-6 md:py-6 py-3 w-full md:px-10 rounded-full font-semibold">{texts.texts.header2[language]}</p>
                   </motion.span>
               </span>
               <h1 className="font-normal mb-2"><b>{texts.texts.header3[language]}</b></h1>
               <h1 className={`font-normal w-full ${language==="ar"?'':'md:tracking-wider lg:text-wide'} mb-2`}><b>{texts.texts.header4[language]}</b></h1>
               <span className={`flex ${language==='ar'&&'flex-row-reverse'}`}>
                   <span className="flex-1 flex items-center  justify-center overflow-hidden">
-                      <motion.div {...costumeAnimtion('-100%')} className={` bg-blue-500 w-full rounded-full flex items-center justify-center md:px-4 md:py-4 px-1 py-3 ds cursor-pointer ${language==='ar'?'flex-row-reverse ':'md:pl-8 '}`}>
-                          <p className="w-[85%] font-semibold lg:text-lg xl:text-2xl md:text-2xl text-[12px] text-white">{texts.texts.connect_button[language]}</p>
+                      <motion.div onClick={()=>navigate('/services')} {...costumeAnimtion('-100%')} className={` bg-blue-500 w-full rounded-full flex items-center justify-center md:px-4 md:py-4 px-1 py-3 ds cursor-pointer ${language==='ar'?'flex-row-reverse ':'md:pl-8 '}`}>
+                          <p className="w-[85%] font-semibold lg:text-sm xl:text-2xl md:text-2xl text-[12px] text-white">{texts.texts.connect_button[language]}</p>
                           <span className={`h-full text-6xl rounded-full bg-white shadow-lg flex justify-center items-center overflow-hidden  mr-1 md:mr-0 ${language==='ar'&&'rotate-180'}`}>
                               <FontAwesomeIcon className="md:w-10 md:h-10 lg:w-6 lg:h-6 xl:w-10 xl:h-10 text-[12px]  rounded-full text-blue-500 p-2  " icon={faArrowRight}/>
                           </span>
@@ -104,7 +105,7 @@ const NouvellesAct = () => {
               <div className="absolute rounded-full w-40 h-40 bg-neutral-100 top-[9%] right-[9%] z-0"></div>
               <div className="absolute top-0 scale-[0.85] md:scale-[1] -right-1 md:right-0 bg-blue-500 text-white rounded-full w-1 h-1 p-9 text-3xl flex items-center justify-center"><FontAwesomeIcon icon={faCircleNodes}/></div>
               <div className=" w-full  top-0 left-0 z-20 p-10 lg:pt-7 xl:pt-16 pt-16 relative"> 
-                  <motion.img initial={{x:70,scale:0.1,y:70}} whileInView={{x:0,scale:1,y:70}}   alt='img' src={process.env.PUBLIC_URL+`/images/${language==="ar"?'phoneAr.png':(language==="fr"?'phoneFr.png':'phoneEng.png')}`} className="h-96 lg:h-60 xl:h-96 w-auto  absolute md:-bottom-6 bottom-0 -right-40  lg:-right-24 xl:-right-40 z-0"/>
+                  <motion.img initial={{x:70,scale:0.1,y:70}} whileInView={{x:0,scale:1,y:0}} transition={{type:"spring"}}  alt='img' src={process.env.PUBLIC_URL+`/images/${language==="ar"?'phoneAr.png':(language==="fr"?'phoneFr.png':'phoneEng.png')}`} className="h-96 lg:h-60 xl:h-96 w-auto  absolute md:-bottom-6 bottom-0 -right-40  lg:-right-24 xl:-right-40 z-0"/>
                   <p className="w-[80%] text-neutral-900/50 lg:text-xs text-base xl:text-base font-semibold">{texts.texts.real_time_connect[language]}</p>
                   <h1 className={`text-6xl lg:text-4xl mt-5 ${language==="ar"?'xl:text-8xl':'xl:text-6xl'}`}><b>{texts.texts.free_header[language]}</b></h1>
                   <p className="text-neutral-900/50 font-semibold w-full lg:text-xs text-base xl:text-base">{texts.texts.free_description[language]}</p> 
@@ -128,7 +129,7 @@ const NouvellesAct = () => {
           <div className=" w-full h-full absolute top-0 left-0 z-0 blurey backdrop-blur-[3px] bg-black/5 md:hidden">
       
           </div>
-          <div className="flex-1 px-10 overflow-hidden text-base md:text-sm lg:text-2xl z-10 h-full md:pt-0 pt-10">
+          <div className="flex-1 px-10 overflow-hidden text-base md:text-sm lg:text-xl z-10 h-full md:pt-0 pt-10">
               <h1>
                   <b>{lesServices[activeIndex].title1[language]}</b>
               </h1>
@@ -138,7 +139,7 @@ const NouvellesAct = () => {
                   <b>{lesServices[activeIndex].boldTitle[language]}</b>
                   </b>
               </h1>
-              <p className={`lg:text-base text-[10px] w-full transition-all ease-in-out duration-200 md:h-20 ${activestyle.text}`}>
+              <p className={`lg:text-sm text-[10px] w-full mt-4 transition-all ease-in-out duration-200 md:h-20 ${activestyle.text}`}>
                   {lesServices[activeIndex].paragraph[language]}
               </p>
               <div className="flex mt-6 md:mt-0 lg:mt-6">
@@ -172,7 +173,7 @@ const NouvellesAct = () => {
                   ))}
 
               </span> 
-              <div className="p-5 py-3 bg-red-500 text-center absolute bottom-0 rounded-full text-white right-0 mr-10 font-semibold">
+              <div onClick={()=>navigate('/cycles')} className="p-5 py-3 cursor-pointer bg-red-500 text-center absolute bottom-0 rounded-full text-white right-0 mr-10 font-semibold">
                 {texts.texts.read_more[language]}
               </div>
           </div>
@@ -180,7 +181,7 @@ const NouvellesAct = () => {
       </motion.div>
       <AnimatePresence>
       {
-        popupVisible&&<PopUp ar={language==="ar"}  text={texts.popUp[language]}/>
+        popupVisible&&<PopUp ar={language==="ar"} navTo={'services'}  text={texts.popUp[language]}/>
       }
       </AnimatePresence>
         

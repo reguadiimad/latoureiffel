@@ -23,7 +23,7 @@ const About = () => {
   
   const scrollValue = useSelector((state) => state.scrollVal);
   const menuList = {
-          fr: ["Mot de fondateur", "Equipe Pedagogique", "Enseignement", "Parents Eleve"],
+          fr: ["Mot de fondateur", "Equipe Pédagogique", "Enseignement", "Parents Eleve"],
           ar: ["كلمة المؤسس", "الفريق التعليمي", "التعليم", "الآباء و التلاميذ"],
           en: ["Founder’s Word", "Teaching Team", "Teaching", "Parents & Students"],
       };
@@ -33,10 +33,10 @@ const About = () => {
       <div className='w-full lg:h-[100px]'></div>
       <FirstInterface/>
       <Navigation menuList={menuList}/>
-      <MotDeFondateur id='0'/>
-      <TeamWork id='1'/>
-      <Education id='2'/>
-      <ParentEleve id='3'/>
+      <MotDeFondateur id={0}/>
+      <TeamWork id={1}/>
+      <Education id={2}/>
+      <ParentEleve id={3}/>
     </div>
     </>
   );

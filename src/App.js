@@ -16,11 +16,18 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import News from './components/News';
 import Inscription from './components/Inscription';
+import { useEffect } from 'react';
+
 
 
 
 function App() {
   const { language } = useSelector((state) => state.presntion);
+  const {pageIndex}=useSelector((state)=>state.pageIndex);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0); // 👈 Scroll to top left corner
+  },[pageIndex])
   
   return (
     <div  className={`overflow-hidden  ${language==='ar'?'arabic text-sm md:text-base lg:text-sm xl:text-xl 3xl:text-3xl':'text-xs md:text-sm lg:text-sm xl:text-lg 3xl:text-2xl'}`}>

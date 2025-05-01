@@ -16,9 +16,32 @@ import { useEffect, useRef } from 'react';
 
 
 
+
 const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
   const { language } = useSelector((state) => state.presntion);
   const previousService = useRef(selectedService);
+  const leftAnimation = (d = 0,x=-40) => ({
+    initial: { x: x, opacity: 0 },
+    whileInView: { x: 0, opacity: 1 },
+    transition: { type: "spring", delay: d }
+  }), rightAnimation = (d = 0) => ({
+    initial: { x: 50, opacity: 0 },
+    whileInView: { x: 0, opacity: 1 },
+    transition: { type: "spring", delay: d }
+  }),topAnimation = (d = 0) => ({
+    initial: { y: -50, opacity: 0 },
+    whileInView: { y: 0, opacity: 1 },
+    transition: { type: "spring",delay: d }
+  }),bottomAnimation = (d = 0) => ({
+    initial: { y: 50, opacity: 0 },
+    whileInView: { y: 0, opacity: 1 },
+    transition: { type: "spring",delay: d }
+  }), scaleAnimation = (d = 0) => ({
+    initial: { scale: 0.5, opacity: 0 },
+    whileInView: { scale: 1, opacity: 1 },
+    transition: { type: "spring",delay: d }
+  });
+
 
     useEffect(() => {
         previousService.current = selectedService;
@@ -62,10 +85,10 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
         alt="blur"
       />
       {/* Apply the dynamic text size */}
-      <p className={`text-xs lg:${textSm} text-center lg:text-right`}>{texts.heading.subtitle}</p>
-      <h1 className={`text-blue-500 text-4xl lg:text-6xl xl:${text8xl}  text-center`}>
+      <motion.p {...topAnimation()} className={`text-xs lg:${textSm} text-center lg:text-right`}>{texts.heading.subtitle}</motion.p>
+      <motion.h1 {...topAnimation()} className={`text-blue-500 text-4xl lg:text-6xl xl:${text8xl}  text-center`}>
         <b>{texts.heading.mainTitle}</b>
-      </h1>
+      </motion.h1>
 
       <div className="hidden w-full lg:flex  2xl:py-20 ">
         <div className="xl:w-[55%] lg:w-[60%] lg:h-[550px] 2xl:h-[650px] flex items-center justify-center p-4 z-10">
@@ -151,14 +174,14 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
           </div>
         </div>
         <div className={`xl:w-[45%] lg:w-[40%] p-4 pt-10 ${language==="ar"&&"text-right flex flex-col items-end"}`}>
-          <p className={`xl:${textBase} mb-2`}>{texts.rightSection.intro}</p>
-          <h1 className={`text-blue-500 lg:text-3xl xl:${text6xl}  mb-4`}>
+          <motion.p {...leftAnimation()} className={`xl:${textBase} mb-2`}>{texts.rightSection.intro}</motion.p>
+          <motion.h1 {...leftAnimation(0,-50)}  className={`text-blue-500 lg:text-3xl xl:${text6xl}  mb-4`}>
             <b>{texts.rightSection.heading}</b>
-          </h1>
-          <p className={`xl:${textBase}`}>{texts.rightSection.paragraph}</p>
+          </motion.h1>
+          <motion.p {...leftAnimation(0,-55)}  className={`xl:${textBase}`}>{texts.rightSection.paragraph}</motion.p>
           {texts.rightSection.points.map((point, index) => (
-  <div                                                   
-    key={index}
+  <motion.div                                                   
+    key={index} {...leftAnimation(0.09*index)} 
     className={`mt-${index === 0 ? '8' : '2'} flex items-center ${
       language === 'ar' ? 'flex-row-reverse' : ''
     }`}
@@ -170,7 +193,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
       }`}
     ></div>
     <p className={`xl:${textBase}`}>{point}</p>
-  </div>
+  </motion.div>
 ))}
 
 

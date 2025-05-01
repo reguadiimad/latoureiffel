@@ -1,96 +1,66 @@
 import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, spring } from "framer-motion";
+import Etel from "./Etel";
+
+const texts = {
+    fr: {
+      school: "Écoles La Tour Eiffel",
+      slogan1: "Planifiez leur demain,",
+      slogan2: "dès",
+      slogan3: "maintenant.",
+      button: "Inscrivez-vous maintenant"
+    },
+    en: {
+      school: "La Tour Eiffel Schools",
+      slogan1: "Plan their tomorrow,",
+      slogan2: "starting ",
+      slogan3: "today.",
+      button: "Register now"
+    },
+    ar: {
+      school: "مدارس برج إيفل",
+      slogan1: "خطط للغدهم،",
+      slogan2: "ابتداءً من .",
+      slogan2: "اليوم.",
+      button: "سجل الآن"
+    }
+  };
+  
 
 export default function InscriptionFirstInterface() {
   const language = useSelector((state) => state.presntion.language);
-  const containerRef = useRef(null);
-  const angleRefs = useRef([0, 0, 0, 0]);
-
-  useEffect(() => {
-    const totalCircles = 4;
-    const totalDotsPerCircle = 30;
-    const radiusStep = 20; // ⬅️ smaller spacing
-    const baseRadius = 60;
-    const centerX = 150;
-    const centerY = 150;
-
-    const container = containerRef.current;
-    const dotGroups = Array.from({ length: totalCircles }, (_, i) =>
-      container.querySelectorAll(`.dot-group-${i}`)
-    );
-
-    const speeds = [0.01, 0.008, 0.006, 0.004];
-
-    let animationFrameId;
-
-    const animate = () => {
-      dotGroups.forEach((dots, circleIndex) => {
-        const radius = baseRadius + circleIndex * radiusStep;
-        const totalDots = dots.length;
-        angleRefs.current[circleIndex] += speeds[circleIndex];
-
-        dots.forEach((dot, i) => {
-          const angle = (i / totalDots) * 2 * Math.PI + angleRefs.current[circleIndex];
-          const x = centerX + radius * Math.cos(angle);
-          const y = centerY + radius * Math.sin(angle);
-          dot.style.left = `${x}px`;
-          dot.style.top = `${y}px`;
-        });
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animate();
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
-
-  const colors = [
-    "bg-blue-500",
-    "bg-the-gray",
-    "bg-red-500",
-    "bg-apple-light", // will use inline style for custom "apple-light"
-  ];
-
-  const appleLight = "#A8E6CF";
+  const schoolYear = (d => `${d.getMonth()<3?d.getFullYear()-1:d.getFullYear()}-${(d.getMonth()<3?d.getFullYear():d.getFullYear()+1)}`)(new Date());
+  const t = texts[language] || texts.fr; // fallback to French
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="relative w-[300px] h-[300px] mx-auto mt-40 flex items-center justify-center"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-        <motion.img initial={{opacity:0,scale:0}} whileInView={{opacity:1,scale:1}} transition={{type:"spring"}} className="w-28 h-28 -mr-2" src={process.env.PUBLIC_URL+"/logos/trf.png"}/>
-      {[0, 1, 2, 3].map((circleIndex) =>
-        Array.from({ length: 30 }).map((_, dotIndex) => {
-          const delay = (circleIndex * 0.2) + (dotIndex * 0.005);
-          return (
-            <motion.div
-              key={`circle-${circleIndex}-dot-${dotIndex}`}
-              className={`dot dot-group-${circleIndex} absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 ${colors[circleIndex]}`}
-              initial={{
-                scale: 0,
-                opacity: 0,
-              }}
-              whileInView={{
-                scale: 1,
-                opacity: 1,
-              }}
-              transition={{
-                delay,type:"spring"
-              }}
-              style={{
-                width: `${6 + circleIndex * 2}px`,
-                height: `${6 + circleIndex * 2}px`,
-                
-              }}
-            />
-          );
-        })
-      )}
-    </motion.div>
+    <>
+     <div className="w-full
+      flex flex-col items-center justify-center">
+     <Etel />
+      <div dir={language === "ar" ? "rtl" : "ltr"} className={`w-full 2xl:py-10 py-5 flex justify-center items-center text-center`}>
+        <div className={`w-[95%] lg:w-[90%] flex justify-center items-center flex-col`}>
+            <motion.p initial={{opacity:0,scale:0.7,y:-80}} whileInView={{opacity:1,scale:1,y:0}} transition={{type:"spring",delay:0.2}} className={`text-apple-dark font-semibold text-base lg:text-xl mb-4`}>
+            {t.school} {schoolYear}
+            </motion.p>
+            <motion.h1 initial={{opacity:0,scale:0.7,y:-75}} whileInView={{opacity:1,scale:1,y:0}} transition={{type:"spring",delay:0.25}} className={`2xl:w-[80%] text-apple-title  ${language==="ar"?"text-4xl sm:text-6xl md:text-7xl font-semibold lg:text-8xl 2xl:text-9xl":"text-3xl sm:text-5xl md:text-6xl font-bold lg:text-7xl 2xl:text-8xl"}`}>
+            {t.slogan1}
+            </motion.h1>
+            <div className=" flex gap-4">
+            <motion.h1 initial={{opacity:0,scale:0.7,y:-70}} whileInView={{opacity:1,scale:1,y:0}} transition={{type:"spring",delay:0.3}} className={` text-apple-title font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl ${language==="ar"&&"text-5xl sm:text-6xl md:text-7xl font-semibold lg:text-8xl 2xl:text-9xl"}`}>
+            {t.slogan2}
+            </motion.h1>
+            <motion.h1 initial={{opacity:0,scale:0.7,y:-65}} whileInView={{opacity:1,scale:1,y:0}} transition={{type:"spring",delay:0.35}} className={`relative flex items-center justify-center text-apple-title font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl ${language==="ar"&&"text-5xl sm:text-6xl md:text-7xl font-semibold lg:text-8xl 2xl:text-9xl"}`}>
+            {t.slogan3}
+            </motion.h1>
+            </div>
+            <motion.button initial={{opacity:0}} whileInView={{opacity:1}} transition={{type:"spring",delay:0.3}} className={`bg-blue-500 px-6 py-3 rounded-full mt-10 text-white font-semibold hover:bg-blue-500/80 ease-in-out duration-300`}>
+            {t.button}
+            </motion.button>
+        </div>
+    </div>
+     </div>
+
+    </>
   );
 }

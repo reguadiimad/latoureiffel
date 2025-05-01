@@ -7,27 +7,35 @@ import { useInView } from "react-intersection-observer";
 import texts from './Datas/educationData.json';
 import { leftAnimation,rightAnimation,bottomAnimation, scaleAnimation } from "./animation";
 import {motion} from "framer-motion";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-const Education = ({ id }) => {
+const Education = ({ id=2 }) => {
     const dispatch = useDispatch();
     const scrollValue = useSelector((state) => state.scrollVal); // Assuming this is correctly defined in your Redux store
     const { ref: motherRef, inView } = useInView({
-        threshold: 0.5, // Trigger when 50% of the component is visible
+      threshold: 0.5, // Trigger when 50% of the component is visible
     });
-
+   
+    const { language } = useSelector((state) => state.presntion); 
+    
+    
     useEffect(() => {
-        if (inView) {
-            dispatch(setScrollVal(id)); // Ensure `id` is defined correctly
-        }
+      if (inView) {
+        dispatch(setScrollVal(id)); // Ensure `id` is defined correctly
+      }
     }, [inView, dispatch]);
 
-    const { language } = useSelector((state) => state.presntion);
+   
     const t = texts.certifications;
+
+
 
     return (
         <>
-            <div id={id} ref={motherRef} className={`w-full items-center   justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
-                <motion.div {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
+
+           <div ref={motherRef}  id={id}>
+           <div  className={`w-full items-center   justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
+                <motion.div  {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
                     <img className={`w-full opacity-90 h-auto min-h-[700px] xl:min-h-[870px] object-cover`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
                     <div className={`absolute w-full h-full flex hhy ${language==="ar"&&'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-base  xl:text-xl'}`}>           
@@ -101,9 +109,9 @@ const Education = ({ id }) => {
                     <div className={`w-full flex mt-10 ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
                         <div className={`w-[20%] flex flex-col items-end text-neutral-500 pb-2`}>
                         <motion.div {...bottomAnimation()} className={`w-full h-[50%]`}>
-                            <button className={`rounded-full p-3 border border-black/10`}>
-                            <FontAwesomeIcon className={`mr-2`} icon={faDownload} /> {t.downloadButton[language]}
-                            </button>
+                            <a href="https://youtu.be/fgWZsQMrUOo?si=SedbfhGedBwG6EI9" target="_blank" className={`rounded-full p-3 border border-black/10`}>
+                            <FontAwesomeIcon className={`mr-2 text-red-500`} icon={faYoutube} /> {t.downloadButton[language]}
+                            </a>
                         </motion.div>
                         <motion.div {...bottomAnimation(0.2)}  className={`w-full h-[50%] flex flex-col justify-end text-base `}>
                             <div className={`w-full flex items-center gap-x-3 mb-2 ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
@@ -140,7 +148,7 @@ const Education = ({ id }) => {
                 </div>
             </div>
 
-            <div id={id} ref={motherRef} className={`w-full items-center h-auto justify-center flex lg:hidden flex-col ${language === "ar" && 'text-xl'}`}>
+            <div  className={`w-full items-center h-auto justify-center flex lg:hidden flex-col ${language === "ar" && 'text-xl'}`}>
                 {/* Top Section */}
                 <motion.div {...bottomAnimation()} className={`w-[90%] hhy md:h-[600px] h-[500px] overflow-hidden rounded-[30px] sm:rounded-[50px] mt-10 relative flex flex-col lg:flex-row items-center justify-center`}>
                     <img className={`h-full object-cover  opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
@@ -197,6 +205,7 @@ const Education = ({ id }) => {
                     </div>
                 </div>
             </div>
+           </div>
         </>
     );
 };

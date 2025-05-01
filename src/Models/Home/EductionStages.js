@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import texts from './Datas/eductioStageData.json'
 import PopUp from './PopUp';
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from 'react-router-dom';
 
 export default function EducationStages() {
-  
+    const navigate = useNavigate();
     const { language } = useSelector((state) => state.presntion); 
     const [lastScrollY, setLastScrollY] = useState(0);
     const [direction, setDirection] = useState(0);
@@ -66,7 +67,7 @@ export default function EducationStages() {
 
         <motion.div className=' grid grid-cols-2 grid-rows-2  md:w-full lg:w-[85%] md:flex md:items-center md:justify-center lg:p-4 mt-10 text-neutral-900/50' {...animationProps(0.3,false)}>
 
-          <span style={{transform: `translateY(${direction * (0.8 + 1) * 10}px)`}} className='md:flex-1 w-[90%] mx-2 md:mx h-72 md:h-[450px] lg:h-[600px] roundedd  lg:mx-3 overflow-hidden relative boxyy '>
+          <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * (0.8 + 1) * 10}px)`}} className='md:flex-1 w-[90%] mx-2 md:mx h-72 md:h-[450px] lg:h-[600px] roundedd  lg:mx-3 overflow-hidden relative boxyy '>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk1.jpg'} alt='Maternelle' />
             <div  className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[0].name[language]}</span>
@@ -79,7 +80,7 @@ export default function EducationStages() {
             </div>
           </span>
   
-          <span  className='md:flex-1 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
+          <span onClick={() => navigate('/cycles')}  className='md:flex-1 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
             <div style={{transform: `translateY(${direction * (1.3 + 1) * 10}px)`}} className='w-full mb-5 h-[50%] overflow-hidden relative'>
               <div  className='w-[90%] lg:h-[80%] py-4 lg:py-0  absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
                 <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[1].name[language]}</span>
@@ -96,7 +97,7 @@ export default function EducationStages() {
             </div>
           </span>
   
-          <span style={{transform: `translateY(${direction * (2 + 1) * 10}px)`}} className='md:flex-1 mt-4  w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
+          <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * (2 + 1) * 10}px)`}} className='md:flex-1 mt-4  w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk3.jpg'} alt='Collège' />
             <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[2].name[language]}</span>
@@ -110,7 +111,7 @@ export default function EducationStages() {
             </div>
           </span>
   
-          <span style={{transform: `translateY(${direction * -(1.7 + 1) * 10}px)`}} className='md:flex-1 mt-4 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3  overflow-hidden relative boxyy'>
+          <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * -(1.7 + 1) * 10}px)`}} className='md:flex-1 mt-4 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3  overflow-hidden relative boxyy'>
             <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk4.jpg'} alt='Lycée' />
             <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-3 lg:bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[3].name[language]}</span>
@@ -133,7 +134,7 @@ export default function EducationStages() {
       </motion.div>
       <AnimatePresence>
       {
-        popupVisible&&<PopUp white={true} ar={language==="ar"} text={texts.popUp[language]}/>
+        popupVisible&&<PopUp navTo={'cycles'} white={true} ar={language==="ar"} text={texts.popUp[language]}/>
       }
       </AnimatePresence>
         

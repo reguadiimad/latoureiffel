@@ -11,7 +11,7 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         
       },
-      colors: {
+      colors: {  
         'the-gray': '#daeae5',
         'apple-light' : '#EDEDF0',
         'apple-dark': '#6E6E73',

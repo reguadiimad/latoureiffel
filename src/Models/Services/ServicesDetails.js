@@ -176,7 +176,7 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
                   <motion.img
                     key={selectedIndex}
                     src={process.env.PUBLIC_URL + sellImages[selectedCyc][selectedIndex]}
-                    className="rounded-[25px] 2xl:h-[300px] md:h-[700px] sm:h-44 border border-white/60"
+                    className="rounded-[25px] 2xl:h-[700px] md:h-[700px] sm:h-44 border border-white/60"
                     initial={{ x: direction * 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -direction * 100, opacity: 0 }}

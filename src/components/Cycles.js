@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { setPageIndex } from '../redux(toolKit)/slices/pageIndexSlice';
 
 
+
   
 const Cycles = () => {
   const { ref: motherRef, inView } = useInView({

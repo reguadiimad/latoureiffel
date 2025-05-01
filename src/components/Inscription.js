@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setPageIndex } from "../redux(toolKit)/slices/pageIndexSlice";
 import InscriptionFirstInterface from "../Models/Inscription/InscriptionFirstInterface";
+import InscriptionSecondInterface from "../Models/Inscription/InscreptionSecondInterface";
 
 
 
@@ -25,7 +26,11 @@ const Inscription = () => {
 
   return (
     <>
-      <InscriptionFirstInterface/>
+      <div className="w-screen bg-gradient-to-b from-white to-apple-light">
+        <InscriptionFirstInterface/>
+        <InscriptionSecondInterface/>
+
+      </div>
     </>
   );
 };

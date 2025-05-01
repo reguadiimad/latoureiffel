@@ -16,13 +16,14 @@ const TeamWork = ({id}) => {
     const { ref: motherRef, inView } = useInView({
       threshold: 0.5, // Trigger when 50% of the component is visible
     });
+    const { language } = useSelector((state) => state.presntion); 
+    
     
     useEffect(() => {
       if (inView) {
         dispatch(setScrollVal(id)); // Ensure `id` is defined correctly
       }
     }, [inView, dispatch]);
-    const { language } = useSelector((state) => state.presntion); 
     
     return (
         <div id={id} ref={motherRef} className={`w-[90%] lg:flex ${language==="ar"&&'flex-row-reverse text-xl text-right'} items-center justify-center gap-x-5 my-20 text-neutral-900`}>

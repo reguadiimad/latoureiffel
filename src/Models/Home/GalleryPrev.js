@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import PopUp from './PopUp';
 import { useInView } from "react-intersection-observer";
 import React, { useEffect,useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const GalleryPrev = () => {
@@ -23,16 +24,17 @@ const GalleryPrev = () => {
             transition:{type: "spring", stiffness: 100, damping: 15,delay:delay},
         }
       }
+      const navigate = useNavigate();
     return(
         <>
             <div ref={motherRef} className="w-[90%]  flex flex-col lg:mt-10 md:-mt-10 -mt-20 z-50">
-                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg lg:text-2xl text-neutral-300 mt-10">{content[language].no_missed_moment}</motion.p>
+                <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg xl:text-2xl text-neutral-300 mt-10">{content[language].no_missed_moment}</motion.p>
                 <div className="w-full flex">
-                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-7xl lg:text-8xl w-[60%] text-blue-500 font-bold mt-2">
+                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-7xl xl:text-8xl w-[60%] text-blue-500 font-bold mt-2">
                 {content[language].visit_gallery}
                 </motion.h1>
                 <div className="w-[40%] flex justify-end items-end">
-                    <motion.button {...custumAnimation(0,0,'100%',0.2)} className="bg-red-500 mb-2  p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] z-40 text-white font-semibold">{content[language].discover_more}</motion.button>
+                    <motion.button {...custumAnimation(0,0,'100%',0.2)} onClick={()=>navigate('/gallery')}  className="bg-red-500 mb-2  p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] z-40 text-white font-semibold">{content[language].discover_more}</motion.button>
                 </div>
                 </div>     
             </div>
@@ -104,7 +106,7 @@ const GalleryPrev = () => {
                     <h1 className="md:text-8xl text-4xl text-white/85 font-extrabold">
                        {content[language].photo_count}
                     </h1>
-                    <button className="bg-black/20 p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] text-white font-semibold shadow-lg">
+                    <button onClick={()=>navigate('/gallery')} className="bg-black/20 p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] text-white font-semibold shadow-lg">
                        {content[language].explore_more}
                     </button>
                     <p className="text-center text-[9px] md:text-sm text-black/30 md:text-white/40 w-[80%] absolute bottom-24 -mb-3 ">
@@ -116,7 +118,7 @@ const GalleryPrev = () => {
 
             <AnimatePresence>
                 {
-                    popupVisible&&<PopUp  ar={language==="ar"} text={content.popUp[language]}/>
+                    popupVisible&&<PopUp  ar={language==="ar"} navTo={'/gallery'} text={content.popUp[language]}/>
                 }
             </AnimatePresence>
         

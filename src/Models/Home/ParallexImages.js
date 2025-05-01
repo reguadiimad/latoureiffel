@@ -74,7 +74,7 @@ const { language } = useSelector((state) => state.presntion);
       />
 
       <img
-        className="h-[83%] left-[36%] absolute bottom-0"
+        className="lg:h-[75%] xl:h-[83%] left-[30%] xl:left-[36%] absolute bottom-0"
         alt="girl"
         src={process.env.PUBLIC_URL + `/parallex/${language==='ar'?'girlar.png':(language==='en'?'girleng.png':'girl.png')}`}
         style={{
@@ -82,7 +82,7 @@ const { language } = useSelector((state) => state.presntion);
           }}
       />
       <img
-        className="h-[45%] w-auto -left-[7%] absolute bottom-20 scale-125"
+        className=" xl:h-[45%] w-auto theBoy -left-[7%] absolute bottom-20 scale-125"
         alt="boy"
         src={process.env.PUBLIC_URL + '/parallex/boy.png'}
         style={{
