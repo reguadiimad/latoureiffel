@@ -40,7 +40,7 @@ const PresontationPhone = () => {
 
     return (
         <>
-            <div className='w-full pt-28 flex flex-col items-center justify-center  lg:hidden'>
+            <div className='w-full pt-28 md:pt-48 flex flex-col items-center justify-center  lg:hidden'>
 
                 <div className='w-[95%] flex items-center justify-center flex-col text-center  '>
                     <motion.p className="text-apple-dark w-[90%] text-xs sm:text-sm mb-1" {...customAnimation(0, '-70%', 0, 0.5)} >

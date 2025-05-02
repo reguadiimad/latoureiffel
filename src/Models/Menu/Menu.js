@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../../redux(toolKit)/slices/contentSlice";
@@ -14,6 +14,7 @@ const Menu = ({ visible }) => {
     const { showLang } = useSelector((state) => state.showLang);
     const {pageIndex}=useSelector((state)=>state.pageIndex);
     const { showTopMenu } = useSelector((state) => state.showTopMenu);
+    const navigate = useNavigate();
 
 
 
@@ -113,15 +114,18 @@ const Menu = ({ visible }) => {
                             className="mt-8 xl:w-[58%] md:w-[75%]  hidden p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full lg:flex items-center justify-center shadow-lg "
                         >
                             <div className={`w-[100%] flex items-center justify-between relative sm:hidden md:flex  ${language === "ar" ? "flex-row-reverse" : "flex-row"}`}>
-                                <motion.span
-                                    layout transition={{type: "spring",visualDuration: 0.14,bounce: 0.2,duration:0.2}}
+                                <AnimatePresence>
+                                {pageIndex<8&&<motion.span
+                                    layout transition={{type: "spring",bounce: 0.2}}
+                                    exit={{scale:0,opacity:0}} initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}}
                                     style={{
                                         width: 100 / currentMenuList.length + "%",
                                         [language === "ar" ? "right" : "left"]: pageIndex * (100 / currentMenuList.length) + "%"
                                       }}
                                       
                                     className="absolute bg-red-500  h-full rounded-full  border border-white/80"
-                                />
+                                />}
+                                </AnimatePresence>
                                 {currentMenuList.map((text, index) => (
                                     <Link
                                         to={routes[index]}
@@ -179,6 +183,44 @@ const Menu = ({ visible }) => {
                     >
                         {language}
                     </motion.button>
+                   
+                    </AnimatePresence>
+                </div>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+            >
+                <div className="fixed bottom-0  right-0 mx-w-52 max-h-52 blur-3xl scale-150 z-40">
+                    <div className="w-28 h-28 lg:w-44 lg:h-44 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
+                </div>
+                <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 right-8 lg:right-10 fixed flex flex-col items-center language ease-in duration-200 z-40">
+                    <AnimatePresence>
+                        {langClicked && (
+                            <motion.div
+                                key="lang-menu"
+                                initial={{ y: 50, scale: 0.5 }}
+                                animate={{ y: 0, scale: 1 }}
+                                exit={{ y: 80, scale: 0.2 }}
+                                transition={{ type: "spring", damping: 13, duration: 0.1 }}
+                                className="w-10 text-apple-dark bg-apple-light/90 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
+                            >
+                                
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    <AnimatePresence>
+                  {
+                    pageIndex!==8&& <motion.button layout onClick={()=>{navigate('/postuler')}} initial={{x:100,y:10,opacity:0,scale:0.5}} animate={{x:0,opacity:1,y:0,scale:1}} exit={{x:100,opacity:0,y:10,scale:0.5}} transition={{type:'spring',bounce:0.2}}
+            
+                     className={`text-apple-dark shadow-lg bg-apple-light/90  rounded-full p-2 blurey backdrop-blur-lg font-semibold hover:bg-apple-light ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
+                 >
+                   Postuler
+                 </motion.button>
+                  }
                    
                     </AnimatePresence>
                 </div>

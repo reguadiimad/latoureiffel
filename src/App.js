@@ -17,6 +17,7 @@ import Contact from './components/Contact';
 import News from './components/News';
 import Inscription from './components/Inscription';
 import { useEffect } from 'react';
+import Postuler from './components/Postuler';
 
 
 
@@ -41,7 +42,7 @@ function App() {
           <Route path={"/gallery"} element={<Gallery/>} />
           <Route path={"/contact"} element={<Contact/>} />
           <Route path={"/registration"} element={<Inscription/>} />
-
+          <Route path={"/postuler"} element={<Postuler/>} />
         </Routes>
         <Navbar />
         <BottomPage/>

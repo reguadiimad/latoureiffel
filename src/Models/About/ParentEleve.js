@@ -29,8 +29,8 @@ const ParentEleve = ({ id }) => {
     return (
         <>
             <div id={id} ref={motherRef} className={`w-[90%] flex items-center justify-center flex-col mt-10 ${language === "ar" ? 'text-right ' : ''}`}>
-                <motion.p {...topAnimation()} className={`text-neutral-500 text-xl mb-2`}>{parentAndStudent[0].sectionTitle[language]}</motion.p>
-                <motion.h1 {...topAnimation(0.2)} className={`text-4xl md:text-8xl w-[100%] text-blue-500 text-center`}>
+                <motion.p {...topAnimation()} className={`text-neutral-500 xl:text-xl mb-2`}>{parentAndStudent[0].sectionTitle[language]}</motion.p>
+                <motion.h1 {...topAnimation(0.2)} className={`text-4xl md:text-6xl 2xl:text-8xl w-[100%] text-blue-500 text-center`}>
                     <b>{parentAndStudent[1].mainHeading[language]}</b>
                 </motion.h1>
                 <div className={`w-full flex flex-col md:flex-row items-stretch mt-28 gap-5`}>

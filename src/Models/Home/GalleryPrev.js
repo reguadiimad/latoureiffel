@@ -30,7 +30,7 @@ const GalleryPrev = () => {
             <div ref={motherRef} className="w-[90%]  flex flex-col lg:mt-10 md:-mt-10 -mt-20 z-50">
                 <motion.p {...custumAnimation(0,'-80%',0,0)} className="text-sm md:text-lg xl:text-2xl text-neutral-300 mt-10">{content[language].no_missed_moment}</motion.p>
                 <div className="w-full flex">
-                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl md:text-7xl xl:text-8xl w-[60%] text-blue-500 font-bold mt-2">
+                <motion.h1 {...custumAnimation(0,'-80%',0,0.2)} className="text-4xl  md:text-7xl xl:text-8xl w-[60%] text-blue-500 font-bold mt-2">
                 {content[language].visit_gallery}
                 </motion.h1>
                 <div className="w-[40%] flex justify-end items-end">
@@ -103,7 +103,7 @@ const GalleryPrev = () => {
                 <div className="zaza w-full md:h-full h-[90%] absolute md:top-0 z-10 top-[10%] left-0 flex items-center justify-center flex-col bg-white/10 blurey backdrop-blur-lg gap-y-3 galCover">
                     <p className="text-white/60  md:text-xl">{content[language].gallery_description}
                     </p>
-                    <h1 className="md:text-8xl text-4xl text-white/85 font-extrabold">
+                    <h1 className="md:text-8xl text-4xl text-white/85 text-center font-extrabold">
                        {content[language].photo_count}
                     </h1>
                     <button onClick={()=>navigate('/gallery')} className="bg-black/20 p-2 md:p-4 md:px-6 md:text-xl rounded-[40px] text-white font-semibold shadow-lg">

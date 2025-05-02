@@ -14,7 +14,7 @@ const NavigationCyc = ({ selected = 0, onClick }) => {
           <motion.p {...leftAnimation()} className="text-white/70 text-lg md:text-xl">{data.explore_details[language]}</motion.p>
           <motion.h1 {...leftAnimation(0.12)} className="text-white text-4xl md:text-6xl lg:text-8xl font-bold mt-2 md:mt-4">{data.our_cycles[language]}</motion.h1>
         </div>
-        <div className={`flex-1 flex flex-wrap justify-center md:justify-end gap-3 mt-6 md:mt-0 ${language === "ar" ? "md:justify-start" : ""}`}>
+        <div className={`flex-1 flex flex-wrap flex-col lg:flex-row  justify-center md:justify-end gap-3 mt-6 md:mt-0 ${language === "ar" ? "md:justify-start" : ""}`}>
           {data.button_labels[language].map((label, index) => (
             <motion.button {...rightAnimation(index*0.14)}
               key={index}
