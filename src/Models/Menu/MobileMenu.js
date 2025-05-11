@@ -78,7 +78,7 @@ const MobileMenu = ({ visble, onClose }) => {
                         }}
                         >
     <nav className="w-[85%] h-[90%]">
-        <img src={`${process.env.PUBLIC_URL}/logos/logo1.png`} className="md:h-24 h-16" alt="logo" />
+        <img src={`${process.env.PUBLIC_URL}/logos/logo1.webp`} className="md:h-24 h-16" alt="logo" />
         <p className="md:mt-6 text-white/50 mt-1.5 text-xs md:scale-100">
             Veuillez choisir un lien ci-dessous pour naviguer sur le site officiel de l'école.
         </p>

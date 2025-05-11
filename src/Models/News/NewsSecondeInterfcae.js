@@ -167,7 +167,7 @@ export default function NewsSecondeInterface() {
                         >
                           <img
                             className={`w-full rounded-lg 2xl:rounded-3xl object-cover`}
-                            src={process.env.PUBLIC_URL + `/images/news/news${act.imageIndex}.jpg`}
+                            src={process.env.PUBLIC_URL + `/images/news/news${act.imageIndex}.webp`}
                             alt={act[language]}
                           />
                           <div
@@ -187,7 +187,7 @@ export default function NewsSecondeInterface() {
             </div>
           </div>
           <div className={`w-[70%] lg:w-[60%] 2xl:w-[38%]`}>
-            <img src={process.env.PUBLIC_URL + `/images/ipadFed${language}.png`} className={`w-full`} />
+            <img src={process.env.PUBLIC_URL + `/images/ipadFed${language}.webp`} className={`w-full`} />
           </div>
           <div className={`flex-1`}>
             <div className={`w-full h-full flex items-center`}>
@@ -206,7 +206,7 @@ export default function NewsSecondeInterface() {
                       >
                           <img
                             className={`w-full h-full object-cover`}
-                            src={process.env.PUBLIC_URL + `/images/news/news${act.imageIndex}.jpg`}
+                            src={process.env.PUBLIC_URL + `/images/news/news${act.imageIndex}.webp`}
                             alt={act[language]}
                           />
                           <div

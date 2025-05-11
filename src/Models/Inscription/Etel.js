@@ -85,7 +85,7 @@ export default function Etel() {
             whileInView={{opacity:1, scale:1}}
             transition={{type:"spring", delay:0.5, duration: 0.8}} // Adjusted delay/duration
             className="absolute w-28 h-28 z-10 -mr-2" // Ensure image is above dots with z-index
-            src={process.env.PUBLIC_URL+"/logos/trf.png"}
+            src={process.env.PUBLIC_URL+"/logos/trf.webp"}
             alt="TRF Logo" // Added alt text for accessibility
         />
 

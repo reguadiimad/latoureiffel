@@ -35,16 +35,17 @@ const MobileStckMenu = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     const menuItems = {
-        fr: ["Accueil", "À propos", "Cycles", "Services", "Actualités", "Galerie","Contact","Inscription"],
-        en: ["Home", "About", "Cycles", "Services", "News", "Gallery","Contact","Registration"],
-        ar: ["الرئيسية", "حولنا", "الدورات", "الخدمات", "الأخبار", "الصور","اتصل بنا","التسجيل"],
+        fr: ["Accueil", "À propos", "Cycles", "Services", "Actualités", "Galerie", "Contact", "Inscription", "Postuler"],
+        en: ["Home", "About", "Cycles", "Services", "News", "Gallery", "Contact", "Registration", "Apply"],
+        ar: ["الرئيسية", "حولنا", "الدورات", "الخدمات", "الأخبار", "الصور", "اتصل بنا", "التسجيل", "التقديم"],
       };
+      
       const currentMenuList = menuItems[language] || menuItems["fr"];
     return (
         <>
             <div className={`w-full flex  justify-center p-4 px-4 pr-5 lg:hidden absolute top-0 left-0 z-50 ${language==='ar'?'flex-row-reverse':''}`}>
                 <div className={`w-[50%] z-30 flex ${language==='ar'&&' justify-end'}`}>
-                    <img src={process.env.PUBLIC_URL + (language==="fr"?"/logos/logo1.png":(language==="ar"?"/logos/logo1ar.png":"/logos/logo1eng.png"))} alt="logo" className={`h-10 md:h-12 filter ease-in-out duration-300 ${(pageIndex===5&&!isOpen)?"":"invert-[1]"}  ${isOpen&&"opacity-0"}`}/>
+                    <img src={process.env.PUBLIC_URL + (language==="fr"?"/logos/logo1.webp":(language==="ar"?"/logos/logo1ar.webp":"/logos/logo1eng.webp"))} alt="logo" className={`h-10 md:h-12 filter ease-in-out duration-300 ${(pageIndex===5&&!isOpen)?"":"invert-[1]"}  ${isOpen&&"opacity-0"}`}/>
                 </div>
                 <div className={`w-[50%] flex items-end ${language==='ar'?'':'  justify-end'}`}>
                     <div className={`w-7 p-1 flex flex-col gap-2 cursor-pointer relative z-50 theBars mb-1`} onClick={toggleMenu}>
@@ -60,7 +61,7 @@ const MobileStckMenu = () => {
             animate={{ height: '100%' }} 
             exit={{ y:100,height: 0,opacity:0,duration:0.6 }} 
             transition={{ type: "ease" }} 
-            className="w-full h-screen  bg-white/90 fixed top-0 left-0 z-40 flex items-center justify-center lg:hidden blurey2 backdrop-blur-md"
+            className="w-full h-screen  bg-white/90 fixed top-0 left-0 z-40 flex items-center justify-center lg:hidden blurey  backdrop-blur-md"
         >
             <div className={`w-[80%] flex flex-col menudropd`}>
                 {currentMenuList.map((item, index) => (

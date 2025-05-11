@@ -1,61 +1,144 @@
-import { useState } from "react"
+import { useState } from "react";
 import { ValidateModal } from "./InsCard";
+import { useSelector } from "react-redux";
+import translations from "../InscData/step4Data.json";
 
-export function InscStep4({ isActive, values, onSubmit, onBackToStep,showValidateModal }) {
+export function InscStep4({
+  isActive,
+  values,
+  onSubmit,
+  onBackToStep,
+  showValidateModal
+}) {
+  const { language } = useSelector((state) => state.presntion);
+  const t = translations[language];
+
   const responsable = values.responsable;
   const eleve = values.eleve;
 
   return (
-    <div className={`flex-none w-full lg:w-[60%] h-[600px] lg:h-[750px] my-10 flex items-center justify-center transition-transform duration-500 ${isActive ? "scale-100 blur-0" : "scale-90 blur-sm"}`} >
-    <div className="bg-white w-full h-[95%] flex justify-center lg:p-8 rounded-[20px] shadow-xl overflow-y-scroll text-apple-title">
-      <div className="w-[90%] relative h-full flex flex-col items-center justify-center text-center">
-        <img className="h-14 lg:h-16 -mr-2 -mt-10" src={process.env.PUBLIC_URL + "/images/eleve1.png"} alt="logo" />
-           <p className="text-xl lg:text-2xl font-semibold">
-            Votre inscription prête pour <span className="text-blue-500 font-bold">envoi</span>
+    <div dir={language==="ar"&&"rtl"} 
+      className={
+        "flex-none w-full lg:w-[60%] h-[600px] lg:h-[750px] my-10 flex " +
+        "items-center justify-center transition-transform duration-500 " +
+        (isActive ? "scale-100 blur-0" : "scale-90 blur-sm")
+      }
+    >
+      <div className="bg-white w-full h-[95%] flex justify-center lg:p-8 rounded-[20px] shadow-xl overflow-y-scroll text-apple-title">
+        <div className="w-[90%] relative h-full flex flex-col items-center justify-center text-center">
+
+          <img
+            className="h-14 lg:h-16 -mr-2 -mt-10"
+            src={process.env.PUBLIC_URL + "/images/share.webp"}
+            alt="logo"
+          />
+
+          <p className="text-xl lg:text-2xl font-semibold">
+            {t.heading.split(" ").map((word, i) =>
+              word.toLowerCase() === "envoi" || word.toLowerCase() === "submit" ? (
+                <span key={i} className="text-blue-500 font-bold">
+                  {word}
+                </span>
+              ) : (
+                word + " "
+              )
+            )}
           </p>
 
-  {/* Instruction de vérification */}
-  <p className="lg:text-base text-apple-dark w-[85%]">
-    Vérifiez ci-dessous toutes les informations que vous avez saisies. Si tout est correct, cliquez sur « Envoyer » pour finaliser votre inscription.
-  </p>
+          <p className="lg:text-base text-apple-dark w-[85%] mt-2">
+            {t.subheading}
+          </p>
 
           {/* DISPLAY DATA */}
-          <div className="w-full h-auto rounded-lg bg-apple-light mt-2 lg:mt-6 p-4 text-apple-dark text-left lg:text-sm space-y-4">
+          <div  dir={language==="ar"&&"rtl"}  className={`w-full h-auto rounded-lg bg-apple-light mt-4 p-4 text-apple-dark  lg:text-sm space-y-6 ${language==="ar"?"text-right":"text-left"}`}>
+
+            {/* Responsable */}
             <div>
-              <h3 className="font-semibold text-blue-500 lg:text-base">Informations du responsable</h3>
-              <p>Nom: <strong>{responsable.responsableLName}</strong></p>
-              <p>Prénom: <strong>{responsable.responsableFName}</strong></p>
-              <p>Email: <strong>{responsable.responsableEmail}</strong></p>
-              <p>Téléphone: <strong>{responsable.responsablePhone}</strong></p>
-              <p>Type: <strong>{responsable.responsableType}</strong></p>
-              <div onClick={() => onBackToStep(1)} className="text-blue-500 underline cursor-pointer lg:text-sm mt-1">Modifier</div>
+              <h3 className="font-semibold text-blue-500 lg:text-base">
+                {t.sectionResponsableTitle}
+              </h3>
+              <p>
+                {t.responsableLName}:{" "}
+                <strong>{responsable.responsableLName}</strong>
+              </p>
+              <p>
+                {t.responsableFName}:{" "}
+                <strong>{responsable.responsableFName}</strong>
+              </p>
+              <p>
+                {t.responsableEmail}:{" "}
+                <strong>{responsable.responsableEmail}</strong>
+              </p>
+              <p>
+                {t.responsablePhone}:{" "}
+                <strong>{responsable.responsablePhone}</strong>
+              </p>
+              <p>
+                {t.responsableType}:{" "}
+                <strong>{responsable.responsableType}</strong>
+              </p>
+              <div
+                onClick={() => onBackToStep(1)}
+                className="text-blue-500 underline cursor-pointer lg:text-sm mt-1"
+              >
+                {t.modifyLink}
+              </div>
             </div>
 
+            {/* Élève */}
             <div>
-              <h3 className="font-semibold text-blue-500 lg:text-base">Informations de l'élève</h3>
-              <p>Nom: <strong>{eleve.eleveLName}</strong></p>
-              <p>Prénom: <strong>{eleve.eleveFName}</strong></p>
-              <p>Date de naissance: <strong>{eleve.eleveDay}/{eleve.eleveMonth}/{eleve.eleveYear}</strong></p>
-              <p>Niveau scolaire: <strong>{eleve.nivSco}</strong></p>
-              <p>Classe actuelle: <strong>{eleve.classActual}</strong></p>
-              <p>Établissement actuel: <strong>{eleve.institut}</strong></p>
-              <div onClick={() => onBackToStep(2)} className="text-blue-500 underline cursor-pointer lg:text-sm mt-1">Modifier</div>
+              <h3 className="font-semibold text-blue-500 lg:text-base">
+                {t.sectionEleveTitle}
+              </h3>
+              <p>
+                {t.eleveLName}: <strong>{eleve.eleveLName}</strong>
+              </p>
+              <p>
+                {t.eleveFName}: <strong>{eleve.eleveFName}</strong>
+              </p>
+              <p>
+                {t.eleveBirthDate}:{" "}
+                <strong>
+                  {eleve.eleveDay}/{eleve.eleveMonth}/{eleve.eleveYear}
+                </strong>
+              </p>
+              <p>
+                {t.eleveNiveau}: <strong>{eleve.nivSco}</strong>
+              </p>
+              <p>
+                {t.eleveClasse}: <strong>{eleve.classActual}</strong>
+              </p>
+              <p>
+                {t.eleveInstitut}: <strong>{eleve.institut}</strong>
+              </p>
+              <div
+                onClick={() => onBackToStep(2)}
+                className="text-blue-500 underline cursor-pointer lg:text-sm mt-1"
+              >
+                {t.modifyLink}
+              </div>
             </div>
           </div>
 
-          {/* ACTION BUTTONS */}
-          <div className="w-full flex items-center justify-center mt-6 gap-3">
-           
-            <button onClick={onSubmit} className="bg-blue-500 px-6 py-2 rounded-lg text-white font-semibold">
-              Envoyer
-            </button>
+          {/* ACTION BUTTON */}
+          <div className="w-full flex items-center justify-center mt-6">
+            <div
+              onClick={onSubmit}
+              className="bg-blue-500 cursor-pointer px-6 py-2 rounded-lg text-white font-semibold"
+            >
+              {t.btnSubmit}
+            </div>
           </div>
         </div>
       </div>
-      <ValidateModal
-        isVisible={showValidateModal}
-        
-      />
+
+      <ValidateModal msg={thankYouMessage[language]} isVisible={showValidateModal} />
     </div>
   );
 }
+
+const thankYouMessage = {
+  fr: "Merci d'avoir complété l'inscription de votre enfant.",
+  en: "Thank you for completing your child’s registration.",
+  ar: "شكراً لإتمام تسجيل طفلكم."
+};

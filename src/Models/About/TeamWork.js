@@ -69,7 +69,7 @@ const TeamWork = ({id}) => {
               <div className={`bg-red-500 rounded-2xl lg:rounded-[40px]  h-[50%] w-full`}></div>
               <img
                 className={`absolute bottom-8 md:bottom-10 max-h-80 md:max-h-max -ml-6 scale-[1.2] sm:scale-x-[0.7] md:scale-x-100 md:scale-[1.25] lg:scale-[1.4] xl:scale-[1.2]  w-full`}
-                src={`${process.env.PUBLIC_URL}/images/eqp1.png`}
+                src={`${process.env.PUBLIC_URL}/images/eqp1.webp`}
                 alt="Team"
               />
               <div className={`bg-gradient-to-tr from-black/10 to-white/10 drop-shadow-2xl text-white/70 border border-white/10 shadow-2xl absolute -bottom-6 gap-x-4 py-6 p-4 rounded-[40px] blurey backdrop-blur-xl items-center justify-center flex`}>

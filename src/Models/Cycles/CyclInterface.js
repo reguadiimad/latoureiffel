@@ -11,10 +11,10 @@ import { bottomAnimation, leftAnimation, rightAnimation, topAnimation } from "./
 const CyclInterface = ({handelSelect}) => {
     const { language } = useSelector((state) => state.presntion);
     const cycleImages = [
-        { src: '/images/c1.jpg', alt: 'Cycle 1', borderClasses: 'border-r-[4px] border-b-[4px]' },
-        { src: '/images/c2.jpg', alt: 'Cycle 2', borderClasses: 'border-l-[4px] border-b-[4px]' },
-        { src: '/images/c3.jpg', alt: 'Cycle 3', borderClasses: 'border-r-[4px] border-t-[4px]' },
-        { src: '/images/c4.jpg', alt: 'Cycle 4', borderClasses: 'border-l-[4px] border-t-[4px]' },
+        { src: '/images/c1.webp', alt: 'Cycle 1', borderClasses: 'border-r-[4px] border-b-[4px]' },
+        { src: '/images/c2.webp', alt: 'Cycle 2', borderClasses: 'border-l-[4px] border-b-[4px]' },
+        { src: '/images/c3.webp', alt: 'Cycle 3', borderClasses: 'border-r-[4px] border-t-[4px]' },
+        { src: '/images/c4.webp', alt: 'Cycle 4', borderClasses: 'border-l-[4px] border-t-[4px]' },
       ];
       
       
@@ -124,7 +124,7 @@ const CyclInterface = ({handelSelect}) => {
 
                     <div className="w-full lg:w-[40%] flex flex-col items-center justify-center gap-y-6 lg:gap-y-2 2xl:gap-y-6">
                         <motion.div {...topAnimation()} className="w-full h-[80%] rounded-[50px] bg-blue-500 flex items-end justify-center overflow-hidden  pt-10">
-                        <img src={process.env.PUBLIC_URL+'/images/cyy0.png'} className="w-[52%]  scale-125 sm:w-[40%] sm:scale-110 lg:scale-125 lg:w-[52%] origin-bottom  object-cover"></img>
+                        <img src={process.env.PUBLIC_URL+'/images/cyy0.webp'} className="w-[52%]  scale-125 sm:w-[40%] sm:scale-110 lg:scale-125 lg:w-[52%] origin-bottom  object-cover"></img>
                         <div className="flex-1 h-full flex justify-end text-left flex-col pr-2">
                             <p className="text-white/70 sm:text-xl lg:text-sm 2xl:text-lg">
                                 {content1.texts.maternelle.subTitle[language]}
@@ -162,7 +162,7 @@ const CyclInterface = ({handelSelect}) => {
                         </motion.div>
                         <motion.div {...bottomAnimation(0)}  className={`w-full h-[20%] rounded-[50px] bg-neutral-800 overflow-hidden lg:flex hidden items-center justify-center font-bold px-10 text-left `}>
                             <FontAwesomeIcon icon={faQuoteLeftAlt} className="mr-10 text-4xl"/>
-                            <div className={`font-bold  ${language=="ar"&&'text-right text-xl'} `}>
+                            <div className={`font-bold  ${language=="ar"&&'text-right'} `}>
                             {content1.texts.footer.quote[language]}
                             <p className={`text-white/60 text-sm ${language==="ar"&&'text-right text-base'} `}>{content1.texts.footer.signature[language]}</p>
                             </div>
@@ -170,7 +170,7 @@ const CyclInterface = ({handelSelect}) => {
                     </div>
 
                     <motion.div {...rightAnimation(0.2)} className="flex-1 rounded-[50px] h-[300px] mt-6 lg:hidden  bg-red-500 overflow-hidden relative">
-                       <img src={process.env.PUBLIC_URL+'/images/ccy6.png'} className="absolute bottom-0 right-0 w-full sm:w-[55%]"></img>
+                       <img src={process.env.PUBLIC_URL+'/images/ccy6.webp'} className="absolute bottom-0 right-0 w-full sm:w-[55%]"></img>
                         <div className="w-full p-6 pb-0 flex">
                         <div className=" text-left w-[70%]">
                                     <p className="text-white/70 text-sm">{content1.texts.primaire.subTitle[language]} </p>
@@ -202,12 +202,12 @@ const CyclInterface = ({handelSelect}) => {
                                 </div>
                                
                             </div>
-                        <img src={process.env.PUBLIC_URL+'/images/cc8.png'} className="w-full z-0  object-cover absolute top-16 sm:top-8 lg:top-16 scale-95 scale-x-100 "></img>
+                        <img src={process.env.PUBLIC_URL+'/images/cc8.webp'} className="w-full z-0  object-cover absolute top-16 sm:top-8 lg:top-16 scale-95 scale-x-100 "></img>
 
                         </motion.div>
                        <div className="w-full h-[55%] flex  flex-col lg:flex-row  gap-6 lg:gap-2 2xl:gap-6">
                             <motion.div {...bottomAnimation(0)} className="flex-1 rounded-[50px] h-full hidden lg:block bg-red-500 overflow-hidden relative">
-                            <img src={process.env.PUBLIC_URL+'/images/ccy6.png'} className="absolute bottom-0 right-0 w-full z-0"></img>
+                            <img src={process.env.PUBLIC_URL+'/images/ccy6.webp'} className="absolute bottom-0 right-0 w-full z-0"></img>
                                 <div className="w-full p-6 pb-0 flex z-40">
                                 <div className=" text-left w-[70%]">
                                             <p className="text-white/70 text-sm">{content1.texts.primaire.subTitle[language]} </p>
@@ -223,7 +223,7 @@ const CyclInterface = ({handelSelect}) => {
                                 </div>
                             </motion.div>
                             <motion.div {...bottomAnimation(0.1)}  className=" flex-1 rounded-[50px] h-full  bg-blue-500 overflow-hidden relative">
-                            <img src={process.env.PUBLIC_URL+'/images/ccy7.png'} className="absolute -bottom-12 lg:bottom-0 2xl:-bottom-12 -right-14   w-full sm:w-[70%] lg:w-full z-10 "></img>
+                            <img src={process.env.PUBLIC_URL+'/images/ccy7.webp'} className="absolute -bottom-12 lg:bottom-0 2xl:-bottom-12 -right-14   w-full sm:w-[70%] lg:w-full z-10 "></img>
                             <div className="w-full p-6 pb-0 flex">
                                 <div className=" text-left w-[50%]">
                                             <p className="text-white/70 lg:text-sm text-[12px] lg:text-[10px] 2xl:text-sm">{content1.texts.lycee.subTitle[language]}</p>

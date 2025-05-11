@@ -20,7 +20,7 @@
             "fr": "de Début et en fin de journée, accompagné d’un programme d’animations et ce dans la limite des places d’accueil disponibles. Cette prestation est assurée par des professionnels.",
             "en": "at the beginning and end of the day, with an activity program, within the limits of available places. This service is provided by professionals."
         },
-        "images": "/images/abc.jpg",
+        "images": "/images/abc.webp",
         "metrics": {
             "totalSessions": {
                 "ar": "عدد الأطفال المسجلين",
@@ -57,7 +57,7 @@
             "fr": "pour faciliter les trajets quotidiens des élèves, avec des circuits sécurisés et adaptés. Cette prestation est gérée par des conducteurs expérimentés et respectueux des normes de sécurité.",
             "en": "to facilitate students' daily commutes, with safe and adapted routes. This service is managed by experienced drivers who comply with safety standards."
         },
-        "images": "/images/transport.png",
+        "images": "/images/transport.webp",
         "metrics": {
             "totalSessions": {
                 "ar": "عدد الرحلات اليومية",
@@ -94,7 +94,7 @@
             "fr": "avec des repas équilibrés et variés, préparés sur place par une équipe professionnelle. Ce service veille à répondre aux besoins nutritionnels des enfants dans un cadre convivial et sécurisé.",
             "en": "with balanced and varied meals prepared on-site by a professional team. This service aims to meet children's nutritional needs in a friendly and safe environment."
         },
-        "images": "/images/cantine.png",
+        "images": "/images/cantine.webp",
         "metrics": {
             "totalSessions": {
                 "ar": "عدد الوجبات اليومية",
@@ -131,7 +131,7 @@
             "fr": "comme le football, le basketball, le dessin, et bien plus encore. Ces activités permettent de développer les talents et passions des élèves dans un environnement stimulant et encadré.",
             "en": "such as football, basketball, drawing, and more. These activities help develop students' talents and passions in a stimulating and supervised environment."
         },
-        "images": "/images/clubs.png",
+        "images": "/images/clubs.webp",
         "metrics": {
             "totalSessions": {
                 "ar": "عدد الأنشطة اليومية",

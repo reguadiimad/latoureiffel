@@ -168,7 +168,7 @@ const TheService = ({selectedCyc,srvData,lang,isOther,textt}) => {
         );
       }
       
-  const shrtsImages=[{"ar":"srvAppArb.png","fr":"srvAppFrc.png","en":"srvAppEng.PNG"},{"ar":"srvTrnsArb.png","fr":"srvTrnsFrc.png","en":"srvTrnsEng.PNG"},"srvCantine.png",{"fr":"srvClubs.png","en":"srvClubsEng.png","ar":"srvClubsArb.png"},"srvInfermerie.png",];
+  const shrtsImages=[{"ar":"srvAppArb.webp","fr":"srvAppFrc.webp","en":"srvAppEng.webp"},{"ar":"srvTrnsArb.webp","fr":"srvTrnsFrc.webp","en":"srvTrnsEng.webp"},"srvCantine.webp",{"fr":"srvClubs.webp","en":"srvClubsEng.webp","ar":"srvClubsArb.webp"},"srvInfermerie.webp",];
   
     
     return(

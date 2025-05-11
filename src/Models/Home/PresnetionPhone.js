@@ -76,7 +76,7 @@ const PresontationPhone = () => {
                     </div>
 
                     <div className='w-full flex justify-center items-end    h-[330px] md:h-[380px] overflow-hidden rounded-3xl'>
-                        <motion.img {...customAnimation(0, 0, '70%',0.1)}  className='h-[105%]' src={process.env.PUBLIC_URL+`/parallex/par${language}.png`}/>
+                        <motion.img {...customAnimation(0, 0, '70%',0.1)}  className='h-[105%]' src={process.env.PUBLIC_URL+`/parallex/par${language}.webp`}/>
                     </div>
 
                     

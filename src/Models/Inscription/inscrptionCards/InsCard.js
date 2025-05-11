@@ -2,11 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 export const TheInput = ({ value, onValueChange, name, error, type = "text", required, disabled = false,dealy=0 }) => {
   const [clicked, setClicked] = useState(false);
+  const { language } = useSelector((state) => state.presntion);
+  
   return (
-    <div className="w-full h-full flex flex-col gap-1">
+    <div dir={language==="ar"&&"rtl"} className="w-full h-full flex flex-col gap-1">
       <div onFocus={() => setClicked(true)} onBlur={() => setClicked(false)} className="w-full h-full flex items-center inp relative">
         <input
           disabled={disabled}
@@ -24,31 +27,33 @@ export const TheInput = ({ value, onValueChange, name, error, type = "text", req
           {name}
         </motion.span>
       </div>
-      <span className="text-xs h-2 w-full text-left text-red-500 px-2">{error}</span>
+      <span dir={language==="ar"&&"rtl"} className={`text-xs h-2 w-full ${language==="ar"?"text-right":"text-left"} text-red-500 px-2`}>{error}</span>
       <div className="bg-red-400 text-blue-500" value="jjj"/>
     </div>
   );
 
 };
 
-export const TheSelect = ({ value = "", onValueChange, name, isMonth, error, required, data, disabled = false }) => {
+export const TheSelect = ({ value = "", onValueChange, name, isMonth, error, required, data, disabled = false,displayed }) => {
   const [clicked, setClicked] = useState(false);
+  const { language } = useSelector((state) => state.presntion);
 
   return (
     <div className="w-full flex flex-col gap-1">
-      <div className={`w-full px-4 rounded-xl lg:rounded-2xl relative cursor-pointer ease-in-out duration-300 ${disabled ? "opacity-20" : ""} ${error ? "border-red-500 border bg-red-100" : "border border-apple-dark bg-white"}`}>
+      
+      <div dir={language==="ar"&&"rtl"} className={`w-full px-4 rounded-xl lg:rounded-2xl relative cursor-pointer ease-in-out duration-300 ${disabled ? "opacity-20" : ""} ${error ? "border-red-500 border bg-red-100" : "border border-apple-dark bg-white"}`}>
         <select
           disabled={disabled}
           value={value}
           onChange={(e) => onValueChange(e.target.value)}
-          className={`w-full appearance-none bg-transparent border-none outline-none ${value === "" ? "pt-3.5 pb-3.5 text-apple-dark/80" : "pt-5 pb-2"} ${(error && value === "") && "text-red-500"} rounded-2xl cursor-pointer`}
+          className={`w-full appearance-none bg-transparent border-none outline-none ${value === "" ? "pt-3.5 pb-3.5 text-apple-dark/80" : "pt-5 pb-2"} ${(error && value === "") && "text-red-500 bg-red-100"} rounded-2xl cursor-pointer`}
         >
           <option value="" disabled>
             {name}
           </option>
           {data.map((item, i) => (
             <option key={i} value={item}>
-              {item}
+              {displayed?displayed[i]:item}
             </option>
           ))}
         </select>
@@ -60,12 +65,35 @@ export const TheSelect = ({ value = "", onValueChange, name, isMonth, error, req
           {name}
         </motion.span>
       </div>
-      <span className="text-xs h-2 w-full text-left text-red-500 px-2">{error === 0 ? "" : error}</span>
+      <span dir={language==="ar"&&"rtl"} className={`text-xs h-2 w-full ${language==="ar"?"text-right":"text-left"} text-red-500 px-2`}>{error === 0 ? "" : error}</span>
     </div>
   );
 };
 
 export const ConfirmationModal = ({ isVisible, onClose, onConfirm }) => {
+  const { language } = useSelector((state) => state.presntion);
+
+  // In-component translations
+  const messages = {
+    fr: {
+      question: "Êtes-vous sûr de vouloir effacer toutes les données saisies ?",
+      cancel: "Retourner",
+      confirm: "Vider"
+    },
+    en: {
+      question: "Are you sure you want to clear all entered data?",
+      cancel: "Go back",
+      confirm: "Clear"
+    },
+    ar: {
+      question: "هل أنت متأكد من رغبتك في مسح جميع البيانات المدخلة؟",
+      cancel: "رجوع",
+      confirm: "مسح"
+    }
+  };
+
+  const t = messages[language] || messages.fr; // fallback to French
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -76,13 +104,19 @@ export const ConfirmationModal = ({ isVisible, onClose, onConfirm }) => {
           transition={{ type: "spring" }}
           className="absolute w-[50%] p-5 bg-white border-apple-dark/50 border flex-col rounded-3xl shadow-2xl flex items-center justify-center"
         >
-          <p>Êtes-vous sûr de vouloir effacer toutes les données saisies ?</p>
-          <div className="flex w-full items-center justify-center mt-5 cursor-pointer">
-            <div className="flex-1">
-              <div onClick={onClose}>Retourner</div>
+          <p className="text-center">{t.question}</p>
+          <div className="flex w-full items-center justify-center mt-5">
+            <div
+              onClick={onClose}
+              className="flex-1 cursor-pointer text-apple-dark text-left underline"
+            >
+              {t.cancel}
             </div>
-            <div className="flex-1 text-red-500 text-right cursor-pointer">
-              <div onClick={onConfirm}>Vider</div>
+            <div
+              onClick={onConfirm}
+              className="flex-1 cursor-pointer text-red-500 text-right underline"
+            >
+              {t.confirm}
             </div>
           </div>
         </motion.div>
@@ -91,7 +125,9 @@ export const ConfirmationModal = ({ isVisible, onClose, onConfirm }) => {
   );
 };
 
-export const ValidateModal = ({ isVisible, onClose, onConfirm }) => {
+export const ValidateModal = ({ isVisible, onClose, onConfirm,msg=" Merci d'avoir complété l'inscription de votre enfant." }) => {
+  const { language } = useSelector((state) => state.presntion);
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -103,14 +139,14 @@ export const ValidateModal = ({ isVisible, onClose, onConfirm }) => {
           className="absolute w-[50%] p-5 bg-white/40 backdrop-blur-lg blurey  border flex-col rounded-3xl shadow-2xl flex items-center justify-center"
         >
           <p className="text-center">
-            Merci d'avoir complété l'inscription de votre enfant.
-
+           
+{msg}
            
           </p>
           <FontAwesomeIcon icon={faCheck} className="text-blue-500 text-7xl py-5"/>
           <div className="flex w-full items-center justify-center mt-5 cursor-pointer">
 
-              <div onClick={()=>window.location.reload()}>Fermer</div>
+              <div onClick={()=>window.location.reload()}>{{fr:"Fermer",en:"Close",ar:"إغلاق"}[language]}</div>
 
           </div>
         </motion.div>

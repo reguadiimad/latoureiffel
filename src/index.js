@@ -7,15 +7,18 @@ import { Provider } from 'react-redux';
 import store from './redux(toolKit)/store';
 import '@fontsource/inter';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import AppAdmin from './AppAdmin';
 
 serviceWorkerRegistration.register();
 
+const path = window.location.pathname;
+const isAdmin = path.startsWith('/adminETL');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
     <Provider store={store}>
-      <App />
+      {isAdmin ? <AppAdmin/> : <App/>}
     </Provider>
 
 );

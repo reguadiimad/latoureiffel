@@ -56,7 +56,7 @@ export default function GalExplain() {
                   viewport={{ amount: 0.1, once: true }}
                   key={'gali' + index}
                   className={`absolute h-full bottom-0 `}
-                  src={process.env.PUBLIC_URL + `/gallery/gali${index + 1}.png`}
+                  src={process.env.PUBLIC_URL + `/gallery/gali${index + 1}.webp`}
                 />
               ))
             }
@@ -73,7 +73,7 @@ export default function GalExplain() {
                   viewport={{ amount: 0.1, once: true }}
                   key={'gali' + index}
                   className={`absolute h-full bottom-0`}
-                  src={process.env.PUBLIC_URL + `/gallery/gali${index + 1}.png`}
+                  src={process.env.PUBLIC_URL + `/gallery/gali${index + 1}.webp`}
                 />
               ))
             }

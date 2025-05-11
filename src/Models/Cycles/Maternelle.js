@@ -9,7 +9,7 @@ import content from "./Datas/MaternelleData.json";
 
 const Maternelle = () => {
     const { language } = useSelector((state) => state.presntion);
-    const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.jpg`);
+    const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.webp`);
     const [direction, setDirection] = useState(1);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -116,7 +116,7 @@ const Maternelle = () => {
                     </div>
                 </div>
                 <div className={`w-[55%] pl-20 relative hidden lg:flex items-center justify-center`}>
-                    <img className={`absolute bottom-2 right-0 h-full scale-110`} src={process.env.PUBLIC_URL + '/images/mateernel.png'} alt="Maternelle" />
+                    <img className={`absolute bottom-2 right-0 h-full scale-110`} src={process.env.PUBLIC_URL + '/images/mateernel.webp'} alt="Maternelle" />
                     <div className={`absolute left-20 p-4 2xl:p-10 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/5 rounded-[40px] shadow-xl w-[56%] hidden xl:block blurey backdrop-blur-3xl`}>
                         <h1 className={`2xl:${getTextSize("text-2xl", "text-3xl")} ${getTextSize("text-lg", "text-xl")} font-extrabold text-blue-500 mb-3 2xl:mb-10`}>{content.highlight.title[language]}</h1>
                         <p className={`text-left ${getTextSize("text-sm", "text-base")} ${language=="ar"&&' text-right'} 2xl:${getTextSize("text-base", "text-lg")} text-neutral-900/40`}>
@@ -137,7 +137,7 @@ const Maternelle = () => {
                 <div className={`w-full flex lg:hidden items-center justify-center relative mb-14`}></div>
 
                 <div className={`w-full flex lg:hidden items-center justify-center relative mb-14`}>
-                    <img className={`w-full h-full sm:h-[450px] md:h-[550px] sm:w-auto`} src={process.env.PUBLIC_URL + '/images/m2.png'} alt="Maternelle Mobile" />
+                    <img className={`w-full h-full sm:h-[450px] md:h-[550px] sm:w-auto`} src={process.env.PUBLIC_URL + '/images/m2.webp'} alt="Maternelle Mobile" />
                     <div className={`absolute -bottom-10 left-0 p-4 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl w-[70%] blurey backdrop-blur-3xl`}>
                         <h1 className={`${getTextSize("text-base", "text-lg")} text-left font-extrabold text-blue-500 mb-2`}>{content.highlight.title[language]}</h1>
                         <p className={`text-neutral-900/70 hidden md:block text-left`}>{content.highlight.sub_description[language]}</p>

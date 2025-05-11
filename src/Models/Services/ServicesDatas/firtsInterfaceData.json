@@ -10,7 +10,7 @@
       "clubs": "Clubs",
       "other": "Autre",
       "discoverMore": "Découvrez plus",
-      "image":"serviceMockupe.png"
+      "image":"serviceMockupe.webp"
     },
     "en": {
       "services": "Our Services",
@@ -23,7 +23,7 @@
       "clubs": "Clubs",
       "other": "Other",
       "discoverMore": "Discover More",
-      "image":"appEng.png"
+      "image":"appEng.webp"
     },
     "ar": {
       "services": "خدماتنا",
@@ -36,7 +36,7 @@
       "clubs": "الأندية",
       "other": "أخرى",
       "discoverMore": "اكتشف المزيد",
-      "image":"appArb.png"
+      "image":"appArb.webp"
     }
   }
   

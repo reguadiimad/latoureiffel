@@ -82,7 +82,7 @@ const FirstInterface = () => {
                             </motion.div>
                             <div className={`w-full h-full overflow-hidden rounded-tl-full`}>
                                 <img
-                                    src={process.env.PUBLIC_URL + "/images/about.jpg"}
+                                    src={process.env.PUBLIC_URL + "/images/about.webp"}
                                     className={`-z-10 w-full h-full object-cover rounded-2xl md:rounded-[30px] lg:rounded-[40px] transform -scale-x-100 rounded-br-[20px]`}
                                 />
                             </div>
@@ -103,7 +103,7 @@ const FirstInterface = () => {
                         <motion.div {...leftAnimation(0.33)} className={`flex-1  h-full relative overflow-hidden`}>
                             <img
                                 className={`w-full h-full object-cover top-0 left-0 absolute hidden lg:block`}
-                                src={process.env.PUBLIC_URL + "/images/bon.jpg"}
+                                src={process.env.PUBLIC_URL + "/images/bon.webp"}
                             />
                             <div className={`w-full items-center justify-center flex flex-col h-[65%] top-[17.5%] px-5 left-0 absolute text-white/90`}>
                                 <div className={`w-full flex items-center justify-center text:base md:text-xl  xl:text-2xl font-bold mb-4`}>
@@ -137,7 +137,7 @@ const FirstInterface = () => {
                 </motion.div>
                 <motion.div {...rightAnimation(0.33)}  className={`flex-1 flex flex-row-reverse `}>
                     <img
-                        src={process.env.PUBLIC_URL + "/images/prtb.png"}
+                        src={process.env.PUBLIC_URL + "/images/prtb.webp"}
                         className={`w-full h-24 md:my-2 md:h-20 object-cover opacity-90`}
                     ></img> 
                 </motion.div>

@@ -136,7 +136,7 @@ const GalConetnt = ({images,fullScreen,onClick}) => {
             <AnimatePresence>
             {fullScreen&&
             <motion.div  initial={{opacity:0,y:100}} animate={{opacity:1,y:0}} exit={{opacity:0,y:100}} className="w-screen h-screen flex flex-col items-center justify-center fixed top-0 left-0 bg-black/40  z-50">
-                <img  src={process.env.PUBLIC_URL+'/images/gridss.png'} className="w-full h-full object-cover absolute top-0 left-0 z-0 cursor-pointer" onClick={()=>onClick()}></img>
+                <img  src={process.env.PUBLIC_URL+'/images/gridss.webp'} className="w-full h-full object-cover absolute top-0 left-0 z-0 cursor-pointer" onClick={()=>onClick()}></img>
                 <motion.div  drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={(event, info) => {

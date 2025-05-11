@@ -68,7 +68,7 @@ export default function EducationStages() {
         <motion.div className=' grid grid-cols-2 grid-rows-2  md:w-full lg:w-[85%] md:flex md:items-center md:justify-center lg:p-4 mt-10 text-neutral-900/50' {...animationProps(0.3,false)}>
 
           <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * (0.8 + 1) * 10}px)`}} className='md:flex-1 w-[90%] mx-2 md:mx h-72 md:h-[450px] lg:h-[600px] roundedd  lg:mx-3 overflow-hidden relative boxyy '>
-            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk1.jpg'} alt='Maternelle' />
+            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk1.webp'} alt='Maternelle' />
             <div  className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[0].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 md:my-2 font-semibold flex flex-col justify-center items-center'>2-5<p className='lg:text-xl text-lg -mt-2 font-bold text-white'>{texts.texts.stages[0].age[language]}</p></h1>
@@ -90,15 +90,15 @@ export default function EducationStages() {
 
                 </p>
               </div>
-              <img className='object-cover h-full' src={process.env.PUBLIC_URL + '/images/imk22.jpg'} alt='Primaire' />
+              <img className='object-cover h-full' src={process.env.PUBLIC_URL + '/images/imk22.webp'} alt='Primaire' />
             </div>
             <div style={{transform: `translateY(${direction * (1.5 + 1) * 10}px)`}} className='w-full mt-5 bg-white h-[50%] overflow-hidden'>
-              <img className='object-cover w-full' src={process.env.PUBLIC_URL + '/images/imk2.jpg'} alt='Primaire Details' />
+              <img className='object-cover w-full' src={process.env.PUBLIC_URL + '/images/imk2.webp'} alt='Primaire Details' />
             </div>
           </span>
   
           <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * (2 + 1) * 10}px)`}} className='md:flex-1 mt-4  w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3 overflow-hidden relative boxyy'>
-            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk3.jpg'} alt='Collège' />
+            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk3.webp'} alt='Collège' />
             <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[2].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 my-2 font-semibold flex flex-col justify-center items-center'>11-14<p className='md:text-xl text-lg -mt-2 text-white font-bold'>{texts.texts.stages[0].age[language]}</p></h1>
@@ -112,7 +112,7 @@ export default function EducationStages() {
           </span>
   
           <span onClick={() => navigate('/cycles')} style={{transform: `translateY(${direction * -(1.7 + 1) * 10}px)`}} className='md:flex-1 mt-4 w-[90%] mx-2 h-72 md:h-[450px] lg:h-[600px]  roundedd md:mx-3  overflow-hidden relative boxyy'>
-            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk4.jpg'} alt='Lycée' />
+            <img className='object-cover h-full w-full' src={process.env.PUBLIC_URL + '/images/imk4.webp'} alt='Lycée' />
             <div className='w-[90%] py-4 lg:py-0 lg:h-[40%] absolute bottom-3 lg:bottom-4 left-[5%] bg-white/50 blurey backdrop-blur-lg rounded-3xl z-20 flex items-center justify-center flex-col boxy'>
               <span className='px-4 py-1 bg-black/10 rounded-3xl text-white'>{texts.texts.stages[3].name[language]}</span>
               <h1 className='lg:text-5xl md:text-4xl text-3xl text-blue-500 my-2 font-semibold flex flex-col justify-center items-center'>15-18<p className='md:text-xl text-lg -mt-2 text-white font-bold'>{texts.texts.stages[0].age[language]}</p></h1>
@@ -128,7 +128,7 @@ export default function EducationStages() {
 
         <motion.section {...animationProps(0.3,false)} className='flex flex-col justify-center items-center mt-4 md:mt-12 text-white/60 text-justify text-base'>
         <p className={`w-[89%] md:mb-2 mt-4 text-[9px] ${language==="ar"?'md:text-xl text-right':'md:text-base'}`}><b>{texts.pidagogie[language].name}</b>{texts.pidagogie[language].description}</p>
-            <img className='md:h-32 h-12 w-[90%] object-cover opacity-70 md:-mb-12  lg:-mb-12 md:mt-5 lg:mt-10  overflow-auto' alt='img' src={process.env.PUBLIC_URL+'/images/portonariat.png'}/>
+            <img className='md:h-32 h-12 w-[90%] object-cover opacity-70 md:-mb-12  lg:-mb-12 md:mt-5 lg:mt-10  overflow-auto' alt='img' src={process.env.PUBLIC_URL+'/images/portonariat.webp'}/>
         </motion.section>
   
       </motion.div>

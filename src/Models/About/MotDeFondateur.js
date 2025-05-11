@@ -36,13 +36,13 @@ const MotDeFondateur = ({id}) =>{
             <motion.div {...leftAnimation(0.25)} className={`lg:w-[70%] md:py-20 lg:py-0 w-full   md:h-[740px] lg:h-[690px] bg-red-500/50  lg:bg-red-500 rounded-[40px] flex items-center relative`}>
             <img
                   className={`rounded-[40px] w-full h-full object-cover object-top -z-10 absolute top-0 lg:hidden origin-top `}
-                  src={process.env.PUBLIC_URL + "/images/founder.jpg"}
+                  src={process.env.PUBLIC_URL + "/images/founder.webp"}
                   alt="Founder"
                 />
               <motion.div {...leftAnimation(0.45)}  className={`w-[48%]  hidden lg:block pl-2 h-full relative`}>
                 <img
                   className={`absolute w-auto hidden lg:block  lg:h-[120%] 2xl:h-[135%] scale-x-[1.12] xl:scale-x-110 bottom-0 -left-5`}
-                  src={process.env.PUBLIC_URL + "/images/fondateur.png"}
+                  src={process.env.PUBLIC_URL + "/images/fondateur.webp"}
                   alt="Founder"
                 />
                 <motion.div {...leftAnimation(0.5)} className={`absolute hidden lg:w-52 bg-gradient-to-tr from-black/10 to-white/10 blurey backdrop-blur-xl drop-shadow-2xl -bottom-8 -left-5 rounded-[40px]  font-semibold text-white/70 border border-white/10 text-center lg:flex items-center flex-col justify-center gap-y-2 px-10 py-6 shadow-md`}>

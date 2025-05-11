@@ -31,7 +31,7 @@ const Cycles = () => {
     const dispatch = useDispatch();
     const [selectedCyc,setSelectedCyc]=useState(3);
     const theCycles = [maternelleContent,PrimaireContent,CollegeContent,LyceeContent]
-    const theCyclesImages = [{"pc":'/images/mateernel.png',"phn":'/images/m2.png'},{"pc":'/images/primaire.png',"phn":'/images/primaire1.png'},{"pc":'/images/college.png',"phn":'/images/college1.png'},{"pc":'/images/lycee.png',"phn":'/images/lycee1.png'}]
+    const theCyclesImages = [{"pc":'/images/mateernel.webp',"phn":'/images/m2.webp'},{"pc":'/images/primaire.webp',"phn":'/images/primaire1.webp'},{"pc":'/images/college.webp',"phn":'/images/college1.webp'},{"pc":'/images/lycee.webp',"phn":'/images/lycee1.webp'}]
 
   useEffect(() => {
     dispatch(setIsHome(false));
@@ -41,10 +41,10 @@ const Cycles = () => {
     ar: ["روضة", "ابتدائي", "إعدادي", "ثانوي"], // Arabic translations
     en: ["Preschool", "Primary", "Middle School", "High School"], // English translations
 };
- const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.jpg`);
- const prImages = Array.from({ length: 12 }, (_, i) => `/images/pr/p${i}.jpg`);
- const clImages = Array.from({ length: 12 }, (_, i) => `/images/col/col${i}.jpg`);
- const lyImages = Array.from({ length: 13 }, (_, i) => `/images/lyc/lyc${i}.jpg`);
+ const mtImages = Array.from({ length: 12 }, (_, i) => `/images/mt/mt${i}.webp`);
+ const prImages = Array.from({ length: 12 }, (_, i) => `/images/pr/p${i}.webp`);
+ const clImages = Array.from({ length: 12 }, (_, i) => `/images/col/col${i}.webp`);
+ const lyImages = Array.from({ length: 13 }, (_, i) => `/images/lyc/lyc${i}.webp`);
  const handeleSelect = selected => {
   setSelectedCyc(selected);
   document.getElementById("det").scrollIntoView({ behavior: "smooth", block: "start" })

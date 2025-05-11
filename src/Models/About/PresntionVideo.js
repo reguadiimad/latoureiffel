@@ -91,9 +91,9 @@ const PresentationVideo = ({onClose,prsntation}) => {
                 </motion.div>
 
                 <motion.div initial={{y:100,scale:0.5}} animate={{y:0,scale:1}} exit={{y:'-100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  className=" px-6 p-2 roundedd blurey backdrop-blur-xl bg-white/10 shadow-lg/10 mt-4 border border-white/20 flex items-center justify-center">
-                    <img alt='img'  onClick={()=>skipTime(-10)} className="md:h-7 h-5 opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/-10.png'}/>
+                    <img alt='img'  onClick={()=>skipTime(-10)} className="md:h-7 h-5 opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/-10.webp'}/>
                     <FontAwesomeIcon icon={isPlay?faPause:faPlay} className="text-center w-16 text-2xl md:text-5xl text-white/70 md:mx-7 cursor-pointer hover:text-white hover:animate-pulse" onClick={handlePlayPause}/>
-                    <img alt='img' onClick={()=>skipTime(10)} className="md:h-7 h-5  opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/+10.png'}/>
+                    <img alt='img' onClick={()=>skipTime(10)} className="md:h-7 h-5  opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/+10.webp'}/>
                 </motion.div>
 
             </motion.section>)

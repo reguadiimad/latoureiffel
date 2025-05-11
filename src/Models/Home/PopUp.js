@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import { exit } from "process";
+
 import { useNavigate } from "react-router-dom";
 
 const PopUp = ({white=false,text,ar=false,navTo}) => {

@@ -50,7 +50,7 @@ const BottomNavigation = memo(({ show, handelSelect, selected }) => {
                            }`}
                    >
                        {/* Noise Effect */}
-                       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise-pattern.png')] opacity-10 rounded-full pointer-events-none"></div>
+                       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise-pattern.webp')] opacity-10 rounded-full pointer-events-none"></div>
                    
                        {selected === index && <FontAwesomeIcon icon={icons[index]} className="text-2xl text-blue-500 mr-2" />}
                        {level}

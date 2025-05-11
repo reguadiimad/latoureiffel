@@ -65,7 +65,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
     ...srv,
     icon: icons[index]
   }));
-  const shrtsImages=[{"ar":"shrtAppArb.png","fr":"shrtAppFrc.png","en":"shrtAppEng.png"},{"ar":"shrtTrsnArb.png","fr":"shrtTrnsFrc.png","en":"shrtTrnsEng.png"},"srv_cnt.png","srv_club.png","srv_inf.png",{"fr":"srv_autr.png","ar":"srvAutreArb.png","en":"srvAutreEng.png"}];
+  const shrtsImages=[{"ar":"shrtAppArb.webp","fr":"shrtAppFrc.webp","en":"shrtAppEng.webp"},{"ar":"shrtTrsnArb.webp","fr":"shrtTrnsFrc.webp","en":"shrtTrnsEng.webp"},"srv_cnt.webp","srv_club.webp","srv_inf.webp",{"fr":"srv_autr.webp","ar":"srvAutreArb.webp","en":"srvAutreEng.webp"}];
 
   // Define dynamic text size classes:
   // For each Tailwind size used, we define the next “step up” when language is Arabic.
@@ -81,7 +81,7 @@ const SerrvicesShorts = ({ selectedService, onSelect, theY }) => {
     <div className="w-[90%]  text-neutral-500 lg:mt-36 flex flex-col items-center justify-center relative z-10">
       <img
         className="absolute lg:top-10 top-32 lg:-left-[6%] lg:w-[80%] w-full scale-150 -z-10"
-        src={process.env.PUBLIC_URL + "/images/blur.png"}
+        src={process.env.PUBLIC_URL + "/images/blur.webp"}
         alt="blur"
       />
       {/* Apply the dynamic text size */}

@@ -16,7 +16,7 @@ const EmailUs = () => {
             <div className="w-[90%] h-[250px] md:h-[350px] lg:h-[400px]  md:mb-20 md:mt-20">
 
                 <motion.div {...custumAnimation(0,0,'100%')} className="w-full lg:rounded-[50px] rounded-3xl bg-red-500 h-full  flex flex-col md:p-20 p-5 text-white relative overflow-hidden">
-                    <motion.img {...custumAnimation(0,0,'100%',0.4)} className="absolute bottom-0 -right-[40%] md:-right-[22%] lg:right-0  h-full  w-auto z-0" alt='img' src={process.env.PUBLIC_URL+'/images/eco.png'}/>
+                    <motion.img {...custumAnimation(0,0,'100%',0.4)} className="absolute bottom-0 -right-[40%] md:-right-[22%] lg:right-0  h-full  w-auto z-0" alt='img' src={process.env.PUBLIC_URL+'/images/eco.webp'}/>
                     <motion.div className="h-[50%] w-full">
                         <h1 className="lg:w-[45%] w-[65%] text-xl md:text-4xl font-bold">{content.headline[language]}</h1>
                     </motion.div>

@@ -30,12 +30,12 @@ const ServicesDetails = memo(({ selectedCyc, onSelect, handelBtm }) => {
   };
 
   // Example of image paths (adjust as needed)
-  const appImages = Array.from({ length: 5 }, (_, i) => `/images/app/app${i + language}.png`);
-  const trnsImages = Array.from({ length: 5 }, (_, i) => `/images/trans/trns${i + language}.png`);
-  const cntImages = Array.from({ length: 5 }, (_, i) => `/images/cant/cnt${i + language}.png`);
-  const clubImages = Array.from({ length: 5 }, (_, i) => `/images/club/clb${i + language}.png`);
-  const infrImages = Array.from({ length: 5 }, (_, i) => `/images/infr/inf${i + language}.png`);
-  const moreImages = Array.from({ length: 5 }, (_, i) => `/images/more/more${i + language}.png`);
+  const appImages = Array.from({ length: 5 }, (_, i) => `/images/app/app${i + language}.webp`);
+  const trnsImages = Array.from({ length: 5 }, (_, i) => `/images/trans/trns${i + language}.webp`);
+  const cntImages = Array.from({ length: 5 }, (_, i) => `/images/cant/cnt${i + language}.webp`);
+  const clubImages = Array.from({ length: 5 }, (_, i) => `/images/club/clb${i + language}.webp`);
+  const infrImages = Array.from({ length: 5 }, (_, i) => `/images/infr/inf${i + language}.webp`);
+  const moreImages = Array.from({ length: 5 }, (_, i) => `/images/more/more${i + language}.webp`);
   const sellImages = [appImages, trnsImages, cntImages, clubImages, infrImages, moreImages];
 
   const [selectedIndex, setSelectedIndex] = useState(null);

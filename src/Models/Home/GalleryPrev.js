@@ -44,58 +44,58 @@ const GalleryPrev = () => {
                     <div className="w-[100%] animate-scroll flex items-center justify-center">
                     <div className="w-[100%] md:h-[550px] h-[350px] flex items-center justify-center gap-x-4 mb-10 mt-10">
                 <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal9.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal11.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal9.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal11.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                 </div>
                 <div className="w-[20%] h-full  flex items-center justify-center">
-                   <img src={process.env.PUBLIC_URL+'/gallery/gal3.jpg'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
+                   <img src={process.env.PUBLIC_URL+'/gallery/gal3.webp'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
                 </div>
                 <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal2.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal4.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal2.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal4.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                 </div>
                 <div className="w-[20%] h-full  flex items-center justify-center">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal1.jpg'} alt='img' className="w-full h-full rounded-[40px] object-fill"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal1.webp'} alt='img' className="w-full h-full rounded-[40px] object-fill"/>
                 </div>
                 <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal5.jpg'} alt='img' className="w-full h-[50%] rounded-[40px] object-cover"/>
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal6.jpg'} alt='img' className="w-full h-[30%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal5.webp'} alt='img' className="w-full h-[50%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal6.webp'} alt='img' className="w-full h-[30%] rounded-[40px] object-cover"/>
                 </div>
                 <div className="w-[20%] h-full  flex items-center justify-center">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal8.jpg'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal8.webp'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
                 </div>
                 <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal12.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                    <img src={process.env.PUBLIC_URL+'/gallery/gal13.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal12.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                    <img src={process.env.PUBLIC_URL+'/gallery/gal13.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                 </div>
                 </div>
             </div>
                 <div className="w-[100%] animate-scroll flex items-center justify-center">
                     <div className="w-[98%] md:h-[550px] h-[350px] flex items-center justify-center gap-x-4 mb-10 mt-10">
                         <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal9.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal11.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal9.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal11.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                         </div>
                         <div className="w-[20%] h-full  flex items-center justify-center">
-                        <img src={process.env.PUBLIC_URL+'/gallery/gal3.jpg'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
+                        <img src={process.env.PUBLIC_URL+'/gallery/gal3.webp'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
                         </div>
                         <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal2.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal4.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal2.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal4.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                         </div>
                         <div className="w-[20%] h-full  flex items-center justify-center">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal1.jpg'} alt='img' className="w-full h-full rounded-[40px] object-fill"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal1.webp'} alt='img' className="w-full h-full rounded-[40px] object-fill"/>
                         </div>
                         <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal5.jpg'} alt='img' className="w-full h-[50%] rounded-[40px] object-cover"/>
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal6.jpg'} alt='img' className="w-full h-[30%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal5.webp'} alt='img' className="w-full h-[50%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal6.webp'} alt='img' className="w-full h-[30%] rounded-[40px] object-cover"/>
                         </div>
                         <div className="w-[20%] h-full  flex items-center justify-center">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal8.jpg'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal8.webp'} alt='img' className="w-full h-[95%] rounded-[40px] object-cover"/>
                         </div>
                         <div className="w-[20%] h-full flex items-center justify-center flex-col gap-y-4">
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal12.jpg'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
-                            <img src={process.env.PUBLIC_URL+'/gallery/gal13.jpg'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal12.webp'} alt='img' className="w-full h-[35%] rounded-[40px] object-cover"/>
+                            <img src={process.env.PUBLIC_URL+'/gallery/gal13.webp'} alt='img' className="w-full h-[45%] rounded-[40px] object-cover"/>
                         </div>
                     </div>
                 </div>

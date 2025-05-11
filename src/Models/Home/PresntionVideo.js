@@ -85,15 +85,15 @@ const PresentationVideo = ({onClose,prsntation}) => {
                 <motion.div initial={{opacity:0,y:50,scale:0.5}} animate={{opacity:1,y:0,scale:1}} exit={{y:'100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  style={{padding:'20px'}} className="lg:w-[85%] w-[98%] md:w-[95%] lg:h-[75%] h-[40%]  roundedd blurey backdrop-blur-xl bg-white/10 shadow-lg/10 border border-white/20 flex items-center justify-center overflow-hidden blurey ">
                     <div style={{borderRadius:'20px'}} className="w-full h-full overflow-hidden">
                         <video  className="w-full h-full object-cover outline-none" ref={videoRef} autoPlay controls loop>
-                            <source src={process.env.PUBLIC_URL+"/videos/latourieffela.mp4"} type="video/mp4" />
+                            <source src={"https://res.cloudinary.com/dukid4ptc/video/upload/v1746807491/dpzitf9vsypkfm3qmzon.mp4"} type="video/mp4" />
                         </video>
                     </div>
                 </motion.div>
 
                 <motion.div initial={{y:100,scale:0.5}} animate={{y:0,scale:1}} exit={{y:'-100%'}}  transition={{type: "spring", stiffness: 100, damping: 15} }  className=" px-6 p-2 roundedd blurey backdrop-blur-xl bg-white/10 shadow-lg/10 mt-4 border border-white/20 flex items-center justify-center">
-                    <img alt='img'  onClick={()=>skipTime(-10)} className="md:h-7 h-5 opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/-10.png'}/>
+                    <img alt='img'  onClick={()=>skipTime(-10)} className="md:h-7 h-5 opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/-10.webp'}/>
                     <FontAwesomeIcon icon={isPlay?faPause:faPlay} className="text-center w-16 text-2xl md:text-5xl text-white/70 md:mx-7 cursor-pointer hover:text-white hover:animate-pulse" onClick={handlePlayPause}/>
-                    <img alt='img' onClick={()=>skipTime(10)} className="md:h-7 h-5  opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/+10.png'}/>
+                    <img alt='img' onClick={()=>skipTime(10)} className="md:h-7 h-5  opacity-70 hover:opacity-100 hover:animate-pulse cursor-pointer" src={process.env.PUBLIC_URL+'/images/+10.webp'}/>
                 </motion.div>
 
             </motion.section>)

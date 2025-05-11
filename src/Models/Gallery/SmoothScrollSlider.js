@@ -70,7 +70,7 @@ export default function SmoothScrollSlider (){
           key={i}
           className={`w-[10%] h-full rounded-2xl   flex items-center justify-center overflow-hidden relative opacity-95 `}
         >
-          <img className="w-full h-full object-cover" src={process.env.PUBLIC_URL+`/gallery/gal${gal}/${i}.jpg`}/>
+          <img className="w-full h-full object-cover" src={process.env.PUBLIC_URL+`/gallery/gal${gal}/${i}.webp`}/>
         </div>
       ));
   

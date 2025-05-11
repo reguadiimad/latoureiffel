@@ -129,7 +129,7 @@ export default function InscriptionSecondInterface() {
 
       
        <div className="absolute  hidden -left-10 top-1/2 transform -translate-y-1/2 lg:flex flex-col w-4 gap-4">
-       {["bg-apple-dark/60","bg-red-500","bg-the-gray","bg-blue-500"].map((c,i)=><motion.span layout transition={{type:"spring"}} className={`w-2 h-2  rounded-full shadow-sm  ${i===currentStep-1?" bg-blue-500 w-4 h-4":"bg-the-gray"} `}/>)}
+       {["bg-apple-dark/60","bg-red-500","bg-the-gray","bg-blue-500"].map((c,i)=><motion.span onClick={()=>setCurrentStep(i+1)} layout transition={{type:"spring"}} className={`w-2 h-2  rounded-full shadow-sm  ${i===currentStep-1?" bg-blue-500 w-4 h-4":"bg-the-gray"} `}/>)}
 
        </div>
        

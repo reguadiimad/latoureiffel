@@ -61,7 +61,7 @@ export default function CntMapInterface() {
                                             <p className={`text-neutral-600 lg:text-base`}>{content.rating[language]}</p>
                                             <div className={`flex ${language=="ar"?"flex-row-reverse":""} items-center gap-x-2`}>
                                                 <h1 className={`text-blue-500 font-extrabold lg:text-3xl text-xl`}>4.5</h1>
-                                                <img className={`h-3 lg:h-5   ${language=="ar"?"-scale-x-100":""} `} src={process.env.PUBLIC_URL + '/images/stars.png'} />
+                                                <img className={`h-3 lg:h-5   ${language=="ar"?"-scale-x-100":""} `} src={process.env.PUBLIC_URL + '/images/stars.webp'} />
                                             </div>
                                         </a>
                                         <a className={`text-xs underline hover:text-neutral-500`} href="https://www.google.com/maps?ll=33.57582,-7.513075&z=17&t=m&hl=en&gl=MA&mapclient=embed&cid=9954646718154075387" target="_blank">
@@ -83,12 +83,12 @@ export default function CntMapInterface() {
                         <div className={`w-[50%] h-full p-[5px] lg:p-[20px]`}>
                             <div className={`w-full h-full bg-white rounded-[15px] shadow-lg relative`}>
                                 <a href="https://maps.apple.com/place?place-id=I734CF5A751229AC0&address=20400+Casablanca%2C+Morocco&coordinate=33.5758565%2C-7.513023&name=Ecole+La+Tour+Eiffel&_provider=9902" target="_blank">
-                                    <img src={process.env.PUBLIC_URL + '/images/appleMapLoc.jpg'} className={`w-full h-full object-cover -z-10 rounded-[15px] `} />
+                                    <img src={process.env.PUBLIC_URL + '/images/appleMapLoc.webp'} className={`w-full h-full object-cover -z-10 rounded-[15px] `} />
                                 </a>
                                 <div className={`absolute blurey top-[5px] ${language==="ar"?'right-[5px] flex-row-reverse text-right':'left-[5px]'} lg:w-[350px] bg-white/50 backdrop-blur-md rounded-[10px] border-[0.1px] border-white shadow-2xl z-50 p-2 flex items-center justify-center`}>
                                     <div className={`w-[80%] text-neutral-400 ${language==="ar"?'text-right flex flex-col items-end':''}`}>
-                                        {language!=="ar"?<img src={process.env.PUBLIC_URL + '/images/ApMaps.png'} className={`lg:h-20 h-14 -ml-5 -mt-4`} />:
-                                        <div className="flex items-center mb-3 text-neutral-900 font-extrabold gap-x-1"><img src={process.env.PUBLIC_URL + '/images/apple.png'} className={`h-5 lg:h-8`} /> خرائط</div>}
+                                        {language!=="ar"?<img src={process.env.PUBLIC_URL + '/images/ApMaps.webp'} className={`lg:h-20 h-14 -ml-5 -mt-4`} />:
+                                        <div className="flex items-center mb-3 text-neutral-900 font-extrabold gap-x-1"><img src={process.env.PUBLIC_URL + '/images/apple.webp'} className={`h-5 lg:h-8`} /> خرائط</div>}
                                         <h1 className={`text-blue-500 sm:text-xl ${language==="ar"?"":"-mt-4" }`}> <b>{content.schoolName[language]}</b></h1>
                                         <p className={`text-[10px] -mt-1`}>{content.address[language]}</p>
                                         <a className={`text-xs underline hover:text-neutral-500`} href="https://maps.apple.com/place?place-id=I734CF5A751229AC0&address=20400+Casablanca%2C+Morocco&coordinate=33.5758565%2C-7.513023&name=Ecole+La+Tour+Eiffel&_provider=9902" target="_blank">
@@ -130,7 +130,7 @@ const Nav = ({ selectedMap, clickHandel, language,inView }) => {
                     className={`w-[50%] flex items-center justify-center z-10 cursor-pointer`}
                     onClick={() => clickHandel(0)}
                 >
-                    <img src={process.env.PUBLIC_URL + `/images/google${selectedMap === 0 ? "bl" : ""}.png`} alt="map" className={`h-5`} />
+                    <img src={process.env.PUBLIC_URL + `/images/google${selectedMap === 0 ? "bl" : ""}.webp`} alt="map" className={`h-5`} />
                     <p className={`font-semibold mx-2 ease-in-out duration-200 ${selectedMap == 0 ? "text-blue-500" : ""}`}>
                         {content.googleMaps[language]}
                     </p>
@@ -140,7 +140,7 @@ const Nav = ({ selectedMap, clickHandel, language,inView }) => {
                     className={`w-[50%] flex items-center justify-center z-10 cursor-pointer`}
                     onClick={() => clickHandel(1)}
                 >
-                    <img src={process.env.PUBLIC_URL + `/images/apple${selectedMap === 1 ? "bl" : ""}.png`} alt="map" className={`h-5`} />
+                    <img src={process.env.PUBLIC_URL + `/images/apple${selectedMap === 1 ? "bl" : ""}.webp`} alt="map" className={`h-5`} />
                     <p className={`font-semibold mx-2 ease-in-out duration-200 ${selectedMap == 1 ? "text-blue-500" : ""}`}>
                         {content.appleMaps[language]}
                     </p>

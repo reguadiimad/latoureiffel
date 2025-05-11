@@ -7,12 +7,12 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/lok.png",
+      "src": "/lok.webp",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/lok.png",
+      "src": "/lok.webp",
       "type": "image/png",
       "sizes": "512x512"
     }

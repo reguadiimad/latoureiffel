@@ -99,19 +99,13 @@ const Menu = ({ visible }) => {
                     <>
                     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{type:'spring'}} className="top-blur hidden xl:block backdrop-blur-3xl"></motion.div>
                     <motion.div
-                        className="lg:w-full hidden  lg:fixed top-0 left-0 xl:flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
+                        className="lg:w-full hidden   lg:fixed top-0 left-0 xl:flex items-center justify-center  pt-5 pb-10 lg:text-base md:text-sm sm:w-0 md:overflow-visible sm:overflow-hidden -mt-10 nav z-50"
                         {...dropAndPopAnimation()}
                     >
-                        <div className="xl:w-[21%] h-full mt-8 p-2.5 pl-10">
-                        <motion.img initial={{y:-50,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-80}} transition={{type:'spring',delay:0.2}}
-                            alt="logo"
-                            src={process.env.PUBLIC_URL + `/logos/${language==='ar'?'logo1ar.png':(language==='en'?'logo1eng.png':'logo1.png')}`}
-                            className={`h-12 md:h-16 hidden xl:block object-cover filter invert opacity-80 mb-4`}
-                            />
-                        </div>
+                       
                         <motion.div
                             {...dropAndPopAnimation()}
-                            className="mt-8 xl:w-[58%] md:w-[75%]  hidden p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full lg:flex items-center justify-center shadow-lg "
+                            className="mt-8 xl:w-[58%] md:w-[75%] bg-apple-light/80  hidden p-2.5 blurey blurey backdrop-blur-2xl border border-white/80 rounded-full lg:flex items-center justify-center shadow-lg "
                         >
                             <div className={`w-[100%] flex items-center justify-between relative sm:hidden md:flex  ${language === "ar" ? "flex-row-reverse" : "flex-row"}`}>
                                 <AnimatePresence>
@@ -133,7 +127,7 @@ const Menu = ({ visible }) => {
                                         style={{ width: 100 / currentMenuList.length + "%" }}
                                         className={`text-center z-40  xl:py-5 md:py-4 lg:text-base md:text-sm ease-out duration-200 ${
                                             language === "ar" ? "lg:text-lg" : "lg:text-base"
-                                        } ${pageIndex === index ? "text-white/90 font-bold " : "text-neutral-900 hover:animate-pulse mix-blend-difference"}`}
+                                        } ${pageIndex === index ? "text-white/90 font-bold " : "text-apple-dark hover:animate-pulse mix-blend-difference"}`}
                                         onClick={() => {
                                             dispatch(setPageIndex(index));
                                             scrollToTop(); // Scroll to the top when clicking a link
@@ -144,7 +138,6 @@ const Menu = ({ visible }) => {
                                 ))}
                             </div>
                         </motion.div>
-                        <div className="xl:w-[21%]"></div>
 
                     </motion.div></>
                 )}
@@ -181,13 +174,14 @@ const Menu = ({ visible }) => {
                         onClick={() => setLangClicked(!langClicked)}
                         className={`text-apple-dark shadow-lg bg-apple-light/90  rounded-full w-10 h-10 blurey backdrop-blur-lg font-semibold hover:bg-black/5 ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
                     >
-                        {language}
+                    {language}
+
                     </motion.button>
                    
                     </AnimatePresence>
                 </div>
             </motion.div>
-
+ 
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -198,27 +192,18 @@ const Menu = ({ visible }) => {
                     <div className="w-28 h-28 lg:w-44 lg:h-44 rounded-full absolute -bottom-16 -left-32 scale-150"></div>
                 </div>
                 <div className="w-[4%] scale-110 gap-y-2 pb-5 bottom-0 right-8 lg:right-10 fixed flex flex-col items-center language ease-in duration-200 z-40">
-                    <AnimatePresence>
-                        {langClicked && (
-                            <motion.div
-                                key="lang-menu"
-                                initial={{ y: 50, scale: 0.5 }}
-                                animate={{ y: 0, scale: 1 }}
-                                exit={{ y: 80, scale: 0.2 }}
-                                transition={{ type: "spring", damping: 13, duration: 0.1 }}
-                                className="w-10 text-apple-dark bg-apple-light/90 blurey backdrop-blur-lg duration-0 rounded-full flex flex-col items-center justify-center gap-y-2 lg:py-2 py-4"
-                            >
-                                
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                    
                     <AnimatePresence>
                   {
                     pageIndex!==8&& <motion.button layout onClick={()=>{navigate('/postuler')}} initial={{x:100,y:10,opacity:0,scale:0.5}} animate={{x:0,opacity:1,y:0,scale:1}} exit={{x:100,opacity:0,y:10,scale:0.5}} transition={{type:'spring',bounce:0.2}}
             
-                     className={`text-apple-dark shadow-lg bg-apple-light/90  rounded-full p-2 blurey backdrop-blur-lg font-semibold hover:bg-apple-light ${!showLang&&"-ml-20 opacity-0 lg:-ml-0 lg:opacity-100"}`}
+                     className={`text-apple-dark shadow-lg  bg-[rgba(237,237,240)]  rounded-full p-2 blurey font-semibold backdrop-blur-xl hover:bg-apple-light ${!showLang&&"-mr-40 opacity-0 pointer-events-none lg:-ml-0 lg:opacity-100"}`}
                  >
-                   Postuler
+ {                 {
+  fr: "Postuler",
+  en: "Apply",
+  ar: "التقديم"}[language]
+}
                  </motion.button>
                   }
                    

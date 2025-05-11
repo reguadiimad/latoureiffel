@@ -1,6 +1,6 @@
 [
   {
-    "image": "/images/foot.jpg",
+    "image": "/images/foot.webp",
     "genre": {
       "en": "Sport",
       "fr": "Sport",
@@ -32,7 +32,7 @@
   },
 
   {
-    "image": "/images/scn1.jpg",
+    "image": "/images/scn1.webp",
     "genre": {
       "en": "Science",
       "fr": "Science",
@@ -64,7 +64,7 @@
   },
 
   {
-    "image": "/images/cltr1.jpg",
+    "image": "/images/cltr1.webp",
     "genre": {
       "en": "Culture",
       "fr": "Culture",
@@ -96,7 +96,7 @@
   },
 
   {
-    "image": "/images/green1.jpg",
+    "image": "/images/green1.webp",
     "genre": {
       "en": "Envi",
       "fr": "Envi",
@@ -128,7 +128,7 @@
   },
 
   {
-    "image": "/images/art1.jpg",
+    "image": "/images/art1.webp",
     "genre": {
       "en": "Art",
       "fr": "Art",

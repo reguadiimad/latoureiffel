@@ -36,7 +36,7 @@ const Education = ({ id=2 }) => {
            <div ref={motherRef}  id={id}>
            <div  className={`w-full items-center   justify-center hidden lg:flex flex-col ${language==="ar"&&'text-xl'}`}>
                 <motion.div  {...bottomAnimation()} className={`w-[90%]  overflow-hidden rounded-[50px] mt-10 relative lg:flex items-center justify-center  `}>
-                    <img className={`w-full opacity-90 h-auto min-h-[700px] xl:min-h-[870px] object-cover`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
+                    <img className={`w-full opacity-90 h-auto min-h-[700px] xl:min-h-[870px] object-cover`} src={process.env.PUBLIC_URL + '/images/edction.webp'} alt="Education" />
                     <div className={`absolute w-full h-full flex hhy ${language==="ar"&&'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 h-full pl-12 py-12 flex justify-center flex-col gap-y-10 ${language==="ar"&&'text-base  xl:text-xl'}`}>           
                             <div className={`w-full pr-10`}>
@@ -103,7 +103,7 @@ const Education = ({ id=2 }) => {
                             <motion.h1 {...leftAnimation(0.1)} className={`2xl:text-8xl xl:text-7xl lg:text-6xl text-blue-500 `}><b>{t.mainHeading[language]}</b></motion.h1>
                         </div>
                         <div className={`flex flex-row-reverse`}>
-                            <motion.img {...rightAnimation(0.2)} className={`xl:h-64 h-52`} src={process.env.PUBLIC_URL +'/images/iso.png'} alt="ISO Certification"/>
+                            <motion.img {...rightAnimation(0.2)} className={`xl:h-64 h-52`} src={process.env.PUBLIC_URL +'/images/iso.webp'} alt="ISO Certification"/>
                         </div>
                     </div>
                     <div className={`w-full flex mt-10 ${language==="ar"&&'flex-row-reverse text-right text-xl'}`}>
@@ -151,7 +151,7 @@ const Education = ({ id=2 }) => {
             <div  className={`w-full items-center h-auto justify-center flex lg:hidden flex-col ${language === "ar" && 'text-xl'}`}>
                 {/* Top Section */}
                 <motion.div {...bottomAnimation()} className={`w-[90%] hhy md:h-[600px] h-[500px] overflow-hidden rounded-[30px] sm:rounded-[50px] mt-10 relative flex flex-col lg:flex-row items-center justify-center`}>
-                    <img className={`h-full object-cover  opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.png'} alt="Education" />
+                    <img className={`h-full object-cover  opacity-90`} src={process.env.PUBLIC_URL + '/images/edction.webp'} alt="Education" />
                     <div className={`absolute hhy w-full h-full flex flex-col lg:flex-row ${language === "ar" && 'flex-row-reverse text-right'}`}>
                         <div className={`flex-1 px-5 sm:px-12 py-6 sm:py-12 flex justify-center flex-col gap-y-4 sm:gap-y-10`}>
                             <motion.p {...bottomAnimation(0.1)} className={`text-red-500 text-sm sm:text-lg`}>{texts.tagline[language]}</motion.p>

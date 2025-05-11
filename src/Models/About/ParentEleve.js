@@ -36,7 +36,7 @@ const ParentEleve = ({ id }) => {
                 <div className={`w-full flex flex-col md:flex-row items-stretch mt-28 gap-5`}>
                     <div className={`w-full md:w-[40%] py-5`}>
                         <motion.div {...leftAnimation()} className={`w-[100%] h-full bg-red-500 rounded-[50px] lg:rounded-[50%] lg:rounded-bl-3xl lg:rounded-br-[30%] relative items-end overflow-x-hidden flex`}>
-                            <img className={`absolute h-[90%]  md:scale-x-[1.45] lg:scale-110 xl:scale-100 origin-bottom`} src={process.env.PUBLIC_URL + '/images/dad.png'} alt="Parent" />
+                            <img className={`absolute h-[90%]  md:scale-x-[1.45] lg:scale-110 xl:scale-100 origin-bottom`} src={process.env.PUBLIC_URL + '/images/dad.webp'} alt="Parent" />
                             <div className={`absolute xl:w-[45%] lg:w-[55%] scale-75 lg:scale-90 xl:scale-100  bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl lg:top-[45%] right-[5%] text-white border border-white/10 shadow-xl`}>
                                 <motion.div {...bottomAnimation()} className={`w-full  md:flex-col text-center lg:flex-row lg:text-left flex  items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />
@@ -127,7 +127,7 @@ const ParentEleve = ({ id }) => {
 
                     <div className={`w-full md:w-[40%] p-5`}>
                         <motion.div {...rightAnimation()} className={`w-[100%] h-full rounded-[50px] bg-blue-500 lg:rounded-[50%] lg:rounded-br-3xl lg:rounded-bl-[30%] relative items-end overflow-x-hidden flex`}>
-                            <img className={`absolute h-[90%] scale-x-[1.45] lg:scale-x-100 origin-bottom`} src={process.env.PUBLIC_URL + '/images/kid.png'} alt="Student" />
+                            <img className={`absolute h-[90%] scale-x-[1.45] lg:scale-x-100 origin-bottom`} src={process.env.PUBLIC_URL + '/images/kid.webp'} alt="Student" />
                             <div className={`absolute lg:w-[45%]  bg-white/5 rounded-3xl p-5 blurey backdrop-blur-xl scale-75 lg:scale-100 lg:top-[42.5%] bottom-7 lg:bottom-auto lg:right-[5%] text-white border border-white/10 shadow-2xl`}>
                                 <motion.div {...topAnimation()} className={`w-full flex flex-col text-center  items-center gap-4 ${language === "ar" && "flex-row-reverse "}`}>
                                     <FontAwesomeIcon className={`${language === "ar" && "-scale-x-100 "}`} icon={faQuoteLeft} />

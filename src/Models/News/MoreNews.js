@@ -7,7 +7,7 @@ import FullNews from "./FullNews";
 import { setShowTopMenu } from "../../redux(toolKit)/slices/showTopMenu";
 import content from"./NewsData/LatestNewsData.json"
 
-export default function MoreNews({}) {
+export default function MoreNews({dash=false,onModify}) {
   const language = useSelector((state) => state.presntion.language);
   const [isFull, setIsFull] = useState(false);
   const [selectedConetnt,setSelectedContent] = useState(null);
@@ -110,7 +110,7 @@ export default function MoreNews({}) {
   
    return (
     <>
-      <motion.div initial={{opacity:0,height:0}} animate={{opacity:1,height:"100vh"}} exit={{opacity:0,height:0}} transition={{ease:"circInOut"}} className="w-[90%] 2xl:w-[60%] h-screen  mt-10 gap-10 relative overflow-y-auto rounded-3xl">
+      <motion.div initial={{opacity:0,height:0}} animate={{opacity:1,height:"100vh"}} exit={{opacity:0,height:0}} transition={{ease:"circInOut"}} className={` h-screen  mt-10 gap-10 relative overflow-y-auto rounded-3xl ${dash?"w-full":"w-[90%] 2xl:w-[60%]"}`}>
 
         <div dir={language==="ar"&&"rtl"} className="w-full sticky top-0 left-0 py-4 font-semibold bg-apple-light/90 backdrop-blur-lg text-apple-dark gap-2  border-b border-apple-light blurey  flex items-center px-4">
         <p  className="font-semibold hidden sm:flex">{ { en: "Filter:", fr: "Filtre:", ar: "تصفية:" }[language] }</p>
@@ -191,7 +191,7 @@ export default function MoreNews({}) {
                 setIsFull(true);
                 setSelectedContent(content);
               }}
-              className={`w-full my-2 cursor-pointer py-5 lg:py-8 flex items-center justify-center ${
+              className={`w-full my-2 cursor-pointer py-5 lg:py-8 flex items-center justify-center ${dash&&"text-left"} ${
                 language === "ar" && "flex-row-reverse text-right"
               }`}
             >
@@ -223,6 +223,7 @@ export default function MoreNews({}) {
                   {content.date[language]}
                 </p>
               </div>
+              {dash && <p onClick={()=>onModify(content)} className="underline pr-2">Modifier</p>}
             </motion.div>
           </AnimatePresence>
           <div className="w-[95%] mx-auto h-[1.5px] my-2 bg-apple-light overflow-y-scroll"></div>
@@ -242,3 +243,5 @@ export default function MoreNews({}) {
 
 
   
+
+

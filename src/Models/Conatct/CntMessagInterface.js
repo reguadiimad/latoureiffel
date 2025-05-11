@@ -82,7 +82,7 @@ const upAnimation = (x = 0,d=0) => ({
       <div className={`w-full py-5 flex items-center justify-center relative text-neutral-500`}>
         <img
           className={`lg:h-[1000px] -z-10 bottom-20 w-full scale-150 lg:scale-100 lg:w-auto   absolute lg:-top-20 ${language==="ar"?'left-0 -scale-100 ':'right-0'} `}
-          src={process.env.PUBLIC_URL + `/images/msgBg.png`}
+          src={process.env.PUBLIC_URL + `/images/msgBg.webp`}
           alt="map"
         />
 

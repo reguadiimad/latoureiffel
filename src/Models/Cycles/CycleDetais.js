@@ -85,7 +85,7 @@ const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
                 </motion.div>
             </div>
 
-            <div className={`flex w-full mt-10 flex-col-reverse lg:flex-row ${isBlue?'':'lg:flex-row-reverse'} `}>
+            <div className={`flex w-full mt-10 flex-col-reverse  lg:flex-row ${isBlue?'':'lg:flex-row-reverse'} `}>
                 <div className={`lg:w-[45%] w-full text-neutral-500 flex flex-col gap-y-5`}>
                     <motion.p {...leftAnimation(0.15)} className={`text-neutral-500`}>
                         {content.explication[language]}
@@ -120,9 +120,9 @@ const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
                         </div>
                     </motion.div>
                 </div>
-                <div className={`w-[55%] pl-20 relative hidden lg:flex items-center justify-center`}>
+                <div className={`w-[55%]  pl-20 relative hidden lg:flex items-center justify-center`}>
                     <motion.img {...bottomAnimation()} className={`absolute bottom-2 right-0 h-full scale-110 ${!isBlue&&'-scale-x-100 left-0'} `} src={process.env.PUBLIC_URL + coverImage.pc} alt="Maternelle" />
-                    <motion.div {...bottomAnimation(0.21)} className={`absolute  ${isBlue?'left-20':'right-20'} p-4 2xl:p-10 text-center border border-white/60 bg-gradient-to-br from-black/5 to-white/30 rounded-[40px] shadow-xl w-[56%] hidden xl:block blurey backdrop-blur-3xl`}>
+                    <motion.div {...bottomAnimation(0.21)} className={`absolute  ${isBlue?'left-20':'right-20'} p-4 2xl:p-10 text-center border   border-white/60  rounded-[40px] shadow-xl w-[56%] hidden xl:block blurey backdrop-blur-3xl`}>
                         <h1 className={`2xl:${getTextSize("text-2xl", "text-3xl")} ${getTextSize("text-lg", "text-xl")} font-extrabold ${getColor("text-blue-500", "text-red-500")} mb-3 2xl:mb-10`}>{content.highlight.title[language]}</h1>
                         <p className={`text-left ${getTextSize("text-sm", "text-base")} ${language === "ar" && ' text-right'} 2xl:${getTextSize("text-base", "text-lg")} text-neutral-900/40`}>
                             {content.highlight.description[language]}
@@ -133,7 +133,7 @@ const CycleDetails = ({ content, cycImages, isBlue = true, coverImage }) => {
                         <motion.div {...rightAnimation()} className={`text-center flex items-center justify-center border border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl`}>
                             <FontAwesomeIcon className={`text-neutral-700/40 text-4xl`} icon={faQuoteLeft} />
                         </motion.div>
-                        <motion.div {...rightAnimation(0.2)} className={`2xl:text-neutral-700/40 items-center justify-center border px-4 text-left border-white/30 bg-gradient-to-br from-black/5 to-white/5 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl lg:text-white ${getTextSize("text-sm", "text-base")}`}>
+                        <motion.div {...rightAnimation(0.2)} className={`2xl:text-neutral-700/40 items-center justify-center border px-4 text-left border-white/30 bg-apple-light/70 rounded-[20px] shadow-xl p-2 blurey backdrop-blur-2xl lg:text-apple-dark ${getTextSize("text-sm", "text-base")}`}>
                             {content.testimonials[language]}<br /><p className={`font-bold`}>{content.testimonials_author[language]}</p>
                         </motion.div>
                     </div>

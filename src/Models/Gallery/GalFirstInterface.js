@@ -14,21 +14,16 @@ export default function GalFirstInterface() {
                 flex items-center justify-center flex-col overflow-hidden`}
             >
                 <video 
-                    src={process.env.PUBLIC_URL + "/videos/movedGal.mov"} 
+                    src={process.env.PUBLIC_URL + "/videos/movedGal.mp4"} 
                     autoPlay 
                     loop 
                     muted 
-                    playsInline 
-                    className={`w-full h-full absolute top-0 left-0 object-cover -z-10 
+                    
+                    className={`w-full h-full absolute top-0 left-0 object-cover 
                     rounded-b-[40px] lg:rounded-b-[70px] rounded-t-none`}
                 />
-                <div className={`w-full h-full items-center justify-center flex flex-col backdrop-blur-sm bg-black/10`}></div>
-                <img 
-                    src={process.env.PUBLIC_URL + "/images/galInter2.png"} 
-                    alt="gallery" 
-                    className={`w-full absolute scale-[2] sm:scale-[1] top-0 left-0 h-full object-cover 
-                    z-0 rounded-br-[70px] origin-bottom-right`}
-                />
+                <div className={`w-full h-full items-center justify-center flex flex-col  bg-black/10`}></div>
+               
                 <div className={`w-full absolute h-full flex flex-col items-center justify-center left-0 z-10 gap-3`}>
                     <div className={`w-full h-[20%]`}></div>
                     <div className={`w-full h-[60%] flex flex-col items-center justify-center text-center`}>

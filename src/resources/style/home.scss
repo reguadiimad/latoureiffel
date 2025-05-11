@@ -183,7 +183,7 @@
 
 @media (max-width: 1000px) {
   .home{
-    background: url('../images/tab.jpg');
+  
     background-repeat: no-repeat;
     background-position: center;
     background-size:90%;
@@ -216,7 +216,7 @@
 }
 @media (max-width: 768px) {
   .home{
-    background: url('../images/mobile.jpg');
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -572,7 +572,7 @@
   transition: font-size 0.4s ease-in-out !important;
 }
 select{
-  background: white !important;
+
   appearance: none;
   -webkit-appearance: none; /* Safari iOS */
   background-color: white;
@@ -610,4 +610,5 @@ select{
     scale: 1;
   }
  }
+
 }

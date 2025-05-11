@@ -16,8 +16,8 @@ export default function CntFirstInterface() {
     return (
         <>
             <div className={`w-full fg h-screen flex items-center justify-center  pt-[8%] mb-20`}>
-                <img className={`h-full   opacity-30 sm:opacity-70 object-cover sm:object-contain lg:opacity-100 absolute -z-10 top-0 right-0`} src={process.env.PUBLIC_URL + `/images/map${lang}.png`} alt="map" />
-                <div className={`w-[90%] fgg  h-full flex justify-center items-center  md:mt-0`}>
+                <img className={`h-full   opacity-30 sm:opacity-70 object-cover sm:object-contain lg:opacity-100 absolute  top-0 right-0`} src={process.env.PUBLIC_URL + `/images/map${lang}.webp`} alt="map" />
+                <div className={`w-[90%] z-10 fgg  h-full flex justify-center items-center  md:mt-0`}>
                     <div className={`w-full text-neutral-900 text-center lg:${lang === 'ar' ? 'text-right items-end' : 'text-left'} flex flex-col  justify-center`}>
                         <div className={`lg:w-[80%] xl:w-[60%] mt-40 md:mt-0`}>
                             <motion.p {...leftAnimation(-50)} className={`text-neutral-500 uppercase`}>{content.contact_us[lang]}</motion.p>
@@ -70,8 +70,8 @@ export default function CntFirstInterface() {
 
                             <div className={`lg:w-[40%] w-full justify-center  my-5 lg:my-0 flex ${lang=="ar"?'lg:justify-start':"lg:justify-end"}`}>
                                 <motion.div {...leftAnimation(80,0.3)}  className={`flex items-center  ${language=="ar"&&'flex-row-reverse'} justify-center border border-white/50 p-4 rounded-[20px] bg-black/5 backdrop-blur-md blurey gap-2 cursor-pointer`}>
-                                    <img src={process.env.PUBLIC_URL + '/images/apple.png'} className={`h-5`} alt="apple" /> | 
-                                    <img className={`h-4 `} src={process.env.PUBLIC_URL + '/images/google.png'} alt="google" />
+                                    <img src={process.env.PUBLIC_URL + '/images/apple.webp'} className={`h-5`} alt="apple" /> | 
+                                    <img className={`h-4 `} src={process.env.PUBLIC_URL + '/images/google.webp'} alt="google" />
                                     <div>{content.find_us[lang]}</div>
                                     <FontAwesomeIcon icon={faAngleDoubleDown} />
                                 </motion.div>
