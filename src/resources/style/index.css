@@ -33,23 +33,3 @@ nav{
   font-family: "Poppins", sans-serif;
 
 }
-/* 1) make sure html/body are white and full-height */
-html, body {
-  margin: 0;
-  padding-right:10px;
-  height: 100%;
-  background-color: #fff;
-}
-
-/* 2) push your content into the safe-area insets */
-body {
-  /* fallback for older iOS: */
-  padding-top: constant(safe-area-inset-top);
-  /* modern syntax: */
-  padding-top: env(safe-area-inset-top);
-
-  padding-bottom: env(safe-area-inset-bottom);
-
-  
-  box-sizing: border-box;
-}

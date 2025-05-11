@@ -46,8 +46,11 @@ const AdminHome = () => {
                         <p className="text-apple-dark">{time}</p>
                         <h1 className="text-apple-title text-4xl font-bold">{date}</h1>
                     </div>
-                    <div onClick={()=>setShowMobDash(true)} className="flex-1 text-right text-3xl text-apple-title lg:hidden">
-                        <FontAwesomeIcon icon={faBars}/>
+                    <div onClick={()=>setShowMobDash(true)} className="flex-1 flex  text-right w-24 text-2xl text-apple-dark  lg:hidden">
+                        <div  className="w-16 h-16 rounded-[26px] bg-apple-light flex items-center justify-center ">
+                            <FontAwesomeIcon className="text-apple-dark " icon={faUser}/>
+
+                        </div>
                     </div>
                     </div>
                     {Dashs[selectedIndex]}
@@ -74,12 +77,14 @@ const menuItems = [
 const MobDashControle = ({selectedIndex,setSelectedIndex,onClose}) => {
     return (
         <>
-            <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{ease:"circInOut"}} className="fixed inset-0 h-screen bg-black bg-opacity-10  flex items-center justify-end z-50">
-            <motion.div initial={{x:90,opacity:0}} animate={{x:0,opacity:1}} exit={{x:90,opacity:0}} transition={{ease:"easeInOut", type:"spring",bounce:0.2}}  className="w-[70%] z-50 h-[90%] overflow-y-auto  right-0 bg-apple-light/80  flex flex-col items-center justify-between p-4 backdrop-blur-lg blurey rounded-l-2xl shadow-lg ">
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{ease:"circInOut"}} className="fixed inset-0 h-full bg-black bg-opacity-10  flex items-end justify-center z-50">
+            <motion.div initial={{y:90,opacity:0}} animate={{y:0,opacity:1}} exit={{y:90,opacity:0}} transition={{ease:"easeInOut", type:"spring",bounce:0.35}}  className="w-[95%] z-50 h-[95%] overflow-y-auto  right-0 bg-apple-light/80  flex flex-col items-center justify-between p-4 backdrop-blur-lg blurey rounded-t-3xl shadow-lg ">
                 <FontAwesomeIcon  icon={faClose} className="text-xl absolute top-0 left-0 m-4  text-apple-dark cursor-pointer" onClick={() => {onClose()}}/>
                 <div className="flex flex-col relative items-center justify-end">
-                    <img className="w-32 h-32 bg-apple-dark rounded-full border-white border-4 shadow-xl"/>
-                    <div className="absolute p-4 py-2 bg-white/70 backdrop-blur-lg blurey -bottom-2 text-blue-500 shadow-lg  rounded-2xl font-bold">Fondateur</div>
+                    <div className="w-28 h-28 bg-apple-dark rounded-[60px] border-2 border-white shadow-xl flex justify-center items-center">
+                        <FontAwesomeIcon icon={faUser} className="text-5xl text-apple-light"/>
+                    </div>
+                    <div className="absolute p-4 py-2 bg-white/70 backdrop-blur-lg blurey -bottom-4 text-blue-500 shadow-lg  rounded-2xl font-bold">Fondateur</div>
                 </div>
                 <p className=" mt-8 font-bold">Mr. Ibrahim El Baze</p>
                 <p className="underline opacity-55">ibrahimeElbaze@gmail.com</p>
